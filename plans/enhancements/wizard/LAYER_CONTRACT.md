@@ -1,6 +1,8 @@
 # Shared contract for wizard layers
 
-Status: proposed design, not an implemented schema or engine.
+Status: shared design contract. The initial [terminal runtime](../../../docs/WIZARD.md)
+implements versioned JSON state/catalogs and guarded saves for the cataloged subset;
+the full extensible design is broader than this first runtime.
 Parent: [P8 layer development](../P8_LAYERED_WIZARD.md).
 Technology specialization: [tree model](TREE_MODEL.md) and
 [multi-technology catalog](TREE_CATALOG.md).
@@ -18,7 +20,8 @@ Technology specialization: [tree model](TREE_MODEL.md) and
 Top-level layer IDs L01-L08 remain stable. Each substep may contain several
 questions, such as L04.03.storage-location. Menu wording may evolve without
 changing persisted decision identity. These identifiers are a design convention;
-a machine-readable catalog and migrations remain to be implemented.
+a machine-readable initial catalog is implemented in P12; automatic catalog/state
+migration remains unimplemented and revision mismatches require explicit resolution.
 
 Each selected technology profile supplies layer-specific tree roots and nested
 questions. Include profile ID/revision, variant and node ID in answer identity;
@@ -123,5 +126,6 @@ be N/A; mandatory framework reporting/security/evidence obligations remain in fo
   recipient scope and isolation tests, not unrelated typography choices.
 - User stops or host closes: preserve the last valid saved answers and unresolved
   questions; never claim a partially written state was safely persisted.
-  Atomic saves, schema validation, file collision handling and schema migration
-  must be designed/tested in P8.1 before state-writing behavior is delivered.
+  P12 implements atomic saves, schema/semantic validation and collision handling.
+  Schema migration is not automatic: unknown schema/profile revisions are refused
+  while the original file is preserved.

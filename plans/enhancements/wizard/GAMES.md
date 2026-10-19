@@ -2,7 +2,8 @@
 
 Status: design extension to [the existing layered wizard](../P8_LAYERED_WIZARD.md).
 Plan: [P9](../P9_GAME_DEVELOPMENT.md). Uses [the tree model](TREE_MODEL.md) and
-[layer contract](LAYER_CONTRACT.md). No runnable game wizard is registered.
+[layer contract](LAYER_CONTRACT.md). The initial [terminal wizard](../../../docs/WIZARD.md)
+collects decisions for five game profiles; engine/game implementation is separate.
 
 ## Choose the game, engine and targets independently
 

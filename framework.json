@@ -49,6 +49,7 @@
     "docs/BASELINE_ASSESSMENT.md",
     "docs/RESEARCH_SOURCES.md",
     "docs/PROJECT_SETUP.md",
+    "docs/WIZARD.md",
     "docs/SCENARIO_REVIEW.md",
     "docs/VALIDATION.md",
     "docs/decisions/ADR-0001-portable-core.md",
@@ -61,6 +62,7 @@
     "plans/enhancements/MASTER_TRACKER.md",
     "plans/enhancements/P10_PUBLISHING.md",
     "plans/enhancements/P11_INTEGRATION.md",
+    "plans/enhancements/P12_WIZARD_RUNTIME.md",
     "plans/enhancements/P1_BASELINE_DESIGN.md",
     "plans/enhancements/P2_VALIDATION_DESIGN.md",
     "plans/enhancements/P3_REVIEW_DESIGN.md",
@@ -97,6 +99,8 @@
     "scripts/agent_eval.py",
     "scripts/sync_adapters.py",
     "scripts/validate_framework.py",
+    "scripts/project_wizard.py",
+    "scripts/wizard_core.py",
     "skills/CATALOG.md",
     "skills/sdlc-architecture/SKILL.md",
     "skills/sdlc-handoff/SKILL.md",
@@ -122,6 +126,10 @@
     "templates/TECHNOLOGY_REVIEW.md",
     "tests/test_agent_eval.py",
     "tests/test_framework.py",
+    "tests/test_wizard.py",
+    "wizard/catalog.json",
+    "wizard/catalog.schema.json",
+    "wizard/session.schema.json",
     "workflows/DELIVERY.md"
   ]
 }

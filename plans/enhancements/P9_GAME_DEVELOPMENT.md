@@ -2,7 +2,9 @@
 
 Date: 2026-10-19. Owner: repository owner; author/reviewer: assistant, self-review.
 Scope: develop game-domain layers and engine tree designs for the existing wizard.
-Status: proposed design; no game, engine plugin, wizard runtime or adapter implemented.
+Status: game/engine design; no game or engine plugin implemented. P12 adds initial
+terminal decision trees for the five engine/language profiles; actual exports,
+playtests and platform acceptance remain separate.
 Authorization: extend layer design for games, prioritizing the owner's Godot/C#/.NET
 workflow while allowing Unity, Unreal and additional engines. Work directly on master.
 Follow-up authorization adds a separate Godot GDScript profile; no automatic rewrite

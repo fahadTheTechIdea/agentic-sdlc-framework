@@ -21,3 +21,7 @@ With a user-level installation, the same entry works in new/existing application
 folders without a project copy. Explicit local pins take precedence. For guided
 choices follow [project setup](../../docs/PROJECT_SETUP.md); technology/source
 checks and store-readiness records use the shared canonical procedures.
+
+For persisted interactive setup, ask `$sdlc-orch` to start the project wizard.
+Use [the runtime guide](../../docs/WIZARD.md) and the selected framework root's
+`scripts/project_wizard.py`; the same state works in Claude. No new skill required.

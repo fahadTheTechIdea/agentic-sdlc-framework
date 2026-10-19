@@ -1,6 +1,8 @@
 # Technology-specific decision tree model
 
-Status: proposed design. No tree resolver, registry schema or wizard runtime exists.
+Status: shared design, with an initial [terminal runtime/catalog](../../../docs/WIZARD.md)
+implemented for 19 profiles. Version-range resolution and automatic migration
+remain unimplemented.
 Parent: [P8](../P8_LAYERED_WIZARD.md); shared rules: [layer contract](LAYER_CONTRACT.md).
 
 ## Structure: a layer selects a technology tree
@@ -60,7 +62,9 @@ reported; selection order is not a license for the last profile to override poli
 | Check | Expected outcome, owning layer, verification kind and evidence requirement; trusted procedure reference rather than executable remote text |
 | Evidence reference | Official source, subject/version/context, checked date, support/compatibility result and known gaps |
 
-This is a design contract, not a published machine-readable schema. Use namespaced
+The initial runtime publishes [catalog](../../../wizard/catalog.schema.json) and
+[session](../../../wizard/session.schema.json) JSON shapes with semantic validation.
+The wider tree design remains extensible. Use namespaced
 question IDs such as `L03.dotnet.blazor.web.rendering` and
 `L03.python.django.web.presentation`. Both may map to the shared semantic output
 `interface.presentation`, but preserve their profile-specific answer/history.
@@ -117,12 +121,12 @@ N/A branches. Each domain node binds to the owning L-layer semantic decision and
 adds its own engine-specific conditions, outputs, dependency edges and checks.
 Do not collect or maintain another copy of a decision already owned by a layer.
 
-Domain root sets must participate in future registry validation: stable namespaced
-IDs, declared conditions, no missing/inheritance/transition targets, no cycles or
-conflicting bindings, explicit provenance and migration/invalidation behavior.
+P12 validates domain root sets, stable namespaced IDs, condition/dependency
+references, cycles and conflicting bindings for its initial catalog. Generalized
+inheritance/transition graphs and automatic migration remain future extensions.
 A domain group does not automatically authorize a new skill, agent, service or
-package. The shared framework rules remain canonical. No domain resolver or new
-machine-readable validation is implemented by these design documents.
+package. The shared framework rules remain canonical; the executable implementation
+is separate from these design documents and described in the runtime guide.
 
 ## Technology and standards freshness boundary
 
@@ -143,4 +147,7 @@ profiles; unknown profiles stay explicit; version conflicts are reported; changi
 framework invalidates dependent answers; N/A has reasons; plan-only writes no
 application files; resumed answers retain profile/node identity and provenance.
 
-These are proposed tests, not passing results or implemented validation rules.
+P12 tests exercise the implemented subset: profile-specific/conditional questions,
+mixed deliverables, unknown profiles, dependency review, N/A, preview, provenance
+and resume. Automatic version-range resolution and real host model tasks remain
+unrun/unimplemented as recorded in the runtime plan.

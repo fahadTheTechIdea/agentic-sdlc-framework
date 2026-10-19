@@ -1,12 +1,16 @@
 # P8: Develop the project wizard as eight layers
 
 Date: 2026-10-19. Owner: repository owner; author/reviewer: assistant, self-review.
-Status: layer design prepared; wizard runtime and host behavior not implemented.
+Status: layer design prepared; initial terminal runtime implemented in
+[P12](P12_WIZARD_RUNTIME.md). Live host task behavior remains unverified.
 Authorization: develop the previously proposed steps as layers first. Preserve the
 eight top-level steps; do not build a UI, new runtime, profile updater or scaffolder
 in this phase. Framework maintenance continues directly on master.
 The owner clarified that Blazor and Django are examples only. Technology-specific
 trees must support an extensible range of project types and frameworks.
+
+That paragraph records the original design-only authorization. The owner's later
+request explicitly authorized [P12 runtime implementation](P12_WIZARD_RUNTIME.md).
 
 ## Problem and intended outcome
 
@@ -127,8 +131,8 @@ resolution and freshness tooling remain future work.
 | WIZ-006 | User scope and authorized Git workflow control actions | L08 and shared contract | Not run |
 | WIZ-007 | Technology/standard evidence has a home in every applicable layer | Layer reference sections and P11 manual procedure; no hard-coded latest claims | Automated verification deferred |
 | WIZ-008 | Design status cannot imply runnable wizard/model behavior | Explicit status and README wording | Not run |
-| WIZ-009 | Each selected framework/variant supplies distinct roots for every applicable layer | Tree model and multi-family blueprints, including native iOS/Android, React Native and MAUI branches | Resolver/coverage validation not implemented |
-| WIZ-010 | Many technologies and mixed deliverables are supported by the design contract | Extensible catalog, unknown-profile behavior and composition rules | Runtime support not implemented |
+| WIZ-009 | Each selected framework/variant supplies distinct roots for every applicable layer | Tree model and multi-family blueprints, including native iOS/Android, React Native and MAUI branches | Initial root/coverage validation implemented in P12; no version-qualified support claim |
+| WIZ-010 | Many technologies and mixed deliverables are supported by the design contract | Extensible catalog, unknown-profile behavior and composition rules | Initial 19 decision profiles and mixed deliverables implemented in P12 |
 
 ## Design walkthroughs (not executed wizard tests)
 
@@ -148,19 +152,19 @@ resolution and freshness tooling remain future work.
 
 ## Development sequence
 
-These are future implementation slices, not authority to implement during this
-design-only phase. Each slice needs its own runnable acceptance evidence.
+The original design phase deferred implementation. P12 now delivers the initial
+terminal/catalog/state slice; remaining scope retains its own acceptance gates.
 
 | Slice | Scope | Status |
 | --- | --- | --- |
 | P8.D | Develop eight layers, technology-specific tree contracts/catalog, dependencies and framework mapping | Documentation prepared |
-| P8.1 | Define machine-readable answer/profile/node schemas, registry and tree coverage checks | Not implemented |
-| P8.2 | Add L01/L02 tree selection, conversational flow, provenance, save/resume and no-write preview | Not implemented |
-| P8.3 | Add technology-specific L03-L07 branches and invalidation/conflict handling | Not implemented |
-| P8.4 | Map L08 decisions to existing artifacts and authorized delivery actions | Not implemented |
+| P8.1 | Define machine-readable answer/profile/node schemas, registry and tree coverage checks | Initial JSON contracts/catalog and semantic validation implemented in P12 |
+| P8.2 | Add L01/L02 tree selection, conversational flow, provenance, save/resume and no-write preview | Initial terminal/noninteractive engine implemented; actual host model tasks not run |
+| P8.3 | Add technology-specific L03-L07 branches and invalidation/conflict handling | Initial 19 profile trees, conditional branches, transitive invalidation and explicit catalog conflict; deeper trees/rules remain extensible |
+| P8.4 | Map L08 decisions to existing artifacts and authorized delivery actions | Decision summary export implemented; automatic SDD/scaffold/application actions not implemented |
 | P8.5 | Design verified technology/standards profiles and refresh rules | Manual source/evidence/refresh procedure integrated in P11; automated profiles/resolver not implemented |
 | P8.6 | Add behavioral cases, independent outcome checks and actual Codex/Claude runs | Not run |
-| P8.7 | Consider terminal/browser presentation over the same contracts | Deferred; no UI technology selected |
+| P8.7 | Consider terminal/browser presentation over the same contracts | Terminal interface implemented in P12; browser UI deferred |
 
 RACI for this design: repository owner is accountable for consequential product
 choices; the assistant is responsible for drafting and self-review. Additional

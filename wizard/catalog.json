@@ -1,0 +1,5357 @@
+{
+  "schema_version": 1,
+  "profiles": [
+    {
+      "id": "dotnet.blazor.web",
+      "revision": 1,
+      "family": "website",
+      "ecosystem": ".NET",
+      "framework": "Blazor",
+      "blueprint": "plans/enhancements/wizard/TREE_CATALOG.md",
+      "roots": {
+        "L01": "L01.dotnet.blazor.web.intent",
+        "L02": "L02.dotnet.blazor.web.variant",
+        "L03": "L03.dotnet.blazor.web.interface",
+        "L04": "L04.dotnet.blazor.web.persistence",
+        "L05": "L05.dotnet.blazor.web.access",
+        "L06": "L06.dotnet.blazor.web.services",
+        "L07": "L07.dotnet.blazor.web.distribution",
+        "L08": "L08.dotnet.blazor.web.delivery"
+      },
+      "nodes": [
+        {
+          "id": "L01.dotnet.blazor.web.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Blazor: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.dotnet.blazor.web.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Blazor: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "browser"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.dotnet.blazor.web.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Blazor: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "web_app",
+            "standalone_webassembly"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.dotnet.blazor.web.intent",
+            "L01.dotnet.blazor.web.targets"
+          ]
+        },
+        {
+          "id": "L02.dotnet.blazor.web.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Blazor: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.dotnet.blazor.web.variant",
+            "L01.dotnet.blazor.web.targets"
+          ]
+        },
+        {
+          "id": "L03.dotnet.blazor.web.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Blazor: Rendering/interactivity, component state, forms and browser/server lifetime?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.dotnet.blazor.web.variant",
+            "L01.dotnet.blazor.web.targets"
+          ]
+        },
+        {
+          "id": "L03.dotnet.blazor.web.variant_web_app",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Choose static SSR and/or supported interactive rendering, component boundaries and server/client lifetimes",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_web_app",
+          "depends_on": [
+            "L02.dotnet.blazor.web.variant"
+          ],
+          "when": {
+            "node": "L02.dotnet.blazor.web.variant",
+            "equals": "web_app"
+          }
+        },
+        {
+          "id": "L03.dotnet.blazor.web.variant_standalone_webassembly",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define browser component/state and authorized API access boundaries",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_standalone_webassembly",
+          "depends_on": [
+            "L02.dotnet.blazor.web.variant"
+          ],
+          "when": {
+            "node": "L02.dotnet.blazor.web.variant",
+            "equals": "standalone_webassembly"
+          }
+        },
+        {
+          "id": "L04.dotnet.blazor.web.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Blazor: Server-owned EF/provider access versus client API; no browser database credentials? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.dotnet.blazor.web.variant",
+            "L01.dotnet.blazor.web.targets"
+          ]
+        },
+        {
+          "id": "L04.dotnet.blazor.web.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Blazor: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.dotnet.blazor.web.persistence",
+            "L01.dotnet.blazor.web.targets"
+          ],
+          "when": {
+            "node": "L04.dotnet.blazor.web.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.dotnet.blazor.web.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "Blazor: Server authorization, identity/session and resource/tenant boundaries?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.dotnet.blazor.web.targets",
+            "L04.dotnet.blazor.web.persistence"
+          ]
+        },
+        {
+          "id": "L06.dotnet.blazor.web.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "Blazor: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.dotnet.blazor.web.variant",
+            "L04.dotnet.blazor.web.persistence"
+          ]
+        },
+        {
+          "id": "L07.dotnet.blazor.web.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "Blazor: Server hosting versus browser assets/API; deployment and reconnect? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.dotnet.blazor.web.targets",
+            "L02.dotnet.blazor.web.variant"
+          ]
+        },
+        {
+          "id": "L08.dotnet.blazor.web.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.dotnet.blazor.web.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "Blazor: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.dotnet.blazor.web.targets",
+            "L02.dotnet.blazor.web.variant"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "python.django.web",
+      "revision": 1,
+      "family": "website",
+      "ecosystem": "Python",
+      "framework": "Django",
+      "blueprint": "plans/enhancements/wizard/TREE_CATALOG.md",
+      "roots": {
+        "L01": "L01.python.django.web.intent",
+        "L02": "L02.python.django.web.variant",
+        "L03": "L03.python.django.web.interface",
+        "L04": "L04.python.django.web.persistence",
+        "L05": "L05.python.django.web.access",
+        "L06": "L06.python.django.web.services",
+        "L07": "L07.python.django.web.distribution",
+        "L08": "L08.python.django.web.delivery"
+      },
+      "nodes": [
+        {
+          "id": "L01.python.django.web.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Django: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.python.django.web.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Django: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "browser"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.python.django.web.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Django: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "templates",
+            "api_plus_templates"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.python.django.web.intent",
+            "L01.python.django.web.targets"
+          ]
+        },
+        {
+          "id": "L02.python.django.web.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Django: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.python.django.web.variant",
+            "L01.python.django.web.targets"
+          ]
+        },
+        {
+          "id": "L03.python.django.web.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Django: URL/view/template/form workflows, client enhancement and validation?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.python.django.web.variant",
+            "L01.python.django.web.targets"
+          ]
+        },
+        {
+          "id": "L03.python.django.web.variant_templates",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define server-rendered views/forms and template enhancement",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_templates",
+          "depends_on": [
+            "L02.python.django.web.variant"
+          ],
+          "when": {
+            "node": "L02.python.django.web.variant",
+            "equals": "templates"
+          }
+        },
+        {
+          "id": "L03.python.django.web.variant_api_plus_templates",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define API/template responsibility and client contract",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_api_plus_templates",
+          "depends_on": [
+            "L02.python.django.web.variant"
+          ],
+          "when": {
+            "node": "L02.python.django.web.variant",
+            "equals": "api_plus_templates"
+          }
+        },
+        {
+          "id": "L04.python.django.web.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Django: Models/querysets, database provider, schema/data migrations and recovery? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.python.django.web.variant",
+            "L01.python.django.web.targets"
+          ]
+        },
+        {
+          "id": "L04.python.django.web.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Django: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.python.django.web.persistence",
+            "L01.python.django.web.targets"
+          ],
+          "when": {
+            "node": "L04.python.django.web.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.python.django.web.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "Django: Django sessions/accounts, object/tenant permissions and CSRF?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.python.django.web.targets",
+            "L04.python.django.web.persistence"
+          ]
+        },
+        {
+          "id": "L06.python.django.web.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "Django: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.python.django.web.variant",
+            "L04.python.django.web.persistence"
+          ]
+        },
+        {
+          "id": "L07.python.django.web.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "Django: WSGI/ASGI, static/media ownership, process/config/security checks? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.python.django.web.targets",
+            "L02.python.django.web.variant"
+          ]
+        },
+        {
+          "id": "L08.python.django.web.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.python.django.web.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "Django: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.python.django.web.targets",
+            "L02.python.django.web.variant"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "typescript.react.web",
+      "revision": 1,
+      "family": "website",
+      "ecosystem": "TypeScript",
+      "framework": "React",
+      "blueprint": "plans/enhancements/wizard/TREE_CATALOG.md",
+      "roots": {
+        "L01": "L01.typescript.react.web.intent",
+        "L02": "L02.typescript.react.web.variant",
+        "L03": "L03.typescript.react.web.interface",
+        "L04": "L04.typescript.react.web.persistence",
+        "L05": "L05.typescript.react.web.access",
+        "L06": "L06.typescript.react.web.services",
+        "L07": "L07.typescript.react.web.distribution",
+        "L08": "L08.typescript.react.web.delivery"
+      },
+      "nodes": [
+        {
+          "id": "L01.typescript.react.web.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "React: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.typescript.react.web.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "React: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "browser"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.typescript.react.web.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "React: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "framework_server",
+            "client_application"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.typescript.react.web.intent",
+            "L01.typescript.react.web.targets"
+          ]
+        },
+        {
+          "id": "L02.typescript.react.web.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "React: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.typescript.react.web.variant",
+            "L01.typescript.react.web.targets"
+          ]
+        },
+        {
+          "id": "L03.typescript.react.web.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "React: Select actual app framework/router, rendering, state and UI notifications?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.typescript.react.web.variant",
+            "L01.typescript.react.web.targets"
+          ]
+        },
+        {
+          "id": "L03.typescript.react.web.variant_framework_server",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Name the selected application framework, server/client components and rendering constraints",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_framework_server",
+          "depends_on": [
+            "L02.typescript.react.web.variant"
+          ],
+          "when": {
+            "node": "L02.typescript.react.web.variant",
+            "equals": "framework_server"
+          }
+        },
+        {
+          "id": "L03.typescript.react.web.variant_client_application",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Name bundler/router and client state/API boundaries",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_client_application",
+          "depends_on": [
+            "L02.typescript.react.web.variant"
+          ],
+          "when": {
+            "node": "L02.typescript.react.web.variant",
+            "equals": "client_application"
+          }
+        },
+        {
+          "id": "L04.typescript.react.web.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "React: Client API contract and server-owned persistence; local cache if needed? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.typescript.react.web.variant",
+            "L01.typescript.react.web.targets"
+          ]
+        },
+        {
+          "id": "L04.typescript.react.web.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "React: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.typescript.react.web.persistence",
+            "L01.typescript.react.web.targets"
+          ],
+          "when": {
+            "node": "L04.typescript.react.web.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.typescript.react.web.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "React: Actual authentication provider, server enforcement and browser trust?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.typescript.react.web.targets",
+            "L04.typescript.react.web.persistence"
+          ]
+        },
+        {
+          "id": "L06.typescript.react.web.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "React: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.typescript.react.web.variant",
+            "L04.typescript.react.web.persistence"
+          ]
+        },
+        {
+          "id": "L07.typescript.react.web.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "React: Actual framework server/build output or static assets plus backend? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.typescript.react.web.targets",
+            "L02.typescript.react.web.variant"
+          ]
+        },
+        {
+          "id": "L08.typescript.react.web.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.typescript.react.web.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "React: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.typescript.react.web.targets",
+            "L02.typescript.react.web.variant"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "java.spring.api",
+      "revision": 1,
+      "family": "api",
+      "ecosystem": "JVM",
+      "framework": "Spring",
+      "blueprint": "plans/enhancements/wizard/TREE_CATALOG.md",
+      "roots": {
+        "L01": "L01.java.spring.api.intent",
+        "L02": "L02.java.spring.api.variant",
+        "L03": "L03.java.spring.api.interface",
+        "L04": "L04.java.spring.api.persistence",
+        "L05": "L05.java.spring.api.access",
+        "L06": "L06.java.spring.api.services",
+        "L07": "L07.java.spring.api.distribution",
+        "L08": "L08.java.spring.api.delivery"
+      },
+      "nodes": [
+        {
+          "id": "L01.java.spring.api.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Spring: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.java.spring.api.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Spring: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "server"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.java.spring.api.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Spring: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "servlet",
+            "reactive"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.java.spring.api.intent",
+            "L01.java.spring.api.targets"
+          ]
+        },
+        {
+          "id": "L02.java.spring.api.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Spring: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.java.spring.api.variant",
+            "L01.java.spring.api.targets"
+          ]
+        },
+        {
+          "id": "L03.java.spring.api.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Spring: API request/response, errors, compatibility and optional separate UI?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.java.spring.api.variant",
+            "L01.java.spring.api.targets"
+          ]
+        },
+        {
+          "id": "L03.java.spring.api.variant_servlet",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Describe blocking request/transaction boundaries",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_servlet",
+          "depends_on": [
+            "L02.java.spring.api.variant"
+          ],
+          "when": {
+            "node": "L02.java.spring.api.variant",
+            "equals": "servlet"
+          }
+        },
+        {
+          "id": "L03.java.spring.api.variant_reactive",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Describe reactive provider compatibility and cancellation/backpressure",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_reactive",
+          "depends_on": [
+            "L02.java.spring.api.variant"
+          ],
+          "when": {
+            "node": "L02.java.spring.api.variant",
+            "equals": "reactive"
+          }
+        },
+        {
+          "id": "L04.java.spring.api.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Spring: Actual data provider/access, transactions, concurrency and migrations? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.java.spring.api.variant",
+            "L01.java.spring.api.targets"
+          ]
+        },
+        {
+          "id": "L04.java.spring.api.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Spring: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.java.spring.api.persistence",
+            "L01.java.spring.api.targets"
+          ],
+          "when": {
+            "node": "L04.java.spring.api.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.java.spring.api.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "Spring: Caller/service identities and Spring resource/tenant authorization?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.java.spring.api.targets",
+            "L04.java.spring.api.persistence"
+          ]
+        },
+        {
+          "id": "L06.java.spring.api.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "Spring: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.java.spring.api.variant",
+            "L04.java.spring.api.persistence"
+          ]
+        },
+        {
+          "id": "L07.java.spring.api.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "Spring: JVM distribution, build system, container/process, health and shutdown? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.java.spring.api.targets",
+            "L02.java.spring.api.variant"
+          ]
+        },
+        {
+          "id": "L08.java.spring.api.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.java.spring.api.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "Spring: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.java.spring.api.targets",
+            "L02.java.spring.api.variant"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "dotnet.maui.mobile",
+      "revision": 1,
+      "family": "mobile",
+      "ecosystem": ".NET",
+      "framework": "MAUI mobile",
+      "blueprint": "plans/enhancements/wizard/MAUI.md",
+      "roots": {
+        "L01": "L01.dotnet.maui.mobile.intent",
+        "L02": "L02.dotnet.maui.mobile.variant",
+        "L03": "L03.dotnet.maui.mobile.interface",
+        "L04": "L04.dotnet.maui.mobile.persistence",
+        "L05": "L05.dotnet.maui.mobile.access",
+        "L06": "L06.dotnet.maui.mobile.services",
+        "L07": "L07.dotnet.maui.mobile.distribution",
+        "L08": "L08.dotnet.maui.mobile.delivery"
+      },
+      "nodes": [
+        {
+          "id": "L01.dotnet.maui.mobile.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "MAUI mobile: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.dotnet.maui.mobile.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "MAUI mobile: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "android",
+            "ios"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.dotnet.maui.mobile.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "MAUI mobile: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "native_controls",
+            "blazor_hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.dotnet.maui.mobile.intent",
+            "L01.dotnet.maui.mobile.targets"
+          ]
+        },
+        {
+          "id": "L02.dotnet.maui.mobile.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "MAUI mobile: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.dotnet.maui.mobile.variant",
+            "L01.dotnet.maui.mobile.targets"
+          ]
+        },
+        {
+          "id": "L03.dotnet.maui.mobile.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "MAUI mobile: Native navigation/lifecycle, UI state, accessibility and UI notifications?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.dotnet.maui.mobile.variant",
+            "L01.dotnet.maui.mobile.targets"
+          ]
+        },
+        {
+          "id": "L03.dotnet.maui.mobile.variant_native_controls",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Choose XAML/C# views, handlers and native control lifetimes",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_native_controls",
+          "depends_on": [
+            "L02.dotnet.maui.mobile.variant"
+          ],
+          "when": {
+            "node": "L02.dotnet.maui.mobile.variant",
+            "equals": "native_controls"
+          }
+        },
+        {
+          "id": "L03.dotnet.maui.mobile.variant_blazor_hybrid",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define BlazorWebView/native boundaries, assets and UI dispatch",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_blazor_hybrid",
+          "depends_on": [
+            "L02.dotnet.maui.mobile.variant"
+          ],
+          "when": {
+            "node": "L02.dotnet.maui.mobile.variant",
+            "equals": "blazor_hybrid"
+          }
+        },
+        {
+          "id": "L04.dotnet.maui.mobile.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "MAUI mobile: Local store/API, offline authority, sync conflicts and recovery? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.dotnet.maui.mobile.variant",
+            "L01.dotnet.maui.mobile.targets"
+          ]
+        },
+        {
+          "id": "L04.dotnet.maui.mobile.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "MAUI mobile: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.dotnet.maui.mobile.persistence",
+            "L01.dotnet.maui.mobile.targets"
+          ],
+          "when": {
+            "node": "L04.dotnet.maui.mobile.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.dotnet.maui.mobile.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "MAUI mobile: Platform permissions, secure storage, API identity and session cleanup?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.dotnet.maui.mobile.targets",
+            "L04.dotnet.maui.mobile.persistence"
+          ]
+        },
+        {
+          "id": "L06.dotnet.maui.mobile.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "MAUI mobile: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.dotnet.maui.mobile.variant",
+            "L04.dotnet.maui.mobile.persistence"
+          ]
+        },
+        {
+          "id": "L07.dotnet.maui.mobile.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "MAUI mobile: Per-target SDK/workload/signing, device gates and actual stores? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.dotnet.maui.mobile.targets",
+            "L02.dotnet.maui.mobile.variant"
+          ]
+        },
+        {
+          "id": "L08.dotnet.maui.mobile.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.dotnet.maui.mobile.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "MAUI mobile: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.dotnet.maui.mobile.targets",
+            "L02.dotnet.maui.mobile.variant"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "dotnet.maui.desktop",
+      "revision": 1,
+      "family": "desktop",
+      "ecosystem": ".NET",
+      "framework": "MAUI desktop",
+      "blueprint": "plans/enhancements/wizard/MAUI.md",
+      "roots": {
+        "L01": "L01.dotnet.maui.desktop.intent",
+        "L02": "L02.dotnet.maui.desktop.variant",
+        "L03": "L03.dotnet.maui.desktop.interface",
+        "L04": "L04.dotnet.maui.desktop.persistence",
+        "L05": "L05.dotnet.maui.desktop.access",
+        "L06": "L06.dotnet.maui.desktop.services",
+        "L07": "L07.dotnet.maui.desktop.distribution",
+        "L08": "L08.dotnet.maui.desktop.delivery"
+      },
+      "nodes": [
+        {
+          "id": "L01.dotnet.maui.desktop.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "MAUI desktop: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.dotnet.maui.desktop.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "MAUI desktop: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "windows",
+            "mac_catalyst"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.dotnet.maui.desktop.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "MAUI desktop: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "native_controls",
+            "blazor_hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.dotnet.maui.desktop.intent",
+            "L01.dotnet.maui.desktop.targets"
+          ]
+        },
+        {
+          "id": "L02.dotnet.maui.desktop.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "MAUI desktop: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.dotnet.maui.desktop.variant",
+            "L01.dotnet.maui.desktop.targets"
+          ]
+        },
+        {
+          "id": "L03.dotnet.maui.desktop.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "MAUI desktop: Windows, navigation, native lifecycle and UI notification dispatch?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.dotnet.maui.desktop.variant",
+            "L01.dotnet.maui.desktop.targets"
+          ]
+        },
+        {
+          "id": "L03.dotnet.maui.desktop.variant_native_controls",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define desktop native views/windows and handler lifetimes",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_native_controls",
+          "depends_on": [
+            "L02.dotnet.maui.desktop.variant"
+          ],
+          "when": {
+            "node": "L02.dotnet.maui.desktop.variant",
+            "equals": "native_controls"
+          }
+        },
+        {
+          "id": "L03.dotnet.maui.desktop.variant_blazor_hybrid",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define desktop BlazorWebView/native integration and dispatch",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_blazor_hybrid",
+          "depends_on": [
+            "L02.dotnet.maui.desktop.variant"
+          ],
+          "when": {
+            "node": "L02.dotnet.maui.desktop.variant",
+            "equals": "blazor_hybrid"
+          }
+        },
+        {
+          "id": "L04.dotnet.maui.desktop.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "MAUI desktop: Local files/store/API, concurrency, offline sync and recovery? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.dotnet.maui.desktop.variant",
+            "L01.dotnet.maui.desktop.targets"
+          ]
+        },
+        {
+          "id": "L04.dotnet.maui.desktop.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "MAUI desktop: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.dotnet.maui.desktop.persistence",
+            "L01.dotnet.maui.desktop.targets"
+          ],
+          "when": {
+            "node": "L04.dotnet.maui.desktop.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.dotnet.maui.desktop.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "MAUI desktop: OS credentials/permissions, local and API authorization?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.dotnet.maui.desktop.targets",
+            "L04.dotnet.maui.desktop.persistence"
+          ]
+        },
+        {
+          "id": "L06.dotnet.maui.desktop.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "MAUI desktop: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.dotnet.maui.desktop.variant",
+            "L04.dotnet.maui.desktop.persistence"
+          ]
+        },
+        {
+          "id": "L07.dotnet.maui.desktop.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "MAUI desktop: Windows/Mac Catalyst toolchains, packaging/signing and installer/store scope? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.dotnet.maui.desktop.targets",
+            "L02.dotnet.maui.desktop.variant"
+          ]
+        },
+        {
+          "id": "L08.dotnet.maui.desktop.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.dotnet.maui.desktop.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "MAUI desktop: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.dotnet.maui.desktop.targets",
+            "L02.dotnet.maui.desktop.variant"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "swift.ios.mobile",
+      "revision": 1,
+      "family": "mobile",
+      "ecosystem": "Swift",
+      "framework": "native iOS/iPadOS",
+      "blueprint": "plans/enhancements/wizard/IOS.md",
+      "roots": {
+        "L01": "L01.swift.ios.mobile.intent",
+        "L02": "L02.swift.ios.mobile.variant",
+        "L03": "L03.swift.ios.mobile.interface",
+        "L04": "L04.swift.ios.mobile.persistence",
+        "L05": "L05.swift.ios.mobile.access",
+        "L06": "L06.swift.ios.mobile.services",
+        "L07": "L07.swift.ios.mobile.distribution",
+        "L08": "L08.swift.ios.mobile.delivery"
+      },
+      "nodes": [
+        {
+          "id": "L01.swift.ios.mobile.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "native iOS/iPadOS: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.swift.ios.mobile.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "native iOS/iPadOS: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "ios",
+            "ipados"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.swift.ios.mobile.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "native iOS/iPadOS: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "swiftui",
+            "uikit",
+            "mixed"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.swift.ios.mobile.intent",
+            "L01.swift.ios.mobile.targets"
+          ]
+        },
+        {
+          "id": "L02.swift.ios.mobile.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "native iOS/iPadOS: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.swift.ios.mobile.variant",
+            "L01.swift.ios.mobile.targets"
+          ]
+        },
+        {
+          "id": "L03.swift.ios.mobile.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "native iOS/iPadOS: Navigation, scene/app lifecycle, accessible native forms and UI notification scope?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.swift.ios.mobile.variant",
+            "L01.swift.ios.mobile.targets"
+          ]
+        },
+        {
+          "id": "L03.swift.ios.mobile.variant_swiftui",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define state ownership, navigation and scene lifecycle",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_swiftui",
+          "depends_on": [
+            "L02.swift.ios.mobile.variant"
+          ],
+          "when": {
+            "node": "L02.swift.ios.mobile.variant",
+            "equals": "swiftui"
+          }
+        },
+        {
+          "id": "L03.swift.ios.mobile.variant_uikit",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define controllers, delegates and view lifecycle",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_uikit",
+          "depends_on": [
+            "L02.swift.ios.mobile.variant"
+          ],
+          "when": {
+            "node": "L02.swift.ios.mobile.variant",
+            "equals": "uikit"
+          }
+        },
+        {
+          "id": "L03.swift.ios.mobile.variant_mixed",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define SwiftUI/UIKit hosting and ownership boundaries",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_mixed",
+          "depends_on": [
+            "L02.swift.ios.mobile.variant"
+          ],
+          "when": {
+            "node": "L02.swift.ios.mobile.variant",
+            "equals": "mixed"
+          }
+        },
+        {
+          "id": "L04.swift.ios.mobile.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "native iOS/iPadOS: Actual Apple storage/API, offline conflicts and recovery? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.swift.ios.mobile.variant",
+            "L01.swift.ios.mobile.targets"
+          ]
+        },
+        {
+          "id": "L04.swift.ios.mobile.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "native iOS/iPadOS: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.swift.ios.mobile.persistence",
+            "L01.swift.ios.mobile.targets"
+          ],
+          "when": {
+            "node": "L04.swift.ios.mobile.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.swift.ios.mobile.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "native iOS/iPadOS: Keychain/permissions, API resource access and session cleanup?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.swift.ios.mobile.targets",
+            "L04.swift.ios.mobile.persistence"
+          ]
+        },
+        {
+          "id": "L06.swift.ios.mobile.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "native iOS/iPadOS: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.swift.ios.mobile.variant",
+            "L04.swift.ios.mobile.persistence"
+          ]
+        },
+        {
+          "id": "L07.swift.ios.mobile.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "native iOS/iPadOS: Xcode/SDK, entitlements, signing, Apple listing/privacy and real devices? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.swift.ios.mobile.targets",
+            "L02.swift.ios.mobile.variant"
+          ]
+        },
+        {
+          "id": "L08.swift.ios.mobile.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.swift.ios.mobile.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "native iOS/iPadOS: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.swift.ios.mobile.targets",
+            "L02.swift.ios.mobile.variant"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "kotlin.android.mobile",
+      "revision": 1,
+      "family": "mobile",
+      "ecosystem": "Kotlin",
+      "framework": "native Android Kotlin",
+      "blueprint": "plans/enhancements/wizard/ANDROID.md",
+      "roots": {
+        "L01": "L01.kotlin.android.mobile.intent",
+        "L02": "L02.kotlin.android.mobile.variant",
+        "L03": "L03.kotlin.android.mobile.interface",
+        "L04": "L04.kotlin.android.mobile.persistence",
+        "L05": "L05.kotlin.android.mobile.access",
+        "L06": "L06.kotlin.android.mobile.services",
+        "L07": "L07.kotlin.android.mobile.distribution",
+        "L08": "L08.kotlin.android.mobile.delivery"
+      },
+      "nodes": [
+        {
+          "id": "L01.kotlin.android.mobile.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "native Android Kotlin: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.kotlin.android.mobile.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "native Android Kotlin: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "android"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.kotlin.android.mobile.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "native Android Kotlin: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "compose",
+            "views",
+            "mixed"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.kotlin.android.mobile.intent",
+            "L01.kotlin.android.mobile.targets"
+          ]
+        },
+        {
+          "id": "L02.kotlin.android.mobile.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "native Android Kotlin: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.kotlin.android.mobile.variant",
+            "L01.kotlin.android.mobile.targets"
+          ]
+        },
+        {
+          "id": "L03.kotlin.android.mobile.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "native Android Kotlin: Navigation, adaptive UI, lifecycle, state restoration and UI notifications?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.kotlin.android.mobile.variant",
+            "L01.kotlin.android.mobile.targets"
+          ]
+        },
+        {
+          "id": "L03.kotlin.android.mobile.variant_compose",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define composable state/lifecycle and navigation",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_compose",
+          "depends_on": [
+            "L02.kotlin.android.mobile.variant"
+          ],
+          "when": {
+            "node": "L02.kotlin.android.mobile.variant",
+            "equals": "compose"
+          }
+        },
+        {
+          "id": "L03.kotlin.android.mobile.variant_views",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define XML/view binding, fragments and state restoration",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_views",
+          "depends_on": [
+            "L02.kotlin.android.mobile.variant"
+          ],
+          "when": {
+            "node": "L02.kotlin.android.mobile.variant",
+            "equals": "views"
+          }
+        },
+        {
+          "id": "L03.kotlin.android.mobile.variant_mixed",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define Compose/View interoperability and lifecycle",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_mixed",
+          "depends_on": [
+            "L02.kotlin.android.mobile.variant"
+          ],
+          "when": {
+            "node": "L02.kotlin.android.mobile.variant",
+            "equals": "mixed"
+          }
+        },
+        {
+          "id": "L04.kotlin.android.mobile.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "native Android Kotlin: Local Room/other provider and API, offline ownership and migrations? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.kotlin.android.mobile.variant",
+            "L01.kotlin.android.mobile.targets"
+          ]
+        },
+        {
+          "id": "L04.kotlin.android.mobile.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "native Android Kotlin: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.kotlin.android.mobile.persistence",
+            "L01.kotlin.android.mobile.targets"
+          ],
+          "when": {
+            "node": "L04.kotlin.android.mobile.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.kotlin.android.mobile.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "native Android Kotlin: Keystore/permissions, exported components and server authorization?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.kotlin.android.mobile.targets",
+            "L04.kotlin.android.mobile.persistence"
+          ]
+        },
+        {
+          "id": "L06.kotlin.android.mobile.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "native Android Kotlin: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.kotlin.android.mobile.variant",
+            "L04.kotlin.android.mobile.persistence"
+          ]
+        },
+        {
+          "id": "L07.kotlin.android.mobile.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "native Android Kotlin: Gradle/SDK, target API, native libraries, signing, Play and devices? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.kotlin.android.mobile.targets",
+            "L02.kotlin.android.mobile.variant"
+          ]
+        },
+        {
+          "id": "L08.kotlin.android.mobile.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.kotlin.android.mobile.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "native Android Kotlin: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.kotlin.android.mobile.targets",
+            "L02.kotlin.android.mobile.variant"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "java.android.mobile",
+      "revision": 1,
+      "family": "mobile",
+      "ecosystem": "Java",
+      "framework": "native Android Java",
+      "blueprint": "plans/enhancements/wizard/ANDROID.md",
+      "roots": {
+        "L01": "L01.java.android.mobile.intent",
+        "L02": "L02.java.android.mobile.variant",
+        "L03": "L03.java.android.mobile.interface",
+        "L04": "L04.java.android.mobile.persistence",
+        "L05": "L05.java.android.mobile.access",
+        "L06": "L06.java.android.mobile.services",
+        "L07": "L07.java.android.mobile.distribution",
+        "L08": "L08.java.android.mobile.delivery"
+      },
+      "nodes": [
+        {
+          "id": "L01.java.android.mobile.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "native Android Java: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.java.android.mobile.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "native Android Java: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "android"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.java.android.mobile.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "native Android Java: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "views",
+            "kotlin_interop"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.java.android.mobile.intent",
+            "L01.java.android.mobile.targets"
+          ]
+        },
+        {
+          "id": "L02.java.android.mobile.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "native Android Java: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.java.android.mobile.variant",
+            "L01.java.android.mobile.targets"
+          ]
+        },
+        {
+          "id": "L03.java.android.mobile.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "native Android Java: XML/Views, navigation, adaptive layouts, lifecycle and UI notifications?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.java.android.mobile.variant",
+            "L01.java.android.mobile.targets"
+          ]
+        },
+        {
+          "id": "L03.java.android.mobile.variant_views",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define Java activities/fragments and view state",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_views",
+          "depends_on": [
+            "L02.java.android.mobile.variant"
+          ],
+          "when": {
+            "node": "L02.java.android.mobile.variant",
+            "equals": "views"
+          }
+        },
+        {
+          "id": "L03.java.android.mobile.variant_kotlin_interop",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define explicit Kotlin-owned Compose/native modules and Java boundaries",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_kotlin_interop",
+          "depends_on": [
+            "L02.java.android.mobile.variant"
+          ],
+          "when": {
+            "node": "L02.java.android.mobile.variant",
+            "equals": "kotlin_interop"
+          }
+        },
+        {
+          "id": "L04.java.android.mobile.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "native Android Java: Actual local database/API and migration/offline recovery? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.java.android.mobile.variant",
+            "L01.java.android.mobile.targets"
+          ]
+        },
+        {
+          "id": "L04.java.android.mobile.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "native Android Java: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.java.android.mobile.persistence",
+            "L01.java.android.mobile.targets"
+          ],
+          "when": {
+            "node": "L04.java.android.mobile.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.java.android.mobile.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "native Android Java: Keystore/permissions, exported components and resource authorization?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.java.android.mobile.targets",
+            "L04.java.android.mobile.persistence"
+          ]
+        },
+        {
+          "id": "L06.java.android.mobile.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "native Android Java: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.java.android.mobile.variant",
+            "L04.java.android.mobile.persistence"
+          ]
+        },
+        {
+          "id": "L07.java.android.mobile.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "native Android Java: Gradle/SDK, native libraries, target API, signing and device/store gates? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.java.android.mobile.targets",
+            "L02.java.android.mobile.variant"
+          ]
+        },
+        {
+          "id": "L08.java.android.mobile.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.java.android.mobile.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "native Android Java: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.java.android.mobile.targets",
+            "L02.java.android.mobile.variant"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "typescript.react-native.mobile",
+      "revision": 1,
+      "family": "mobile",
+      "ecosystem": "TypeScript",
+      "framework": "React Native",
+      "blueprint": "plans/enhancements/wizard/REACT_NATIVE.md",
+      "roots": {
+        "L01": "L01.typescript.react-native.mobile.intent",
+        "L02": "L02.typescript.react-native.mobile.variant",
+        "L03": "L03.typescript.react-native.mobile.interface",
+        "L04": "L04.typescript.react-native.mobile.persistence",
+        "L05": "L05.typescript.react-native.mobile.access",
+        "L06": "L06.typescript.react-native.mobile.services",
+        "L07": "L07.typescript.react-native.mobile.distribution",
+        "L08": "L08.typescript.react-native.mobile.delivery"
+      },
+      "nodes": [
+        {
+          "id": "L01.typescript.react-native.mobile.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "React Native: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.typescript.react-native.mobile.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "React Native: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "android",
+            "ios"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.typescript.react-native.mobile.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "React Native: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "framework_managed",
+            "native_owned"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.typescript.react-native.mobile.intent",
+            "L01.typescript.react-native.mobile.targets"
+          ]
+        },
+        {
+          "id": "L02.typescript.react-native.mobile.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "React Native: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.typescript.react-native.mobile.variant",
+            "L01.typescript.react-native.mobile.targets"
+          ]
+        },
+        {
+          "id": "L03.typescript.react-native.mobile.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "React Native: Native navigation/state, accessibility, app lifecycle and JS/native notifications?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.typescript.react-native.mobile.variant",
+            "L01.typescript.react-native.mobile.targets"
+          ]
+        },
+        {
+          "id": "L03.typescript.react-native.mobile.variant_framework_managed",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Name the app framework/workflow, supported native modules and ownership",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_framework_managed",
+          "depends_on": [
+            "L02.typescript.react-native.mobile.variant"
+          ],
+          "when": {
+            "node": "L02.typescript.react-native.mobile.variant",
+            "equals": "framework_managed"
+          }
+        },
+        {
+          "id": "L03.typescript.react-native.mobile.variant_native_owned",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define native iOS/Android project ownership, bridge/modules and build paths",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_native_owned",
+          "depends_on": [
+            "L02.typescript.react-native.mobile.variant"
+          ],
+          "when": {
+            "node": "L02.typescript.react-native.mobile.variant",
+            "equals": "native_owned"
+          }
+        },
+        {
+          "id": "L04.typescript.react-native.mobile.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "React Native: Device store/API, offline conflicts and migration/recovery? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.typescript.react-native.mobile.variant",
+            "L01.typescript.react-native.mobile.targets"
+          ]
+        },
+        {
+          "id": "L04.typescript.react-native.mobile.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "React Native: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.typescript.react-native.mobile.persistence",
+            "L01.typescript.react-native.mobile.targets"
+          ],
+          "when": {
+            "node": "L04.typescript.react-native.mobile.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.typescript.react-native.mobile.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "React Native: Platform permissions/secure credentials and server authorization?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.typescript.react-native.mobile.targets",
+            "L04.typescript.react-native.mobile.persistence"
+          ]
+        },
+        {
+          "id": "L06.typescript.react-native.mobile.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "React Native: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.typescript.react-native.mobile.variant",
+            "L04.typescript.react-native.mobile.persistence"
+          ]
+        },
+        {
+          "id": "L07.typescript.react-native.mobile.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "React Native: Per-OS native toolchains, plugins, signing and actual store/device gates? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.typescript.react-native.mobile.targets",
+            "L02.typescript.react-native.mobile.variant"
+          ]
+        },
+        {
+          "id": "L08.typescript.react-native.mobile.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.typescript.react-native.mobile.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "React Native: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.typescript.react-native.mobile.targets",
+            "L02.typescript.react-native.mobile.variant"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "dart.flutter.mobile",
+      "revision": 1,
+      "family": "mobile",
+      "ecosystem": "Dart",
+      "framework": "Flutter",
+      "blueprint": "plans/enhancements/wizard/TREE_CATALOG.md",
+      "roots": {
+        "L01": "L01.dart.flutter.mobile.intent",
+        "L02": "L02.dart.flutter.mobile.variant",
+        "L03": "L03.dart.flutter.mobile.interface",
+        "L04": "L04.dart.flutter.mobile.persistence",
+        "L05": "L05.dart.flutter.mobile.access",
+        "L06": "L06.dart.flutter.mobile.services",
+        "L07": "L07.dart.flutter.mobile.distribution",
+        "L08": "L08.dart.flutter.mobile.delivery"
+      },
+      "nodes": [
+        {
+          "id": "L01.dart.flutter.mobile.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Flutter: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.dart.flutter.mobile.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Flutter: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "android",
+            "ios"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.dart.flutter.mobile.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Flutter: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "shared_flutter",
+            "native_integrations"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.dart.flutter.mobile.intent",
+            "L01.dart.flutter.mobile.targets"
+          ]
+        },
+        {
+          "id": "L02.dart.flutter.mobile.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Flutter: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.dart.flutter.mobile.variant",
+            "L01.dart.flutter.mobile.targets"
+          ]
+        },
+        {
+          "id": "L03.dart.flutter.mobile.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Flutter: Widgets/navigation/state, accessibility, lifecycle and UI notification adapter?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.dart.flutter.mobile.variant",
+            "L01.dart.flutter.mobile.targets"
+          ]
+        },
+        {
+          "id": "L03.dart.flutter.mobile.variant_shared_flutter",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define widget/state/navigation and platform adaptation",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_shared_flutter",
+          "depends_on": [
+            "L02.dart.flutter.mobile.variant"
+          ],
+          "when": {
+            "node": "L02.dart.flutter.mobile.variant",
+            "equals": "shared_flutter"
+          }
+        },
+        {
+          "id": "L03.dart.flutter.mobile.variant_native_integrations",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define platform channels/plugins and native lifecycle ownership",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_native_integrations",
+          "depends_on": [
+            "L02.dart.flutter.mobile.variant"
+          ],
+          "when": {
+            "node": "L02.dart.flutter.mobile.variant",
+            "equals": "native_integrations"
+          }
+        },
+        {
+          "id": "L04.dart.flutter.mobile.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Flutter: Actual device storage/API, offline authority and synchronization? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.dart.flutter.mobile.variant",
+            "L01.dart.flutter.mobile.targets"
+          ]
+        },
+        {
+          "id": "L04.dart.flutter.mobile.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Flutter: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.dart.flutter.mobile.persistence",
+            "L01.dart.flutter.mobile.targets"
+          ],
+          "when": {
+            "node": "L04.dart.flutter.mobile.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.dart.flutter.mobile.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "Flutter: Secure storage, permissions and server-side resource access?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.dart.flutter.mobile.targets",
+            "L04.dart.flutter.mobile.persistence"
+          ]
+        },
+        {
+          "id": "L06.dart.flutter.mobile.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "Flutter: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.dart.flutter.mobile.variant",
+            "L04.dart.flutter.mobile.persistence"
+          ]
+        },
+        {
+          "id": "L07.dart.flutter.mobile.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "Flutter: Dart/Flutter plus native SDKs/plugins, per-OS signing and device/store acceptance? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.dart.flutter.mobile.targets",
+            "L02.dart.flutter.mobile.variant"
+          ]
+        },
+        {
+          "id": "L08.dart.flutter.mobile.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.dart.flutter.mobile.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "Flutter: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.dart.flutter.mobile.targets",
+            "L02.dart.flutter.mobile.variant"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "dotnet.worker",
+      "revision": 1,
+      "family": "worker",
+      "ecosystem": ".NET",
+      "framework": ".NET worker",
+      "blueprint": "plans/enhancements/wizard/TREE_CATALOG.md",
+      "roots": {
+        "L01": "L01.dotnet.worker.intent",
+        "L02": "L02.dotnet.worker.variant",
+        "L03": "L03.dotnet.worker.interface",
+        "L04": "L04.dotnet.worker.persistence",
+        "L05": "L05.dotnet.worker.access",
+        "L06": "L06.dotnet.worker.services",
+        "L07": "L07.dotnet.worker.distribution",
+        "L08": "L08.dotnet.worker.delivery"
+      },
+      "nodes": [
+        {
+          "id": "L01.dotnet.worker.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": ".NET worker: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.dotnet.worker.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": ".NET worker: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "server",
+            "local"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.dotnet.worker.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": ".NET worker: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "continuous",
+            "scheduled",
+            "event_triggered"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.dotnet.worker.intent",
+            "L01.dotnet.worker.targets"
+          ]
+        },
+        {
+          "id": "L02.dotnet.worker.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": ".NET worker: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.dotnet.worker.variant",
+            "L01.dotnet.worker.targets"
+          ]
+        },
+        {
+          "id": "L03.dotnet.worker.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": ".NET worker: Headless operator diagnostics, exit/shutdown and optional separate dashboard?",
+          "type": "text",
+          "choices": [],
+          "allow_na": true,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.dotnet.worker.variant",
+            "L01.dotnet.worker.targets"
+          ]
+        },
+        {
+          "id": "L03.dotnet.worker.variant_continuous",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define bounded work units, cancellation and restart",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_continuous",
+          "depends_on": [
+            "L02.dotnet.worker.variant"
+          ],
+          "when": {
+            "node": "L02.dotnet.worker.variant",
+            "equals": "continuous"
+          }
+        },
+        {
+          "id": "L03.dotnet.worker.variant_scheduled",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define schedule/time zone, overlap and missed runs",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_scheduled",
+          "depends_on": [
+            "L02.dotnet.worker.variant"
+          ],
+          "when": {
+            "node": "L02.dotnet.worker.variant",
+            "equals": "scheduled"
+          }
+        },
+        {
+          "id": "L03.dotnet.worker.variant_event_triggered",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define queue/event contract, idempotency and dead letters",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_event_triggered",
+          "depends_on": [
+            "L02.dotnet.worker.variant"
+          ],
+          "when": {
+            "node": "L02.dotnet.worker.variant",
+            "equals": "event_triggered"
+          }
+        },
+        {
+          "id": "L04.dotnet.worker.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": ".NET worker: Checkpoints/provider ownership, transaction/idempotency/concurrency and replay? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.dotnet.worker.variant",
+            "L01.dotnet.worker.targets"
+          ]
+        },
+        {
+          "id": "L04.dotnet.worker.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": ".NET worker: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.dotnet.worker.persistence",
+            "L01.dotnet.worker.targets"
+          ],
+          "when": {
+            "node": "L04.dotnet.worker.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.dotnet.worker.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": ".NET worker: Service identity, tenant/resource access and administrative scope?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.dotnet.worker.targets",
+            "L04.dotnet.worker.persistence"
+          ]
+        },
+        {
+          "id": "L06.dotnet.worker.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": ".NET worker: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.dotnet.worker.variant",
+            "L04.dotnet.worker.persistence"
+          ]
+        },
+        {
+          "id": "L07.dotnet.worker.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": ".NET worker: Host scheduler, restart/shutdown, capacity, health and recovery? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.dotnet.worker.targets",
+            "L02.dotnet.worker.variant"
+          ]
+        },
+        {
+          "id": "L08.dotnet.worker.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.dotnet.worker.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": ".NET worker: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.dotnet.worker.targets",
+            "L02.dotnet.worker.variant"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "python.cli",
+      "revision": 1,
+      "family": "cli",
+      "ecosystem": "Python",
+      "framework": "Python CLI",
+      "blueprint": "plans/enhancements/wizard/TREE_CATALOG.md",
+      "roots": {
+        "L01": "L01.python.cli.intent",
+        "L02": "L02.python.cli.variant",
+        "L03": "L03.python.cli.interface",
+        "L04": "L04.python.cli.persistence",
+        "L05": "L05.python.cli.access",
+        "L06": "L06.python.cli.services",
+        "L07": "L07.python.cli.distribution",
+        "L08": "L08.python.cli.delivery"
+      },
+      "nodes": [
+        {
+          "id": "L01.python.cli.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Python CLI: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.python.cli.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Python CLI: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "windows",
+            "linux",
+            "macos"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.python.cli.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Python CLI: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "interactive",
+            "automation"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.python.cli.intent",
+            "L01.python.cli.targets"
+          ]
+        },
+        {
+          "id": "L02.python.cli.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Python CLI: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.python.cli.variant",
+            "L01.python.cli.targets"
+          ]
+        },
+        {
+          "id": "L03.python.cli.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Python CLI: Commands/options/help, structured/text output, errors, exits and cancellation?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.python.cli.variant",
+            "L01.python.cli.targets"
+          ]
+        },
+        {
+          "id": "L03.python.cli.variant_interactive",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define prompts, terminal accessibility and cancellation",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_interactive",
+          "depends_on": [
+            "L02.python.cli.variant"
+          ],
+          "when": {
+            "node": "L02.python.cli.variant",
+            "equals": "interactive"
+          }
+        },
+        {
+          "id": "L03.python.cli.variant_automation",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define stable options, stdin/stdout contracts and exit codes",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_automation",
+          "depends_on": [
+            "L02.python.cli.variant"
+          ],
+          "when": {
+            "node": "L02.python.cli.variant",
+            "equals": "automation"
+          }
+        },
+        {
+          "id": "L04.python.cli.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Python CLI: Files/streams/API or caller-owned data, integrity and recovery? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.python.cli.variant",
+            "L01.python.cli.targets"
+          ]
+        },
+        {
+          "id": "L04.python.cli.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Python CLI: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.python.cli.persistence",
+            "L01.python.cli.targets"
+          ],
+          "when": {
+            "node": "L04.python.cli.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.python.cli.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "Python CLI: OS privileges, allowed filesystem/network scope and safe credential inputs?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.python.cli.targets",
+            "L04.python.cli.persistence"
+          ]
+        },
+        {
+          "id": "L06.python.cli.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "Python CLI: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.python.cli.variant",
+            "L04.python.cli.persistence"
+          ]
+        },
+        {
+          "id": "L07.python.cli.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "Python CLI: Python/package/environment distribution, updates and support? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.python.cli.targets",
+            "L02.python.cli.variant"
+          ]
+        },
+        {
+          "id": "L08.python.cli.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.python.cli.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "Python CLI: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.python.cli.targets",
+            "L02.python.cli.variant"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "dotnet.library",
+      "revision": 1,
+      "family": "library",
+      "ecosystem": ".NET",
+      "framework": ".NET library",
+      "blueprint": "plans/enhancements/wizard/TREE_CATALOG.md",
+      "roots": {
+        "L01": "L01.dotnet.library.intent",
+        "L02": "L02.dotnet.library.variant",
+        "L03": "L03.dotnet.library.interface",
+        "L04": "L04.dotnet.library.persistence",
+        "L05": "L05.dotnet.library.access",
+        "L06": "L06.dotnet.library.services",
+        "L07": "L07.dotnet.library.distribution",
+        "L08": "L08.dotnet.library.delivery"
+      },
+      "nodes": [
+        {
+          "id": "L01.dotnet.library.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": ".NET library: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.dotnet.library.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": ".NET library: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "consumer_runtime"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.dotnet.library.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": ".NET library: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "reusable_library",
+            "sdk"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.dotnet.library.intent",
+            "L01.dotnet.library.targets"
+          ]
+        },
+        {
+          "id": "L02.dotnet.library.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": ".NET library: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.dotnet.library.variant",
+            "L01.dotnet.library.targets"
+          ]
+        },
+        {
+          "id": "L03.dotnet.library.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": ".NET library: Public API/error/cancellation and consumer experience; visual UI usually N/A?",
+          "type": "text",
+          "choices": [],
+          "allow_na": true,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.dotnet.library.variant",
+            "L01.dotnet.library.targets"
+          ]
+        },
+        {
+          "id": "L03.dotnet.library.variant_reusable_library",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define public API, supported consumers and compatibility",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_reusable_library",
+          "depends_on": [
+            "L02.dotnet.library.variant"
+          ],
+          "when": {
+            "node": "L02.dotnet.library.variant",
+            "equals": "reusable_library"
+          }
+        },
+        {
+          "id": "L03.dotnet.library.variant_sdk",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define external contract/client behavior, retries and service boundaries",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_sdk",
+          "depends_on": [
+            "L02.dotnet.library.variant"
+          ],
+          "when": {
+            "node": "L02.dotnet.library.variant",
+            "equals": "sdk"
+          }
+        },
+        {
+          "id": "L04.dotnet.library.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": ".NET library: Caller-owned versus library-owned data; serialization/compatibility? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.dotnet.library.variant",
+            "L01.dotnet.library.targets"
+          ]
+        },
+        {
+          "id": "L04.dotnet.library.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": ".NET library: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.dotnet.library.persistence",
+            "L01.dotnet.library.targets"
+          ],
+          "when": {
+            "node": "L04.dotnet.library.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.dotnet.library.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": ".NET library: Input trust, consumer authorization responsibility and secret boundaries?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.dotnet.library.targets",
+            "L04.dotnet.library.persistence"
+          ]
+        },
+        {
+          "id": "L06.dotnet.library.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": ".NET library: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.dotnet.library.variant",
+            "L04.dotnet.library.persistence"
+          ]
+        },
+        {
+          "id": "L07.dotnet.library.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": ".NET library: Target frameworks, package compatibility, versioning and distribution? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.dotnet.library.targets",
+            "L02.dotnet.library.variant"
+          ]
+        },
+        {
+          "id": "L08.dotnet.library.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.dotnet.library.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": ".NET library: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.dotnet.library.targets",
+            "L02.dotnet.library.variant"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "godot.csharp.game",
+      "revision": 1,
+      "family": "game",
+      "ecosystem": "C#/.NET",
+      "framework": "Godot 4 C#",
+      "blueprint": "plans/enhancements/wizard/games/GODOT.md",
+      "roots": {
+        "L01": "L01.godot.csharp.game.intent",
+        "L02": "L02.godot.csharp.game.variant",
+        "L03": "L03.godot.csharp.game.interface",
+        "L04": "L04.godot.csharp.game.persistence",
+        "L05": "L05.godot.csharp.game.access",
+        "L06": "L06.godot.csharp.game.services",
+        "L07": "L07.godot.csharp.game.distribution",
+        "L08": "L08.godot.csharp.game.delivery",
+        "G01": "G01.godot.csharp.game.concept",
+        "G02": "G02.godot.csharp.game.simulation",
+        "G03": "G03.godot.csharp.game.world",
+        "G04": "G04.godot.csharp.game.input",
+        "G05": "G05.godot.csharp.game.gameplay",
+        "G06": "G06.godot.csharp.game.assets",
+        "G07": "G07.godot.csharp.game.saves",
+        "G08": "G08.godot.csharp.game.players",
+        "G09": "G09.godot.csharp.game.acceptance"
+      },
+      "nodes": [
+        {
+          "id": "L01.godot.csharp.game.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Godot C#: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.godot.csharp.game.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Godot C#: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "windows",
+            "linux",
+            "macos",
+            "android",
+            "ios",
+            "web"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.godot.csharp.game.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Godot C#: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "compatibility",
+            "mobile",
+            "forward_plus"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.godot.csharp.game.intent",
+            "L01.godot.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "L02.godot.csharp.game.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Godot C#: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.godot.csharp.game.variant",
+            "L01.godot.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "L03.godot.csharp.game.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Godot C#: Godot scenes/nodes, Control UI, input and main-thread/lifecycle notification dispatch?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.godot.csharp.game.variant",
+            "L01.godot.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "L03.godot.csharp.game.variant_compatibility",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define Compatibility renderer and target constraints; C# web export remains blocked by this profile",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_compatibility",
+          "depends_on": [
+            "L02.godot.csharp.game.variant"
+          ],
+          "when": {
+            "node": "L02.godot.csharp.game.variant",
+            "equals": "compatibility"
+          }
+        },
+        {
+          "id": "L03.godot.csharp.game.variant_mobile",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define Mobile renderer/device performance and export constraints",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_mobile",
+          "depends_on": [
+            "L02.godot.csharp.game.variant"
+          ],
+          "when": {
+            "node": "L02.godot.csharp.game.variant",
+            "equals": "mobile"
+          }
+        },
+        {
+          "id": "L03.godot.csharp.game.variant_forward_plus",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define Forward+ renderer and actual target/GPU budget",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_forward_plus",
+          "depends_on": [
+            "L02.godot.csharp.game.variant"
+          ],
+          "when": {
+            "node": "L02.godot.csharp.game.variant",
+            "equals": "forward_plus"
+          }
+        },
+        {
+          "id": "L04.godot.csharp.game.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Godot C#: Godot resources/save files, portable C# rules and versioned recovery? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.godot.csharp.game.variant",
+            "L01.godot.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "L04.godot.csharp.game.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Godot C#: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.godot.csharp.game.persistence",
+            "L01.godot.csharp.game.targets"
+          ],
+          "when": {
+            "node": "L04.godot.csharp.game.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.godot.csharp.game.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "Godot C#: Local/save trust, online authority, safe plugins and protected credentials?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.godot.csharp.game.targets",
+            "L04.godot.csharp.game.persistence"
+          ]
+        },
+        {
+          "id": "L06.godot.csharp.game.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "Godot C#: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.godot.csharp.game.variant",
+            "L04.godot.csharp.game.persistence"
+          ]
+        },
+        {
+          "id": "L07.godot.csharp.game.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "Godot C#: Actual .NET editor/export templates, target compatibility, plugins and selected stores? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.godot.csharp.game.targets",
+            "L02.godot.csharp.game.variant"
+          ]
+        },
+        {
+          "id": "L08.godot.csharp.game.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.godot.csharp.game.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "Godot C#: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.godot.csharp.game.targets",
+            "L02.godot.csharp.game.variant"
+          ]
+        },
+        {
+          "id": "G01.godot.csharp.game.concept",
+          "group": "G01",
+          "owner": "L01",
+          "question": "Godot C#: Genre/core loop, audience, perspective, win/loss and first playable acceptance?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G01.concept",
+          "depends_on": [
+            "L02.godot.csharp.game.variant",
+            "L01.godot.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G02.godot.csharp.game.simulation",
+          "group": "G02",
+          "owner": "L02",
+          "question": "Godot C#: Tick/render/physics ownership, timing/pause, units, seeds and determinism/replay needs?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G02.simulation",
+          "depends_on": [
+            "L02.godot.csharp.game.variant",
+            "L01.godot.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G03.godot.csharp.game.world",
+          "group": "G03",
+          "owner": "L02",
+          "question": "Godot C#: Engine-native scenes/entities, spawning/lifetime, loading/streaming and content boundaries?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G03.world",
+          "depends_on": [
+            "L02.godot.csharp.game.variant",
+            "L01.godot.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G04.godot.csharp.game.input",
+          "group": "G04",
+          "owner": "L03",
+          "question": "Godot C#: Keyboard/controller/touch/camera, remapping, UI focus and accessibility?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G04.input",
+          "depends_on": [
+            "L02.godot.csharp.game.variant",
+            "L01.godot.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G05.godot.csharp.game.gameplay",
+          "group": "G05",
+          "owner": "L04",
+          "question": "Godot C#: Selected mechanics/AI/progression, rule/state contracts and failure invariants?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G05.gameplay",
+          "depends_on": [
+            "L02.godot.csharp.game.variant",
+            "L01.godot.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G06.godot.csharp.game.assets",
+          "group": "G06",
+          "owner": "L03",
+          "question": "Godot C#: Art/audio/animation/HUD pipeline, import formats, performance and asset rights?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G06.assets",
+          "depends_on": [
+            "L02.godot.csharp.game.variant",
+            "L01.godot.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G07.godot.csharp.game.saves",
+          "group": "G07",
+          "owner": "L04",
+          "question": "Godot C#: Save/settings/content schema, atomic recovery, replay and compatibility?",
+          "type": "text",
+          "choices": [],
+          "allow_na": true,
+          "binding": "G07.saves",
+          "depends_on": [
+            "L02.godot.csharp.game.variant",
+            "L01.godot.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G08.godot.csharp.game.players",
+          "group": "G08",
+          "owner": "L06",
+          "question": "Godot C#: Choose player/network scope.",
+          "type": "choice",
+          "choices": [
+            "single_player",
+            "local_multiplayer",
+            "online"
+          ],
+          "allow_na": false,
+          "binding": "G08.players",
+          "depends_on": [
+            "L02.godot.csharp.game.variant",
+            "L01.godot.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G08.godot.csharp.game.authority",
+          "group": "G08",
+          "owner": "L06",
+          "question": "Godot C#: define server authority, replication, session/lobby, reconnect, abuse checks and actual online-service contracts.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G08.authority",
+          "depends_on": [
+            "G08.godot.csharp.game.players"
+          ],
+          "when": {
+            "node": "G08.godot.csharp.game.players",
+            "equals": "online"
+          }
+        },
+        {
+          "id": "G09.godot.csharp.game.acceptance",
+          "group": "G09",
+          "owner": "L08",
+          "question": "Godot C#: Frame/memory budgets, playtest cases, actual packaged targets and distribution/store evidence?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G09.acceptance",
+          "depends_on": [
+            "L02.godot.csharp.game.variant",
+            "L01.godot.csharp.game.targets"
+          ]
+        }
+      ],
+      "conflicts": [
+        {
+          "node": "L01.godot.csharp.game.targets",
+          "contains": "web",
+          "reason": "Godot C# web export is not supported by this profile. Verify current official engine documentation; retain the target or explicitly choose another language/engine."
+        }
+      ]
+    },
+    {
+      "id": "godot.gdscript.game",
+      "revision": 1,
+      "family": "game",
+      "ecosystem": "GDScript",
+      "framework": "Godot 4 GDScript",
+      "blueprint": "plans/enhancements/wizard/games/GODOT_GDSCRIPT.md",
+      "roots": {
+        "L01": "L01.godot.gdscript.game.intent",
+        "L02": "L02.godot.gdscript.game.variant",
+        "L03": "L03.godot.gdscript.game.interface",
+        "L04": "L04.godot.gdscript.game.persistence",
+        "L05": "L05.godot.gdscript.game.access",
+        "L06": "L06.godot.gdscript.game.services",
+        "L07": "L07.godot.gdscript.game.distribution",
+        "L08": "L08.godot.gdscript.game.delivery",
+        "G01": "G01.godot.gdscript.game.concept",
+        "G02": "G02.godot.gdscript.game.simulation",
+        "G03": "G03.godot.gdscript.game.world",
+        "G04": "G04.godot.gdscript.game.input",
+        "G05": "G05.godot.gdscript.game.gameplay",
+        "G06": "G06.godot.gdscript.game.assets",
+        "G07": "G07.godot.gdscript.game.saves",
+        "G08": "G08.godot.gdscript.game.players",
+        "G09": "G09.godot.gdscript.game.acceptance"
+      },
+      "nodes": [
+        {
+          "id": "L01.godot.gdscript.game.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Godot GDScript: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.godot.gdscript.game.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Godot GDScript: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "windows",
+            "linux",
+            "macos",
+            "android",
+            "ios",
+            "web"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.godot.gdscript.game.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Godot GDScript: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "compatibility",
+            "mobile",
+            "forward_plus"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.godot.gdscript.game.intent",
+            "L01.godot.gdscript.game.targets"
+          ]
+        },
+        {
+          "id": "L02.godot.gdscript.game.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Godot GDScript: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant",
+            "L01.godot.gdscript.game.targets"
+          ]
+        },
+        {
+          "id": "L03.godot.gdscript.game.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Godot GDScript: GDScript scenes/signals, Control UI, input and typed/untyped script boundaries?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant",
+            "L01.godot.gdscript.game.targets"
+          ]
+        },
+        {
+          "id": "L03.godot.gdscript.game.variant_compatibility",
+          "group": "L03",
+          "owner": "L03",
+          "question": "For web, verify Compatibility/WebGL2, threading, headers and browser features",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_compatibility",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant"
+          ],
+          "when": {
+            "node": "L02.godot.gdscript.game.variant",
+            "equals": "compatibility"
+          }
+        },
+        {
+          "id": "L03.godot.gdscript.game.variant_mobile",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define Mobile renderer/device/export compatibility",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_mobile",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant"
+          ],
+          "when": {
+            "node": "L02.godot.gdscript.game.variant",
+            "equals": "mobile"
+          }
+        },
+        {
+          "id": "L03.godot.gdscript.game.variant_forward_plus",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define Forward+ renderer/GPU constraints and export compatibility",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_forward_plus",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant"
+          ],
+          "when": {
+            "node": "L02.godot.gdscript.game.variant",
+            "equals": "forward_plus"
+          }
+        },
+        {
+          "id": "L04.godot.gdscript.game.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Godot GDScript: Resources/save versioning, recovery and trusted data? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant",
+            "L01.godot.gdscript.game.targets"
+          ]
+        },
+        {
+          "id": "L04.godot.gdscript.game.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Godot GDScript: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.godot.gdscript.game.persistence",
+            "L01.godot.gdscript.game.targets"
+          ],
+          "when": {
+            "node": "L04.godot.gdscript.game.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.godot.gdscript.game.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "Godot GDScript: Online authority, addon trust, safe save/content loading and credentials?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.godot.gdscript.game.targets",
+            "L04.godot.gdscript.game.persistence"
+          ]
+        },
+        {
+          "id": "L06.godot.gdscript.game.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "Godot GDScript: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant",
+            "L04.godot.gdscript.game.persistence"
+          ]
+        },
+        {
+          "id": "L07.godot.gdscript.game.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "Godot GDScript: Godot export templates, plugins, renderer/browser headers and actual store targets? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.godot.gdscript.game.targets",
+            "L02.godot.gdscript.game.variant"
+          ]
+        },
+        {
+          "id": "L08.godot.gdscript.game.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.godot.gdscript.game.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "Godot GDScript: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.godot.gdscript.game.targets",
+            "L02.godot.gdscript.game.variant"
+          ]
+        },
+        {
+          "id": "G01.godot.gdscript.game.concept",
+          "group": "G01",
+          "owner": "L01",
+          "question": "Godot GDScript: Genre/core loop, audience, perspective, win/loss and first playable acceptance?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G01.concept",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant",
+            "L01.godot.gdscript.game.targets"
+          ]
+        },
+        {
+          "id": "G02.godot.gdscript.game.simulation",
+          "group": "G02",
+          "owner": "L02",
+          "question": "Godot GDScript: Tick/render/physics ownership, timing/pause, units, seeds and determinism/replay needs?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G02.simulation",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant",
+            "L01.godot.gdscript.game.targets"
+          ]
+        },
+        {
+          "id": "G03.godot.gdscript.game.world",
+          "group": "G03",
+          "owner": "L02",
+          "question": "Godot GDScript: Engine-native scenes/entities, spawning/lifetime, loading/streaming and content boundaries?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G03.world",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant",
+            "L01.godot.gdscript.game.targets"
+          ]
+        },
+        {
+          "id": "G04.godot.gdscript.game.input",
+          "group": "G04",
+          "owner": "L03",
+          "question": "Godot GDScript: Keyboard/controller/touch/camera, remapping, UI focus and accessibility?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G04.input",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant",
+            "L01.godot.gdscript.game.targets"
+          ]
+        },
+        {
+          "id": "G05.godot.gdscript.game.gameplay",
+          "group": "G05",
+          "owner": "L04",
+          "question": "Godot GDScript: Selected mechanics/AI/progression, rule/state contracts and failure invariants?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G05.gameplay",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant",
+            "L01.godot.gdscript.game.targets"
+          ]
+        },
+        {
+          "id": "G06.godot.gdscript.game.assets",
+          "group": "G06",
+          "owner": "L03",
+          "question": "Godot GDScript: Art/audio/animation/HUD pipeline, import formats, performance and asset rights?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G06.assets",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant",
+            "L01.godot.gdscript.game.targets"
+          ]
+        },
+        {
+          "id": "G07.godot.gdscript.game.saves",
+          "group": "G07",
+          "owner": "L04",
+          "question": "Godot GDScript: Save/settings/content schema, atomic recovery, replay and compatibility?",
+          "type": "text",
+          "choices": [],
+          "allow_na": true,
+          "binding": "G07.saves",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant",
+            "L01.godot.gdscript.game.targets"
+          ]
+        },
+        {
+          "id": "G08.godot.gdscript.game.players",
+          "group": "G08",
+          "owner": "L06",
+          "question": "Godot GDScript: Choose player/network scope.",
+          "type": "choice",
+          "choices": [
+            "single_player",
+            "local_multiplayer",
+            "online"
+          ],
+          "allow_na": false,
+          "binding": "G08.players",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant",
+            "L01.godot.gdscript.game.targets"
+          ]
+        },
+        {
+          "id": "G08.godot.gdscript.game.authority",
+          "group": "G08",
+          "owner": "L06",
+          "question": "Godot GDScript: define server authority, replication, session/lobby, reconnect, abuse checks and actual online-service contracts.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G08.authority",
+          "depends_on": [
+            "G08.godot.gdscript.game.players"
+          ],
+          "when": {
+            "node": "G08.godot.gdscript.game.players",
+            "equals": "online"
+          }
+        },
+        {
+          "id": "G09.godot.gdscript.game.acceptance",
+          "group": "G09",
+          "owner": "L08",
+          "question": "Godot GDScript: Frame/memory budgets, playtest cases, actual packaged targets and distribution/store evidence?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G09.acceptance",
+          "depends_on": [
+            "L02.godot.gdscript.game.variant",
+            "L01.godot.gdscript.game.targets"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "unity.csharp.game",
+      "revision": 1,
+      "family": "game",
+      "ecosystem": "C#",
+      "framework": "Unity",
+      "blueprint": "plans/enhancements/wizard/games/UNITY.md",
+      "roots": {
+        "L01": "L01.unity.csharp.game.intent",
+        "L02": "L02.unity.csharp.game.variant",
+        "L03": "L03.unity.csharp.game.interface",
+        "L04": "L04.unity.csharp.game.persistence",
+        "L05": "L05.unity.csharp.game.access",
+        "L06": "L06.unity.csharp.game.services",
+        "L07": "L07.unity.csharp.game.distribution",
+        "L08": "L08.unity.csharp.game.delivery",
+        "G01": "G01.unity.csharp.game.concept",
+        "G02": "G02.unity.csharp.game.simulation",
+        "G03": "G03.unity.csharp.game.world",
+        "G04": "G04.unity.csharp.game.input",
+        "G05": "G05.unity.csharp.game.gameplay",
+        "G06": "G06.unity.csharp.game.assets",
+        "G07": "G07.unity.csharp.game.saves",
+        "G08": "G08.unity.csharp.game.players",
+        "G09": "G09.unity.csharp.game.acceptance"
+      },
+      "nodes": [
+        {
+          "id": "L01.unity.csharp.game.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Unity: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.unity.csharp.game.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Unity: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "windows",
+            "linux",
+            "macos",
+            "android",
+            "ios",
+            "web"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.unity.csharp.game.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Unity: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "built_in",
+            "urp",
+            "hdrp"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.unity.csharp.game.intent",
+            "L01.unity.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "L02.unity.csharp.game.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Unity: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.unity.csharp.game.variant",
+            "L01.unity.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "L03.unity.csharp.game.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Unity: GameObject/component/prefab, selected UI/input and engine lifecycle notifications?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.unity.csharp.game.variant",
+            "L01.unity.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "L03.unity.csharp.game.variant_built_in",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define built-in pipeline/content/platform requirements",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_built_in",
+          "depends_on": [
+            "L02.unity.csharp.game.variant"
+          ],
+          "when": {
+            "node": "L02.unity.csharp.game.variant",
+            "equals": "built_in"
+          }
+        },
+        {
+          "id": "L03.unity.csharp.game.variant_urp",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define URP features, shader/content and target budgets",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_urp",
+          "depends_on": [
+            "L02.unity.csharp.game.variant"
+          ],
+          "when": {
+            "node": "L02.unity.csharp.game.variant",
+            "equals": "urp"
+          }
+        },
+        {
+          "id": "L03.unity.csharp.game.variant_hdrp",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define HDRP/GPU and actual target compatibility",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_hdrp",
+          "depends_on": [
+            "L02.unity.csharp.game.variant"
+          ],
+          "when": {
+            "node": "L02.unity.csharp.game.variant",
+            "equals": "hdrp"
+          }
+        },
+        {
+          "id": "L04.unity.csharp.game.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Unity: Unity assets/addressing/save versions, C# backend/AOT compatibility and recovery? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.unity.csharp.game.variant",
+            "L01.unity.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "L04.unity.csharp.game.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Unity: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.unity.csharp.game.persistence",
+            "L01.unity.csharp.game.targets"
+          ],
+          "when": {
+            "node": "L04.unity.csharp.game.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.unity.csharp.game.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "Unity: Network authority, assets/plugins, save trust and credentials?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.unity.csharp.game.targets",
+            "L04.unity.csharp.game.persistence"
+          ]
+        },
+        {
+          "id": "L06.unity.csharp.game.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "Unity: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.unity.csharp.game.variant",
+            "L04.unity.csharp.game.persistence"
+          ]
+        },
+        {
+          "id": "L07.unity.csharp.game.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "Unity: Unity release/backend/export modules, plugins, platform signing and stores? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.unity.csharp.game.targets",
+            "L02.unity.csharp.game.variant"
+          ]
+        },
+        {
+          "id": "L08.unity.csharp.game.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.unity.csharp.game.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "Unity: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.unity.csharp.game.targets",
+            "L02.unity.csharp.game.variant"
+          ]
+        },
+        {
+          "id": "G01.unity.csharp.game.concept",
+          "group": "G01",
+          "owner": "L01",
+          "question": "Unity: Genre/core loop, audience, perspective, win/loss and first playable acceptance?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G01.concept",
+          "depends_on": [
+            "L02.unity.csharp.game.variant",
+            "L01.unity.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G02.unity.csharp.game.simulation",
+          "group": "G02",
+          "owner": "L02",
+          "question": "Unity: Tick/render/physics ownership, timing/pause, units, seeds and determinism/replay needs?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G02.simulation",
+          "depends_on": [
+            "L02.unity.csharp.game.variant",
+            "L01.unity.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G03.unity.csharp.game.world",
+          "group": "G03",
+          "owner": "L02",
+          "question": "Unity: Engine-native scenes/entities, spawning/lifetime, loading/streaming and content boundaries?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G03.world",
+          "depends_on": [
+            "L02.unity.csharp.game.variant",
+            "L01.unity.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G04.unity.csharp.game.input",
+          "group": "G04",
+          "owner": "L03",
+          "question": "Unity: Keyboard/controller/touch/camera, remapping, UI focus and accessibility?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G04.input",
+          "depends_on": [
+            "L02.unity.csharp.game.variant",
+            "L01.unity.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G05.unity.csharp.game.gameplay",
+          "group": "G05",
+          "owner": "L04",
+          "question": "Unity: Selected mechanics/AI/progression, rule/state contracts and failure invariants?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G05.gameplay",
+          "depends_on": [
+            "L02.unity.csharp.game.variant",
+            "L01.unity.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G06.unity.csharp.game.assets",
+          "group": "G06",
+          "owner": "L03",
+          "question": "Unity: Art/audio/animation/HUD pipeline, import formats, performance and asset rights?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G06.assets",
+          "depends_on": [
+            "L02.unity.csharp.game.variant",
+            "L01.unity.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G07.unity.csharp.game.saves",
+          "group": "G07",
+          "owner": "L04",
+          "question": "Unity: Save/settings/content schema, atomic recovery, replay and compatibility?",
+          "type": "text",
+          "choices": [],
+          "allow_na": true,
+          "binding": "G07.saves",
+          "depends_on": [
+            "L02.unity.csharp.game.variant",
+            "L01.unity.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G08.unity.csharp.game.players",
+          "group": "G08",
+          "owner": "L06",
+          "question": "Unity: Choose player/network scope.",
+          "type": "choice",
+          "choices": [
+            "single_player",
+            "local_multiplayer",
+            "online"
+          ],
+          "allow_na": false,
+          "binding": "G08.players",
+          "depends_on": [
+            "L02.unity.csharp.game.variant",
+            "L01.unity.csharp.game.targets"
+          ]
+        },
+        {
+          "id": "G08.unity.csharp.game.authority",
+          "group": "G08",
+          "owner": "L06",
+          "question": "Unity: define server authority, replication, session/lobby, reconnect, abuse checks and actual online-service contracts.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G08.authority",
+          "depends_on": [
+            "G08.unity.csharp.game.players"
+          ],
+          "when": {
+            "node": "G08.unity.csharp.game.players",
+            "equals": "online"
+          }
+        },
+        {
+          "id": "G09.unity.csharp.game.acceptance",
+          "group": "G09",
+          "owner": "L08",
+          "question": "Unity: Frame/memory budgets, playtest cases, actual packaged targets and distribution/store evidence?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G09.acceptance",
+          "depends_on": [
+            "L02.unity.csharp.game.variant",
+            "L01.unity.csharp.game.targets"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "unreal.cpp-blueprint.game",
+      "revision": 1,
+      "family": "game",
+      "ecosystem": "C++/Blueprints",
+      "framework": "Unreal",
+      "blueprint": "plans/enhancements/wizard/games/UNREAL.md",
+      "roots": {
+        "L01": "L01.unreal.cpp-blueprint.game.intent",
+        "L02": "L02.unreal.cpp-blueprint.game.variant",
+        "L03": "L03.unreal.cpp-blueprint.game.interface",
+        "L04": "L04.unreal.cpp-blueprint.game.persistence",
+        "L05": "L05.unreal.cpp-blueprint.game.access",
+        "L06": "L06.unreal.cpp-blueprint.game.services",
+        "L07": "L07.unreal.cpp-blueprint.game.distribution",
+        "L08": "L08.unreal.cpp-blueprint.game.delivery",
+        "G01": "G01.unreal.cpp-blueprint.game.concept",
+        "G02": "G02.unreal.cpp-blueprint.game.simulation",
+        "G03": "G03.unreal.cpp-blueprint.game.world",
+        "G04": "G04.unreal.cpp-blueprint.game.input",
+        "G05": "G05.unreal.cpp-blueprint.game.gameplay",
+        "G06": "G06.unreal.cpp-blueprint.game.assets",
+        "G07": "G07.unreal.cpp-blueprint.game.saves",
+        "G08": "G08.unreal.cpp-blueprint.game.players",
+        "G09": "G09.unreal.cpp-blueprint.game.acceptance"
+      },
+      "nodes": [
+        {
+          "id": "L01.unreal.cpp-blueprint.game.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Unreal: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.unreal.cpp-blueprint.game.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "Unreal: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "windows",
+            "linux",
+            "macos",
+            "android",
+            "ios"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.unreal.cpp-blueprint.game.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Unreal: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "cpp",
+            "blueprints",
+            "mixed"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.unreal.cpp-blueprint.game.intent",
+            "L01.unreal.cpp-blueprint.game.targets"
+          ]
+        },
+        {
+          "id": "L02.unreal.cpp-blueprint.game.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "Unreal: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant",
+            "L01.unreal.cpp-blueprint.game.targets"
+          ]
+        },
+        {
+          "id": "L03.unreal.cpp-blueprint.game.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Unreal: Actor/component/pawn/controller, UMG/input and game-thread ownership?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant",
+            "L01.unreal.cpp-blueprint.game.targets"
+          ]
+        },
+        {
+          "id": "L03.unreal.cpp-blueprint.game.variant_cpp",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define native modules/reflection and ownership",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_cpp",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant"
+          ],
+          "when": {
+            "node": "L02.unreal.cpp-blueprint.game.variant",
+            "equals": "cpp"
+          }
+        },
+        {
+          "id": "L03.unreal.cpp-blueprint.game.variant_blueprints",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define Blueprint classes/events and performance boundaries",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_blueprints",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant"
+          ],
+          "when": {
+            "node": "L02.unreal.cpp-blueprint.game.variant",
+            "equals": "blueprints"
+          }
+        },
+        {
+          "id": "L03.unreal.cpp-blueprint.game.variant_mixed",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define C++/Blueprint contracts and ownership; .NET interop is separately qualified",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_mixed",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant"
+          ],
+          "when": {
+            "node": "L02.unreal.cpp-blueprint.game.variant",
+            "equals": "mixed"
+          }
+        },
+        {
+          "id": "L04.unreal.cpp-blueprint.game.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Unreal: UObject/assets/save lifecycle, serialization and recovery? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant",
+            "L01.unreal.cpp-blueprint.game.targets"
+          ]
+        },
+        {
+          "id": "L04.unreal.cpp-blueprint.game.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "Unreal: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.unreal.cpp-blueprint.game.persistence",
+            "L01.unreal.cpp-blueprint.game.targets"
+          ],
+          "when": {
+            "node": "L04.unreal.cpp-blueprint.game.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.unreal.cpp-blueprint.game.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "Unreal: Server authority/RPC validation, content/plugins and secrets?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.unreal.cpp-blueprint.game.targets",
+            "L04.unreal.cpp-blueprint.game.persistence"
+          ]
+        },
+        {
+          "id": "L06.unreal.cpp-blueprint.game.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "Unreal: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant",
+            "L04.unreal.cpp-blueprint.game.persistence"
+          ]
+        },
+        {
+          "id": "L07.unreal.cpp-blueprint.game.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "Unreal: Actual Unreal/toolchain/build/cook/package, platform SDKs and stores? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.unreal.cpp-blueprint.game.targets",
+            "L02.unreal.cpp-blueprint.game.variant"
+          ]
+        },
+        {
+          "id": "L08.unreal.cpp-blueprint.game.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.unreal.cpp-blueprint.game.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "Unreal: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.unreal.cpp-blueprint.game.targets",
+            "L02.unreal.cpp-blueprint.game.variant"
+          ]
+        },
+        {
+          "id": "G01.unreal.cpp-blueprint.game.concept",
+          "group": "G01",
+          "owner": "L01",
+          "question": "Unreal: Genre/core loop, audience, perspective, win/loss and first playable acceptance?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G01.concept",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant",
+            "L01.unreal.cpp-blueprint.game.targets"
+          ]
+        },
+        {
+          "id": "G02.unreal.cpp-blueprint.game.simulation",
+          "group": "G02",
+          "owner": "L02",
+          "question": "Unreal: Tick/render/physics ownership, timing/pause, units, seeds and determinism/replay needs?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G02.simulation",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant",
+            "L01.unreal.cpp-blueprint.game.targets"
+          ]
+        },
+        {
+          "id": "G03.unreal.cpp-blueprint.game.world",
+          "group": "G03",
+          "owner": "L02",
+          "question": "Unreal: Engine-native scenes/entities, spawning/lifetime, loading/streaming and content boundaries?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G03.world",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant",
+            "L01.unreal.cpp-blueprint.game.targets"
+          ]
+        },
+        {
+          "id": "G04.unreal.cpp-blueprint.game.input",
+          "group": "G04",
+          "owner": "L03",
+          "question": "Unreal: Keyboard/controller/touch/camera, remapping, UI focus and accessibility?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G04.input",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant",
+            "L01.unreal.cpp-blueprint.game.targets"
+          ]
+        },
+        {
+          "id": "G05.unreal.cpp-blueprint.game.gameplay",
+          "group": "G05",
+          "owner": "L04",
+          "question": "Unreal: Selected mechanics/AI/progression, rule/state contracts and failure invariants?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G05.gameplay",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant",
+            "L01.unreal.cpp-blueprint.game.targets"
+          ]
+        },
+        {
+          "id": "G06.unreal.cpp-blueprint.game.assets",
+          "group": "G06",
+          "owner": "L03",
+          "question": "Unreal: Art/audio/animation/HUD pipeline, import formats, performance and asset rights?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G06.assets",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant",
+            "L01.unreal.cpp-blueprint.game.targets"
+          ]
+        },
+        {
+          "id": "G07.unreal.cpp-blueprint.game.saves",
+          "group": "G07",
+          "owner": "L04",
+          "question": "Unreal: Save/settings/content schema, atomic recovery, replay and compatibility?",
+          "type": "text",
+          "choices": [],
+          "allow_na": true,
+          "binding": "G07.saves",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant",
+            "L01.unreal.cpp-blueprint.game.targets"
+          ]
+        },
+        {
+          "id": "G08.unreal.cpp-blueprint.game.players",
+          "group": "G08",
+          "owner": "L06",
+          "question": "Unreal: Choose player/network scope.",
+          "type": "choice",
+          "choices": [
+            "single_player",
+            "local_multiplayer",
+            "online"
+          ],
+          "allow_na": false,
+          "binding": "G08.players",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant",
+            "L01.unreal.cpp-blueprint.game.targets"
+          ]
+        },
+        {
+          "id": "G08.unreal.cpp-blueprint.game.authority",
+          "group": "G08",
+          "owner": "L06",
+          "question": "Unreal: define server authority, replication, session/lobby, reconnect, abuse checks and actual online-service contracts.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G08.authority",
+          "depends_on": [
+            "G08.unreal.cpp-blueprint.game.players"
+          ],
+          "when": {
+            "node": "G08.unreal.cpp-blueprint.game.players",
+            "equals": "online"
+          }
+        },
+        {
+          "id": "G09.unreal.cpp-blueprint.game.acceptance",
+          "group": "G09",
+          "owner": "L08",
+          "question": "Unreal: Frame/memory budgets, playtest cases, actual packaged targets and distribution/store evidence?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G09.acceptance",
+          "depends_on": [
+            "L02.unreal.cpp-blueprint.game.variant",
+            "L01.unreal.cpp-blueprint.game.targets"
+          ]
+        }
+      ],
+      "conflicts": []
+    },
+    {
+      "id": "custom.dotnet.game",
+      "revision": 1,
+      "family": "game",
+      "ecosystem": ".NET",
+      "framework": "custom .NET game host",
+      "blueprint": "plans/enhancements/wizard/games/CUSTOM_DOTNET.md",
+      "roots": {
+        "L01": "L01.custom.dotnet.game.intent",
+        "L02": "L02.custom.dotnet.game.variant",
+        "L03": "L03.custom.dotnet.game.interface",
+        "L04": "L04.custom.dotnet.game.persistence",
+        "L05": "L05.custom.dotnet.game.access",
+        "L06": "L06.custom.dotnet.game.services",
+        "L07": "L07.custom.dotnet.game.distribution",
+        "L08": "L08.custom.dotnet.game.delivery",
+        "G01": "G01.custom.dotnet.game.concept",
+        "G02": "G02.custom.dotnet.game.simulation",
+        "G03": "G03.custom.dotnet.game.world",
+        "G04": "G04.custom.dotnet.game.input",
+        "G05": "G05.custom.dotnet.game.gameplay",
+        "G06": "G06.custom.dotnet.game.assets",
+        "G07": "G07.custom.dotnet.game.saves",
+        "G08": "G08.custom.dotnet.game.players",
+        "G09": "G09.custom.dotnet.game.acceptance"
+      },
+      "nodes": [
+        {
+          "id": "L01.custom.dotnet.game.intent",
+          "group": "L01",
+          "owner": "L01",
+          "question": "custom .NET game host: what outcome, users/players, first useful slice and constraints?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L01.intent",
+          "depends_on": []
+        },
+        {
+          "id": "L01.custom.dotnet.game.targets",
+          "group": "L01",
+          "owner": "L01",
+          "question": "custom .NET game host: select actual target platforms. Custom targets stay unqualified.",
+          "type": "multi",
+          "choices": [
+            "windows",
+            "linux",
+            "macos",
+            "android",
+            "ios",
+            "web"
+          ],
+          "allow_na": false,
+          "binding": "L01.targets",
+          "depends_on": []
+        },
+        {
+          "id": "L02.custom.dotnet.game.variant",
+          "group": "L02",
+          "owner": "L02",
+          "question": "custom .NET game host: choose the execution/UI/renderer variant.",
+          "type": "choice",
+          "choices": [
+            "existing_host",
+            "new_adapter"
+          ],
+          "allow_na": false,
+          "binding": "L02.variant",
+          "depends_on": [
+            "L01.custom.dotnet.game.intent",
+            "L01.custom.dotnet.game.targets"
+          ]
+        },
+        {
+          "id": "L02.custom.dotnet.game.versions",
+          "group": "L02",
+          "owner": "L02",
+          "question": "custom .NET game host: actual pinned/observed runtime, framework/editor, toolchain, dependencies and source locators? Unknown is allowed; no upgrades are implied.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L02.versions",
+          "depends_on": [
+            "L02.custom.dotnet.game.variant",
+            "L01.custom.dotnet.game.targets"
+          ]
+        },
+        {
+          "id": "L03.custom.dotnet.game.interface",
+          "group": "L03",
+          "owner": "L03",
+          "question": "custom .NET game host: Selected render/input/audio/UI adapters and host lifecycle ownership?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.interface",
+          "depends_on": [
+            "L02.custom.dotnet.game.variant",
+            "L01.custom.dotnet.game.targets"
+          ]
+        },
+        {
+          "id": "L03.custom.dotnet.game.variant_existing_host",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Identify existing engine/host contracts and extension points",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_existing_host",
+          "depends_on": [
+            "L02.custom.dotnet.game.variant"
+          ],
+          "when": {
+            "node": "L02.custom.dotnet.game.variant",
+            "equals": "existing_host"
+          }
+        },
+        {
+          "id": "L03.custom.dotnet.game.variant_new_adapter",
+          "group": "L03",
+          "owner": "L03",
+          "question": "Define only the needed rendering/input/lifecycle adapter; qualify target and runtime",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L03.variant_new_adapter",
+          "depends_on": [
+            "L02.custom.dotnet.game.variant"
+          ],
+          "when": {
+            "node": "L02.custom.dotnet.game.variant",
+            "equals": "new_adapter"
+          }
+        },
+        {
+          "id": "L04.custom.dotnet.game.persistence",
+          "group": "L04",
+          "owner": "L04",
+          "question": "custom .NET game host: Engine-independent rules/state and host-specific storage/save recovery? Choose persistence shape, then record details in the project design.",
+          "type": "choice",
+          "choices": [
+            "none",
+            "local",
+            "remote",
+            "hybrid"
+          ],
+          "allow_na": false,
+          "binding": "L04.persistence",
+          "depends_on": [
+            "L02.custom.dotnet.game.variant",
+            "L01.custom.dotnet.game.targets"
+          ]
+        },
+        {
+          "id": "L04.custom.dotnet.game.offline_sync",
+          "group": "L04",
+          "owner": "L04",
+          "question": "custom .NET game host: define offline authority, conflict resolution, versioned migration and recovery checks.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L04.offline_sync",
+          "depends_on": [
+            "L04.custom.dotnet.game.persistence",
+            "L01.custom.dotnet.game.targets"
+          ],
+          "when": {
+            "node": "L04.custom.dotnet.game.persistence",
+            "equals": "hybrid"
+          }
+        },
+        {
+          "id": "L05.custom.dotnet.game.access",
+          "group": "L05",
+          "owner": "L05",
+          "question": "custom .NET game host: Host/network/content trust and resource authorization?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L05.access",
+          "depends_on": [
+            "L01.custom.dotnet.game.targets",
+            "L04.custom.dotnet.game.persistence"
+          ]
+        },
+        {
+          "id": "L06.custom.dotnet.game.services",
+          "group": "L06",
+          "owner": "L06",
+          "question": "custom .NET game host: map actual shared Log/Audit/Notification services, UI adapter if applicable, correlation, failure/retry/redaction and required integrations. Reuse existing contracts; never swallow exceptions.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L06.services",
+          "depends_on": [
+            "L02.custom.dotnet.game.variant",
+            "L04.custom.dotnet.game.persistence"
+          ]
+        },
+        {
+          "id": "L07.custom.dotnet.game.distribution",
+          "group": "L07",
+          "owner": "L07",
+          "question": "custom .NET game host: Actual host/runtime/graphics/native dependencies, AOT/export and selected stores? Record version/source checks and unmet account/device gates.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L07.distribution",
+          "depends_on": [
+            "L01.custom.dotnet.game.targets",
+            "L02.custom.dotnet.game.variant"
+          ]
+        },
+        {
+          "id": "L08.custom.dotnet.game.delivery",
+          "group": "L08",
+          "owner": "L08",
+          "question": "What authorized output do you want? Selecting it records intent; this wizard never executes application work.",
+          "type": "choice",
+          "choices": [
+            "plan_only",
+            "first_runnable_slice",
+            "existing_project_assessment"
+          ],
+          "allow_na": false,
+          "binding": "L08.delivery",
+          "depends_on": []
+        },
+        {
+          "id": "L08.custom.dotnet.game.verification",
+          "group": "L08",
+          "owner": "L08",
+          "question": "custom .NET game host: exact project checks, Git workflow, owners and external acceptance gates? Link actual evidence; missing checks remain not_run.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "L08.verification",
+          "depends_on": [
+            "L01.custom.dotnet.game.targets",
+            "L02.custom.dotnet.game.variant"
+          ]
+        },
+        {
+          "id": "G01.custom.dotnet.game.concept",
+          "group": "G01",
+          "owner": "L01",
+          "question": "custom .NET game host: Genre/core loop, audience, perspective, win/loss and first playable acceptance?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G01.concept",
+          "depends_on": [
+            "L02.custom.dotnet.game.variant",
+            "L01.custom.dotnet.game.targets"
+          ]
+        },
+        {
+          "id": "G02.custom.dotnet.game.simulation",
+          "group": "G02",
+          "owner": "L02",
+          "question": "custom .NET game host: Tick/render/physics ownership, timing/pause, units, seeds and determinism/replay needs?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G02.simulation",
+          "depends_on": [
+            "L02.custom.dotnet.game.variant",
+            "L01.custom.dotnet.game.targets"
+          ]
+        },
+        {
+          "id": "G03.custom.dotnet.game.world",
+          "group": "G03",
+          "owner": "L02",
+          "question": "custom .NET game host: Engine-native scenes/entities, spawning/lifetime, loading/streaming and content boundaries?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G03.world",
+          "depends_on": [
+            "L02.custom.dotnet.game.variant",
+            "L01.custom.dotnet.game.targets"
+          ]
+        },
+        {
+          "id": "G04.custom.dotnet.game.input",
+          "group": "G04",
+          "owner": "L03",
+          "question": "custom .NET game host: Keyboard/controller/touch/camera, remapping, UI focus and accessibility?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G04.input",
+          "depends_on": [
+            "L02.custom.dotnet.game.variant",
+            "L01.custom.dotnet.game.targets"
+          ]
+        },
+        {
+          "id": "G05.custom.dotnet.game.gameplay",
+          "group": "G05",
+          "owner": "L04",
+          "question": "custom .NET game host: Selected mechanics/AI/progression, rule/state contracts and failure invariants?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G05.gameplay",
+          "depends_on": [
+            "L02.custom.dotnet.game.variant",
+            "L01.custom.dotnet.game.targets"
+          ]
+        },
+        {
+          "id": "G06.custom.dotnet.game.assets",
+          "group": "G06",
+          "owner": "L03",
+          "question": "custom .NET game host: Art/audio/animation/HUD pipeline, import formats, performance and asset rights?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G06.assets",
+          "depends_on": [
+            "L02.custom.dotnet.game.variant",
+            "L01.custom.dotnet.game.targets"
+          ]
+        },
+        {
+          "id": "G07.custom.dotnet.game.saves",
+          "group": "G07",
+          "owner": "L04",
+          "question": "custom .NET game host: Save/settings/content schema, atomic recovery, replay and compatibility?",
+          "type": "text",
+          "choices": [],
+          "allow_na": true,
+          "binding": "G07.saves",
+          "depends_on": [
+            "L02.custom.dotnet.game.variant",
+            "L01.custom.dotnet.game.targets"
+          ]
+        },
+        {
+          "id": "G08.custom.dotnet.game.players",
+          "group": "G08",
+          "owner": "L06",
+          "question": "custom .NET game host: Choose player/network scope.",
+          "type": "choice",
+          "choices": [
+            "single_player",
+            "local_multiplayer",
+            "online"
+          ],
+          "allow_na": false,
+          "binding": "G08.players",
+          "depends_on": [
+            "L02.custom.dotnet.game.variant",
+            "L01.custom.dotnet.game.targets"
+          ]
+        },
+        {
+          "id": "G08.custom.dotnet.game.authority",
+          "group": "G08",
+          "owner": "L06",
+          "question": "custom .NET game host: define server authority, replication, session/lobby, reconnect, abuse checks and actual online-service contracts.",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G08.authority",
+          "depends_on": [
+            "G08.custom.dotnet.game.players"
+          ],
+          "when": {
+            "node": "G08.custom.dotnet.game.players",
+            "equals": "online"
+          }
+        },
+        {
+          "id": "G09.custom.dotnet.game.acceptance",
+          "group": "G09",
+          "owner": "L08",
+          "question": "custom .NET game host: Frame/memory budgets, playtest cases, actual packaged targets and distribution/store evidence?",
+          "type": "text",
+          "choices": [],
+          "allow_na": false,
+          "binding": "G09.acceptance",
+          "depends_on": [
+            "L02.custom.dotnet.game.variant",
+            "L01.custom.dotnet.game.targets"
+          ]
+        }
+      ],
+      "conflicts": []
+    }
+  ]
+}

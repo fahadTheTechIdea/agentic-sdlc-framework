@@ -20,7 +20,9 @@ recommended/inferred answers, unresolved decisions and affected dependencies.
 Link [technology review](TECHNOLOGY_REVIEW.md) and, when relevant,
 [publishing readiness](PUBLISHING_READINESS.md): source check dates/conflicts,
 artifact identity, current stage and separate external gates. Refresh affected
-sources/checks on resume; no automatic saved-state engine is implied.
+sources/checks on resume. For wizard sessions link the actual state path and
+schema/profile revisions, then use the runtime resume command. Automatic catalog
+migration and synchronization with manually maintained documents are not implied.
 
 ## Next action
 

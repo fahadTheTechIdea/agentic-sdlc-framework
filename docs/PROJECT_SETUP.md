@@ -1,9 +1,10 @@
 # Guided setup through sdlc-orch
 
 Use the installed orchestrator in the application folder. It can guide a
-conversation using the existing layer and technology blueprints; the framework
-does not yet provide an interactive application, registered wizard subcommand,
-machine-readable tree resolver or automatic save/resume engine.
+conversation using the existing layer and technology blueprints. The
+[terminal runtime](WIZARD.md) now supplies a versioned catalog, conditional questions,
+saved decisions and resume. Use it when interactive/persisted setup is requested;
+there is no separate host wizard slash command or browser UI.
 
 ## Start a new project
 
@@ -55,7 +56,8 @@ they do not automatically authorize a rewrite, dependency upgrade or migration.
 6. Capture answers with origin (user, observed, recommendation or inferred),
    evidence/uncertainty, dependencies and unresolved decisions in existing project
    artifacts. When a choice changes, retain history and mark affected decisions
-   needs_review. Do not imply that an automatic state engine performed this work.
+   needs_review. The terminal/noninteractive runtime performs this for catalog
+   nodes; additional decisions recorded manually retain their own review/history.
 7. Use the existing specification/SDD/ADR, plan and verification templates only
    where needed. Implement within current authorization, then record actual checks.
    Preserve the selected profile, decision state and next action in the handoff.

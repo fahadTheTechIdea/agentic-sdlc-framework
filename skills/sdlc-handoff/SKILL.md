@@ -19,7 +19,9 @@ record the limitation; do not assume a shared filesystem or inherited permission
 For layered setup preserve deliverable/profile/variant selections, answer origins,
 unresolved decisions and dependent choices needing review in existing artifacts.
 Link technology source checks and their dates under `core/TECHNOLOGY_FRESHNESS.md`.
-Resume from inspected documents; there is no automatic wizard state/resume engine.
+For runtime sessions link the actual wizard state path, schema/profile revisions
+and unresolved decisions; use `docs/WIZARD.md` to resume. Keep manual project
+documents and runtime state distinct; no automatic catalog migration is implied.
 
 For unfinished store work, preserve publishing-readiness stage, checked sources/
 deadlines, artifact identity, source conflicts, real exceptions and remaining

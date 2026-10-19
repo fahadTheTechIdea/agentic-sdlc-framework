@@ -21,8 +21,13 @@ artifacts in the project's existing locations.
    criteria, constraints, authorization and unknowns. Scale documentation to risk.
    For guided new-project setup or an existing-project setup assessment, read
    `docs/PROJECT_SETUP.md`. Use only relevant layer/profile blueprints; record
-   decisions in existing project artifacts. This is conversational guidance,
-   not an implemented wizard runtime or a command that scaffolds applications.
+   decisions in existing project artifacts. For an interactive/persisted wizard,
+   read `docs/WIZARD.md` and use `scripts/project_wizard.py` from the selected
+   framework root. Resume existing state; a new session previews until explicitly
+   saved. If terminal input is unavailable, ask the catalog questions and use the
+   same noninteractive engine: `questions STATE --next` reads a relevant prompt,
+   and `answer` saves the response with accurate origin. Do not run an
+   unattended prompt loop, overwrite state or imply application scaffolding.
    When choosing/changing technology or checking current standards, apply
    `core/TECHNOLOGY_FRESHNESS.md`; preserve pins and separate documented support
    from actual compatibility checks. Do not load the entire catalog for a small fix.

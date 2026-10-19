@@ -61,8 +61,15 @@ author wording scenarios cannot establish live agent/store behavior.
 
 The [setup conversation](PROJECT_SETUP.md) and
 [technology verification policy](../core/TECHNOLOGY_FRESHNESS.md) are maintained
-procedures. Presence and link checks do not execute a setup conversation, resolve
-technology trees, inspect live version support, or invalidate/persist answers.
+procedures. Presence and link checks do not execute a setup conversation or inspect
+live version support. The validator now also checks the wizard catalog's profile
+identities, layer coverage, references/cycles, conditions and output bindings.
 The technology review template records scoped evidence; it is not an automated
 all-stack compatibility check. Per-machine host discovery must be recorded
 separately from actual agent behavior and project acceptance.
+
+Wizard regression tests execute the actual engine/CLI for preview, persistence,
+resume, conditional branches, invalidation, profile changes, conflicts, export and
+failure paths. They do not establish live model behavior, current version support,
+every possible tree, application builds or actual device/store acceptance.
+See [runtime behavior and limits](WIZARD.md).

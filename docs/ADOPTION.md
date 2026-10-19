@@ -65,7 +65,9 @@ For guided new/existing project setup use [the conversation guide](PROJECT_SETUP
 Only invoke `sdlc-orch`; it selects the relevant layers and specialist procedures.
 Capture stack/standard evidence with [technology review](../templates/TECHNOLOGY_REVIEW.md)
 and store-bound gates with [publishing readiness](../templates/PUBLISHING_READINESS.md).
-These procedures do not install a wizard runtime or silently change project pins.
+New snapshots also include [the terminal wizard](WIZARD.md), its catalog and tests.
+Existing pinned snapshots are not silently upgraded; compare the new runtime and
+instructions through the project's reviewed update process.
 
 Commit and publish the reviewed adoption using the application's own authorized
 Git workflow. The framework repository's master-only maintenance rule is not

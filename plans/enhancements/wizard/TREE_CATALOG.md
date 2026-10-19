@@ -1,6 +1,8 @@
 # Technology tree catalog and starter blueprints
 
-Status: design inventory, not installed/verified runtime support.
+Status: design inventory. The initial [terminal catalog](../../../docs/WIZARD.md)
+implements starter decision trees for 19 profiles. Other inventory entries remain
+design-only; no entry implies version/device/export-qualified support.
 Uses [tree model](TREE_MODEL.md), [layer contract](LAYER_CONTRACT.md) and
 [eight layer definitions](../P8_LAYERED_WIZARD.md).
 

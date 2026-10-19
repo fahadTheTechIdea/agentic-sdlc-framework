@@ -142,7 +142,22 @@ For both hosts in the same application, follow the second-host instructions in
 | Initial assessment, provenance and outstanding decisions | [Assessment](docs/BASELINE_ASSESSMENT.md) |
 | Implementation and acceptance status | [Master tracker](plans/enhancements/MASTER_TRACKER.md) |
 
-## Project wizard design
+## Interactive project wizard and layer designs
+
+The [terminal wizard](docs/WIZARD.md) now supports 19 application/mobile/game
+decision profiles, conditional questions, multiple deliverables, saved answers,
+resume/back/defer, dependency review and a decision summary. From the framework root:
+
+```text
+python scripts/project_wizard.py start "C:\Projects\MyApp" --write --interactive
+python scripts/project_wizard.py run "C:\Projects\MyApp\.sdlc\wizard.json"
+```
+
+The application folder must exist. Without `--write`, `start --profile PROFILE`
+previews without writing. Add `--mode existing` for path-only project inventory.
+In either host, ask `sdlc-orch` to start the interactive project wizard; it can use
+the same engine conversationally if terminal input is unavailable. No extra skill
+or dependency installation is required. See [the runtime plan](plans/enhancements/P12_WIZARD_RUNTIME.md).
 
 The [wizard design](plans/enhancements/P8_LAYERED_WIZARD.md) develops the eight
 project setup steps as layers, each with nested questions and technology-specific
@@ -151,12 +166,13 @@ and Django are examples, not the scope boundary. Starter blueprints show
 different website, API, mobile/desktop, worker, CLI and library paths. The
 [mobile selection map](plans/enhancements/wizard/MOBILE.md) includes native iOS
 (SwiftUI/UIKit), native Android (Kotlin/Java, Compose/Views), React Native, Flutter
-and [.NET MAUI native-controls/Blazor Hybrid](plans/enhancements/wizard/MAUI.md). This is design
-documentation; a runnable wizard, tree resolver and version-verified technology
-catalog have not been implemented.
+and [.NET MAUI native-controls/Blazor Hybrid](plans/enhancements/wizard/MAUI.md).
+The runtime catalog implements initial decision trees derived from these designs;
+the broader inventory and deeper specialized branches are not all implemented.
+Version-qualified technology support and automatic source research remain separate.
 
 The [guided setup procedure](docs/PROJECT_SETUP.md) makes these documents usable
-in a conversation today. [Technology verification](core/TECHNOLOGY_FRESHNESS.md)
+in a conversation or through the terminal runtime. [Technology verification](core/TECHNOLOGY_FRESHNESS.md)
 defines official-source checks, compatibility evidence and refresh triggers across
 affected layers. It preserves project pins and makes missing evidence explicit;
 it does not automatically update dependencies or certify every catalog entry.
