@@ -23,3 +23,21 @@ CI uses GitHub-hosted runners and the official `actions/checkout` v4 and
 the official Git repositories on 2026-10-19 and pinned to immutable commits
 in the workflow. Updating those pins is a reviewed dependency change; the
 local Python tools themselves have no third-party package dependencies.
+
+## Application operational services
+
+Reviewed 2026-10-19. The requirement to provide Log, Audit and Notification Services
+in every application, with a UI Notification Service for UI applications, comes
+from the owner's direct instruction. The sources below support implementation
+details; they do not mandate these service names or certify any application.
+
+| Source | Supported guidance | Application here |
+| --- | --- | --- |
+| [OWASP logging guidance](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html) | Deliberate event coverage, protected logging data and verification of logging failures | Coverage matrix, redaction and storage/failure checks |
+| [Microsoft exception practices](https://learn.microsoft.com/en-us/dotnet/standard/exceptions/best-practices-for-exceptions) | Intentional exception handling and preservation of original exception information | No silent swallowing; explicit failure/recovery and owning reporting boundary |
+| [OpenTelemetry log model](https://opentelemetry.io/docs/specs/otel/logs/data-model/) | Structured records with event time, severity and optional trace correlation | Shared event envelope and propagated correlation |
+| [Microsoft transactional outbox](https://learn.microsoft.com/en-us/azure/architecture/databases/guide/transactional-out-box-cosmos) | Persist business state and outgoing event intent atomically, then relay events | Durable intent for operations requiring that guarantee; actual provider validation remains necessary |
+
+The portable framework does not require Azure, a particular logging vendor or a
+separate service deployment. Channel policy, UI integration, durable audit storage
+and emergency diagnostic behavior must be designed and tested in each application.

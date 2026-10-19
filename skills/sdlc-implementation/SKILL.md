@@ -19,3 +19,11 @@ Use the owner's authorized Git workflow: direct commits on the designated branch
 when requested, or a feature branch/PR when appropriate and authorized. Do not
 create branches or PRs contrary to project instructions. Do not merge or release
 merely because implementation checks pass.
+
+Apply `core/LOGGING_AUDIT_NOTIFICATIONS.md` to affected application paths. Create
+or reuse shared Log, Audit and Notification Services; use a UI Notification Service
+for UI applications. Never silently swallow exceptions: report at the owning
+boundary with cause/correlation, record the correct audit outcome and route safe
+notifications through the shared pipeline. Preserve truthful failure/cancellation
+results. Test audit and channel outages, retries and UI isolation as applicable;
+do not hide gaps behind no-op implementations or duplicate existing services.

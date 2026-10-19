@@ -15,6 +15,12 @@ artifacts in the project's existing locations.
 3. Classify the request using `workflows/DELIVERY.md`: research/plan only, small
    edit, feature, bug, adoption, new project, or incident. Capture acceptance
    criteria, constraints, authorization and unknowns. Scale documentation to risk.
+   For application design, implementation or review, read
+   `core/LOGGING_AUDIT_NOTIFICATIONS.md`. Inventory shared Log, Audit and Notification
+   Services plus a UI Notification Service when a UI exists. Reuse existing
+   capabilities, plan missing foundations, and check affected event/error paths.
+   Never swallow exceptions or substitute silent success. Record out-of-scope
+   application gaps without turning a limited fix into an unrequested rewrite.
 4. Read only the matching specialist procedures below. These are skill routing
    choices, not instructions to spawn agents or invoke every skill.
 5. Maintain one active tracker and requirement-to-evidence mapping. Implement

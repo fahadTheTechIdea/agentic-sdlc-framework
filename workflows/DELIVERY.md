@@ -20,6 +20,9 @@
    and owner. Resolve only decisions that block safe progress.
 3. **Design:** boundaries, contracts, dependencies, failure modes, data/security
    considerations and alternatives. Use SDD and ADR proportional to impact.
+   For applications, apply `core/LOGGING_AUDIT_NOTIFICATIONS.md` and complete the
+   shared-service/event coverage matrix: Log, Audit, Notification and UI Notification
+   Service when a UI exists. Reuse current implementations and track missing foundations.
 4. **Plan:** atomic tasks, ownership, dependencies, checks, recovery and scope.
    RACI assigns exactly one accountable role for each decision/deliverable.
    Record user authorization already present; do not invent a new approval gate.
@@ -27,6 +30,8 @@
    Verify each slice. Keep trackers and decisions consistent with actual changes.
 6. **Verify/review:** run affected checks and the project's required regression
    gates. Check failure paths, SOLID tradeoffs, security and operational risks.
+   Verify exception reporting, truthful audit outcomes, channel failure handling,
+   redaction and UI notification isolation against the operational service matrix.
    Record self-review versus independent review accurately.
 7. **Deliver:** publish reviewable commits to the owner's designated branch, or
    use a branch/PR when that is the authorized project workflow. The framework

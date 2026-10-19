@@ -10,6 +10,8 @@ fact. Remove unresolved placeholders from completed project artifacts.
 - [ADR](ADR.md): consequential decision with lifecycle and evidence.
 - [Phase plan](PHASE_PLAN.md): scoped implementation tasks and gates.
 - [Verification](VERIFICATION.md), [evidence record](EVIDENCE.json): claims and results.
+- [Operational services](OPERATIONAL_SERVICES.md): logging, audit, exception handling,
+  notification pipeline and conditional UI notification coverage and checks.
 - [Handoff](HANDOFF.md): resume across sessions and tools.
 
 The JSON starters validate structurally but contain no real approvals or executed

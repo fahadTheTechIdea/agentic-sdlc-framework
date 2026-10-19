@@ -16,6 +16,12 @@ container, test count or coverage target without project evidence.
 
 ## Design and implementation
 
+Applications must follow [the logging, audit, exception and notification standard](LOGGING_AUDIT_NOTIFICATIONS.md).
+Create or reuse shared Log, Audit and Notification Services; add a UI Notification
+Service for applications with a UI. Document their contracts and event coverage
+using [the operational service matrix](../templates/OPERATIONAL_SERVICES.md).
+Never swallow exceptions; use explicit outcomes and the shared reporting pipeline.
+
 Use explicit input validation, error/empty/unauthorized states and cancellation
 where relevant. Make units, time zones, concurrency assumptions and transaction
 boundaries visible. Design migrations with backups, dry runs and recovery

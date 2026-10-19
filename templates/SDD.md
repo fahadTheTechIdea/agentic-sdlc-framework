@@ -25,6 +25,14 @@ transaction boundaries and explicit empty/unauthorized behavior.>
 ## Migration, operation and recovery
 <Rollout, observability, backups, rollback or compensation and recovery validation.>
 
+## Log, audit, exception and notification services
+<Complete or link OPERATIONAL_SERVICES.md: actual shared Log/Audit/Notification
+contracts and implementations; UI Notification Service when a UI exists; event
+coverage and trustworthy outcomes; exception ownership and preserved causes;
+durable storage/transaction guarantees; channel routing, redaction, failure and
+retry policy; UI user/tenant/session isolation. Reuse existing services and
+document any legacy gaps or headless UI N/A reason.>
+
 ## Alternatives and decisions
 <ADR links, SOLID tradeoffs, assumptions, costs and unresolved consequential choices.>
 

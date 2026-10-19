@@ -19,3 +19,11 @@ An unavailable mandatory gate prevents a full completion claim. Report verified
 scope, failures, skipped checks and the next action to close any remaining gate.
 Framework structure can be checked with `scripts/validate_framework.py`; this
 does not replace the target application's own checks.
+
+For application changes, verify `core/LOGGING_AUDIT_NOTIFICATIONS.md` using
+`templates/OPERATIONAL_SERVICES.md`: actual Log/Audit/Notification implementations,
+UI Notification Service when applicable, covered boundaries, preserved exception
+causes, no silent failure/success substitution, correct audit outcomes, redaction,
+channel outage/retry behavior and UI user/tenant isolation. Review catch/except and
+async paths; source scanning alone is not runtime evidence. Record wider legacy
+gaps and untested provider/UI behavior explicitly.

@@ -16,3 +16,9 @@ Record risk and open decisions. Keep implementation, local validation,
 independent review, CI and release status separate. Do not mark documentation
 as implementation progress. Use `templates/RACI.json` if machine validation
 is useful; explain any roles combined by one person and any self-review.
+
+For application work, include the service coverage matrix and failure-path checks
+from `core/LOGGING_AUDIT_NOTIFICATIONS.md`. Put missing Log, Audit and Notification
+foundations, plus UI Notification Service for UI applications, in the first
+appropriate runnable slice. Existing-project tasks extend the active services
+within authorized scope and track wider gaps explicitly.

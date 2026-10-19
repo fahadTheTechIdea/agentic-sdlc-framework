@@ -20,6 +20,14 @@ It selects a proportionate workflow: a small fix stays small; a substantial
 feature can use specification, design, planning, implementation and verification.
 Skills are reusable procedures; selecting several does not require multiple agents.
 
+Applications must create or reuse shared **Log, Audit and Notification Services**,
+plus a **UI Notification Service** when a UI exists. Exceptions must not be silently
+swallowed. Logging/audit coverage, safe channel routing (email, file, UI and other
+configured adapters) and failure behavior are part of design and verification.
+See [the operational standard](core/LOGGING_AUDIT_NOTIFICATIONS.md) and
+[service coverage template](templates/OPERATIONAL_SERVICES.md). Existing projects
+extend their active services; this framework update does not modify application code.
+
 - **Codex:** open this repository; `AGENTS.md` routes work. Invoke
   `$sdlc-orchestrator` if you want an explicit entry point.
 - **Claude Code:** open this repository; `CLAUDE.md` routes work. Invoke
@@ -103,6 +111,7 @@ For both hosts in the same application, follow the second-host instructions in
 | Authority, scope, safety and engineering rules | [Constitution](core/ENGINEERING_CONSTITUTION.md) |
 | Evidence and uncertainty | [Evidence policy](core/EVIDENCE_POLICY.md) |
 | SOLID and design tradeoffs | [Engineering standards](core/ENGINEERING_STANDARDS.md) |
+| Shared logging/audit, exception and notification requirements | [Operational service standard](core/LOGGING_AUDIT_NOTIFICATIONS.md) |
 | Routing and lifecycle | [Orchestrator](skills/sdlc-orchestrator/SKILL.md), [workflows](workflows/DELIVERY.md) |
 | SDD, RACI, ADR, handoff and verification | [Templates](templates/README.md) |
 | Focused reusable procedures | [Skill catalog](skills/CATALOG.md) |

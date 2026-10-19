@@ -14,7 +14,12 @@ Owner: <named person or role>; date: <ISO date>; authorization: <request/decisio
 | --- | --- | --- | --- |
 | REQ-001 | <measurable outcome> | <command/scenario> | <pending or locator> |
 
+For application work, include measurable Log/Audit/Notification Service coverage,
+exception/failure reporting, delivery outcomes and UI Notification Service when
+a UI exists. See [the operational service matrix](OPERATIONAL_SERVICES.md).
+
 ## Assumptions and open decisions
+
 <Separate observed facts, inferences and proposals; owner and resolving action.>
 
 ## Approval and change history

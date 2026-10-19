@@ -13,6 +13,9 @@
 
 ## Error handling, compatibility and recovery
 <Failure behavior, existing users/data, rollback or compensation.>
+<Log/Audit/Notification service reuse or missing foundations; UI Notification
+Service if applicable; exception ownership, event coverage, audit consistency
+and channel outage checks from OPERATIONAL_SERVICES.md.>
 
 ## Risks and decisions
 <Known risks, open decisions, accountable owner and required authorization.>

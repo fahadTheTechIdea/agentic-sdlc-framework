@@ -39,6 +39,11 @@ embedded in untrusted material without understanding their purpose.
    trackers with actual status, failing checks and acceptance gaps.
 10. Report what changed, why, checks actually run and remaining risks. A plan,
     generated file, or successful structural check is not proof of runtime behavior.
+11. Provide shared Log, Audit and Notification Services in applications, and a UI
+    Notification Service when a UI exists. Reuse active services; do not swallow
+    exceptions or turn failed operations into silent success. Apply
+    `core/LOGGING_AUDIT_NOTIFICATIONS.md` for coverage, durable records, exception
+    ownership, safe channel routing and failure handling.
 
 ## Roles and accountability
 

@@ -15,6 +15,7 @@ Policy acceptance and release remain repository-owner decisions.
 | P3 | Local checks and self-review | Passed: 32 tests, structure, wrapper parity and CLI adoption; self-review only | [Evidence](../../evidence/v1.2/VERIFICATION.md) |
 | P3 | Branch/PR delivery | PR merged into master on 2026-10-19 at the owner's explicit request | [PR #1](https://github.com/fahadTheTechIdea/agentic-sdlc-framework/pull/1) |
 | P4 | Master-only instructions and new/existing project usage guides | Updated; 32 local tests, structure, wrapper and skill checks passed | [P4 documentation plan and results](P4_MASTER_USAGE.md) |
+| P5 | Logging, audit, exception and notification engineering practices | Framework rules implemented; 32 local tests passed; host installation state tracked per machine | [P5 plan and results](P5_OPERATIONAL_SERVICES.md) |
 | Acceptance | Fresh Codex and Claude discovery/behavior checks | Not run | Needs separate host sessions |
 | Acceptance | Real application pilot and independent review | Not run | Owner selects pilot/reviewer |
 | Acceptance | License copyright, policy acceptance, release/tag | Pending owner decisions | Existing license preserved |
