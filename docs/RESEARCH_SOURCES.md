@@ -120,3 +120,30 @@ readable content during this check; the accessible SwiftUI overview, iOS overvie
 and Xcode compatibility page were used instead. Kotlin Multiplatform and native
 web-container profiles remain inventory-only; no compatibility claim follows from
 listing them in the mobile selector.
+
+## Game-domain layers and engine trees
+
+Reviewed 2026-10-19 for P9 design. The game group structure and optional shared-core
+boundary are framework design choices. Engine documentation supports distinct
+terminology, runtime/target constraints and ownership questions, not blanket
+cross-engine compatibility, platform support, deterministic physics or a runnable
+game wizard. No engine/project version was selected by this research.
+
+| Source | Supported concept | Design use |
+| --- | --- | --- |
+| [Godot C#/.NET](https://docs.godotengine.org/en/stable/tutorials/scripting/c_sharp/index.html) | .NET-enabled editor and language/target-specific export constraints; inspected guidance excludes C# web export | Godot/C# profile, exact-version/toolchain gates and explicit browser-target conflict |
+| [Godot scene organization](https://docs.godotengine.org/en/stable/tutorials/best_practices/scene_organization.html) | Reusable, loosely coupled scene/node relationships | Engine-native world/lifetime/dependency branches, preserving active contracts |
+| [Godot processing](https://docs.godotengine.org/en/stable/tutorials/scripting/idle_and_physics_processing.html) | Frame processing and physics processing have different timing responsibilities | Explicit simulation tick ownership and frame/physics integration checks |
+| [Unity gameplay programming](https://docs.unity3d.com/Manual/scripting.html) | Unity-specific gameplay programming concepts and C# guidance | Separate engine/object/toolchain questions rather than a Godot tree copy |
+| [Unity prefabs](https://docs.unity3d.com/Manual/Prefabs.html) | Reusable engine object/asset composition | Scene/object/prefab and content reference decisions |
+| [Unity scripting restrictions](https://docs.unity3d.com/Manual/scripting-restrictions.html) | Backend/platform/AOT restrictions differ from general .NET expectations | Actual runtime/API/export checks for shared libraries and packaged players |
+| [Unreal C++](https://dev.epicgames.com/documentation/en-us/unreal-engine/programming-with-cplusplus-in-unreal-engine) | Native gameplay classes, reflection and editor integration | Distinct C++ module/object and tooling branches |
+| [Unreal Blueprints](https://dev.epicgames.com/documentation/en-us/unreal-engine/blueprints-visual-scripting-in-unreal-engine) | Visual gameplay scripting can complement C++ | Blueprint/C++ responsibility choices; no built-in C# compatibility claim |
+| [Unreal gameplay framework](https://dev.epicgames.com/documentation/en-us/unreal-engine/gameplay-framework-in-unreal-engine) | Game, player, controller, pawn and state responsibilities | Engine-specific ownership, level/session and multiplayer questions |
+
+The attempted separate Godot c_sharp_platforms URL was unavailable; the accessible
+C# index above supplied the inspected platform constraints. Engine documentation
+must be refreshed against the selected release/target before real project setup.
+Unity/Epic documentation version labels observed during research are not project
+pins or recommendations. Plugin, asset, SDK, vendor license/distribution and actual
+build/playtest/device/online-service evidence remain separate acceptance work.

@@ -109,6 +109,21 @@ never browser configuration. Multiple clients may reuse the same API contract.
 A monolithic deployment can still contain clear module contracts. Profile count
 does not dictate process count, microservices or independent Git repositories.
 
+## Domain-specific layer extensions
+
+Profiles may compose a domain extension such as [games](GAMES.md). The existing
+L01-L08 roots remain required; a game profile also declares G01-G09 roots or reasoned
+N/A branches. Each domain node binds to the owning L-layer semantic decision and
+adds its own engine-specific conditions, outputs, dependency edges and checks.
+Do not collect or maintain another copy of a decision already owned by a layer.
+
+Domain root sets must participate in future registry validation: stable namespaced
+IDs, declared conditions, no missing/inheritance/transition targets, no cycles or
+conflicting bindings, explicit provenance and migration/invalidation behavior.
+A domain group does not automatically authorize a new skill, agent, service or
+package. The shared framework rules remain canonical. No domain resolver or new
+machine-readable validation is implemented by these design documents.
+
 ## Technology and standards freshness boundary
 
 The tree design reserves versioned references and applicability conditions now.

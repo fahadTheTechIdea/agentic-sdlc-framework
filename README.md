@@ -148,6 +148,13 @@ and [.NET MAUI native-controls/Blazor Hybrid](plans/enhancements/wizard/MAUI.md)
 documentation; a runnable wizard, tree resolver and version-verified technology
 catalog have not been implemented.
 
+The [game development extension](plans/enhancements/wizard/GAMES.md) adds game-specific
+concept, simulation, world, input, gameplay/AI, asset, save/replay, multiplayer and
+performance/playtest trees. Engine blueprints distinguish Godot C#/.NET, Unity C#,
+Unreal C++/Blueprints and custom .NET game/simulation hosts. Godot/C# is the owner's
+preferred starting profile, with target/export compatibility checked independently.
+See [the game development plan](plans/enhancements/P9_GAME_DEVELOPMENT.md).
+
 ## Validate locally
 
 Python 3.11 or later; no third-party dependencies:

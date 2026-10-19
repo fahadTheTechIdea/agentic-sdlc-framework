@@ -100,6 +100,15 @@ The framework's [constitution](../../../core/ENGINEERING_CONSTITUTION.md),
 A menu can select an implementation/provider or record an existing gap; it cannot
 disable mandatory reporting, swallow exceptions or weaken security/test gates.
 
+## Domain extension ownership
+
+Domain-specific groups can refine shared decisions while using the same answer,
+evidence, applicability and invalidation rules. The [game extension](GAMES.md)
+defines G01-G09 with explicit L-layer owners and engine-specific trees. Game loop,
+world, gameplay, asset, save and network decisions must not become conflicting
+duplicates of L01/L02/L03/L04/L05/L06/L07/L08 outputs. Conditional game questions can
+be N/A; mandatory framework reporting/security/evidence obligations remain in force.
+
 ## Conflict examples and recovery
 
 - UI choice conflicts with target devices: L03 raises a target issue to L01 and a

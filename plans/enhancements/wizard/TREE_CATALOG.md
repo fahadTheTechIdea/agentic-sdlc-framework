@@ -23,7 +23,8 @@ editing a giant host-specific questionnaire. No entry here is a support claim.
 | CLI/tools | dotnet.cli; python.cli; go.cli; rust.cli; node.cli | One illustrative CLI blueprint below; others inventory only |
 | Libraries/SDKs | dotnet.library; python.package; typescript.package; java.library; go.module; rust.library | One illustrative library blueprint below; others inventory only |
 | Data/AI | python.data-pipeline; python.model-service; dotnet.data-pipeline; custom.data-system | Inventory; data/AI-specific privacy, evaluation and operation trees required |
-| Games/simulation | dotnet.game-simulation; native.game-simulation; custom.engine-plugin | Inventory; engine, device, deterministic/realtime and packaging trees required |
+| Games/simulation | godot.csharp.game; unity.csharp.game; unreal.cpp-blueprint.game; custom.dotnet.game | Game-domain layers and four engine blueprints; actual compatibility and runtime checks pending |
+| Other game engines/plugins | godot.gdscript.game; MonoGame/FNA; Stride; Bevy; Phaser; Defold; GameMaker; dotnet.game-simulation; native.game-simulation; custom.engine-plugin | Inventory only; choose/define an explicit engine tree rather than claim support from a generic label |
 | Mixed/custom | Explicit combination of named deliverables or custom profile | Compose existing contracts; unknown profiles stay unverified |
 
 A profile also needs framework variants and version constraints. React alone,
@@ -38,6 +39,19 @@ then native or a specific shared implementation. Native platform choices are not
 hidden under MAUI. The map links detailed trees and explicitly identifies pending
 profiles, specialized form factors and browser/PWA gaps. These remain design
 blueprints, not runnable wizard or version/device-qualified support.
+
+## Game selection and domain layers
+
+Start with [the game development layers](GAMES.md). G01-G09 cover concept/core loop,
+simulation/time/physics, world/scenes/entities, input/cameras, gameplay/AI, assets/
+presentation, saves/replay, networking and runtime/playtest/distribution gates.
+These refine the existing eight layer decisions, not a parallel SDLC workflow.
+The game concept, engine/language and target are separate selections.
+
+Detailed engine trees: [Godot C#/.NET](games/GODOT.md), [Unity C#](games/UNITY.md),
+[Unreal C++/Blueprints](games/UNREAL.md), and [custom .NET hosts](games/CUSTOM_DOTNET.md).
+Godot/C# is the owner's preferred starting suggestion; it does not constrain every
+game or imply identical .NET/runtime/export support across engines.
 
 ## Reading the starter blueprints
 

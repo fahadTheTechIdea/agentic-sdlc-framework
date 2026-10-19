@@ -57,6 +57,14 @@ choice cannot substitute for the selected framework's interface, data, security,
 integration, deployment and testing trees. Common framework policies are inherited;
 profile-specific choices, conditional questions and outputs remain distinct.
 
+## Game-specific layer extension
+
+[P9 game development](P9_GAME_DEVELOPMENT.md) defines [G01-G09 domain groups](wizard/GAMES.md)
+composed over L01-L08, with distinct Godot/C#, Unity/C#, Unreal C++/Blueprint and
+custom .NET host trees. These add game-specific questions and acceptance while
+retaining canonical layer ownership. They do not make the wizard executable or
+select a game, engine version, asset pack or platform export on the user's behalf.
+
 ## Dependency and navigation model
 
 The initial walkthrough is L01 → L02 → L03 → L04 → L05 → L06 → L07 → L08.
