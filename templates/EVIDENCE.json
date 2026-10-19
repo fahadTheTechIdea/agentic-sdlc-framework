@@ -1,0 +1,20 @@
+{
+  "framework_version": "1.2.0",
+  "checks": [
+    {
+      "id": "CHECK-001",
+      "claim": "Replace with the scoped criterion being checked.",
+      "status": "not_run",
+      "revision": null,
+      "timestamp": null,
+      "environment": null,
+      "scope": null,
+      "command": null,
+      "exit_code": null,
+      "output": null,
+      "limitations": [
+        "Template only; no check has run."
+      ]
+    }
+  ]
+}
