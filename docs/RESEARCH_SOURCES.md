@@ -63,3 +63,24 @@ approval stops. Apply controls proportionally through existing project mechanism
 Dependency and secret scanners, authorization/recovery tests and runtime health
 implementations belong to target projects. The portable framework does not silently
 add vendors, network scans, production drills or new application infrastructure.
+
+## Wizard tree design examples
+
+Reviewed 2026-10-19 for P8 design vocabulary only. Blazor and Django are examples
+within a broader technology-tree architecture. These sources support distinct
+framework concepts; they do not establish a version recommendation or verify all
+cataloged profiles. Selected versions/compatibility and a refresh policy remain
+separate work. Other starter blueprints are proposed question structures and
+require their own official, version-specific references before runtime promotion.
+
+| Source | Supported branch concepts | Design use |
+| --- | --- | --- |
+| [Blazor render modes](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/render-modes?view=aspnetcore-10.0) | Blazor Web App rendering/interactivity choices differ from standalone WebAssembly | Distinct L02/L03/L07 branches rather than a universal website menu |
+| [Blazor security](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-10.0) | Security depends on server/client boundaries and enforcement | L05 questions linked to chosen execution model |
+| [Django overview](https://docs.djangoproject.com/en/6.1/intro/overview/) | Models, URLs, views and templates form framework-specific development concepts | Django-specific application/interface tree vocabulary |
+| [Django authentication](https://docs.djangoproject.com/en/6.1/topics/auth/) | Framework account/authentication/permission facilities | Dedicated identity/access questions, not another framework's menu |
+| [Django models](https://docs.djangoproject.com/en/6.1/topics/db/models/) | Framework model/data concepts | Dedicated data/model choices and references |
+| [Django deployment checklist](https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/) | Deployment/security/configuration/static/media checks | Django-specific operations and acceptance questions |
+
+The Django stable documentation URLs resolved to 6.1 during this inspection; this
+is source provenance only. No Django or .NET version was selected for a project.

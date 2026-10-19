@@ -135,6 +135,16 @@ For both hosts in the same application, follow the second-host instructions in
 | Initial assessment, provenance and outstanding decisions | [Assessment](docs/BASELINE_ASSESSMENT.md) |
 | Implementation and acceptance status | [Master tracker](plans/enhancements/MASTER_TRACKER.md) |
 
+## Project wizard design
+
+The [wizard design](plans/enhancements/P8_LAYERED_WIZARD.md) develops the eight
+project setup steps as layers, each with nested questions and technology-specific
+decision trees. An extensible catalog covers multiple project families; Blazor
+and Django are examples, not the scope boundary. Eight starter blueprints show
+different website, API, mobile, worker, CLI and library paths. This is design
+documentation; a runnable wizard, tree resolver and version-verified technology
+catalog have not been implemented.
+
 ## Validate locally
 
 Python 3.11 or later; no third-party dependencies:
