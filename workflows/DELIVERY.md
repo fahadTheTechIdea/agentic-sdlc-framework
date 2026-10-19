@@ -26,6 +26,9 @@
 4. **Plan:** atomic tasks, ownership, dependencies, checks, recovery and scope.
    RACI assigns exactly one accountable role for each decision/deliverable.
    Record user authorization already present; do not invent a new approval gate.
+   Select applicable assurance rules from `core/QUALITY_SECURITY_RELIABILITY.md`;
+   map them to existing CI/acceptance commands and `templates/ASSURANCE.md` or
+   existing records. For changed agent behavior select cases from `evals/README.md`.
 5. **Implement:** one coherent slice at a time; reuse active code and contracts.
    Verify each slice. Keep trackers and decisions consistent with actual changes.
 6. **Verify/review:** run affected checks and the project's required regression
@@ -33,6 +36,10 @@
    Verify exception reporting, truthful audit outcomes, channel failure handling,
    redaction and UI notification isolation against the operational service matrix.
    Record self-review versus independent review accurately.
+   Preserve test integrity and review test/lockfile changes. Verify applicable
+   authorization/isolation, invalid configuration, timeout/cancellation/replay,
+   restoration/migration, runtime health and dependency checks. Distinguish
+   live agent scenarios from synthetic grader tests and record missing gates.
 7. **Deliver:** publish reviewable commits to the owner's designated branch, or
    use a branch/PR when that is the authorized project workflow. The framework
    source repository `fahadTheTechIdea/agentic-sdlc-framework` uses master directly

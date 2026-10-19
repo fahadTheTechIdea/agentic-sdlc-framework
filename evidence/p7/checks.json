@@ -1,0 +1,200 @@
+{
+  "framework_version": "1.2.0",
+  "checks": [
+    {
+      "id": "structure",
+      "claim": "Local structure check",
+      "status": "verified",
+      "revision": "a1feac48cd54454b958e292013118c887593037d",
+      "timestamp": "2026-10-19T06:51:26.761910+00:00",
+      "environment": "Windows-11-10.0.26200-SP0; Python 3.14.3",
+      "scope": "Dirty framework tree; source-files.json SHA256 6ddf72010894fff91fa4d88d7097409bda09ad95fe3288b9292f5fa5b55dd79f; source-diff.patch; evidence/p7 excluded from source digest.",
+      "command": "C:\\Python314\\python.exe scripts/validate_framework.py",
+      "exit_code": 0,
+      "output": "structure.txt",
+      "limitations": [
+        "Tooling/static evidence only; no live model or application acceptance."
+      ]
+    },
+    {
+      "id": "adapters",
+      "claim": "Local adapters check",
+      "status": "verified",
+      "revision": "a1feac48cd54454b958e292013118c887593037d",
+      "timestamp": "2026-10-19T06:51:27.247082+00:00",
+      "environment": "Windows-11-10.0.26200-SP0; Python 3.14.3",
+      "scope": "Dirty framework tree; source-files.json SHA256 6ddf72010894fff91fa4d88d7097409bda09ad95fe3288b9292f5fa5b55dd79f; source-diff.patch; evidence/p7 excluded from source digest.",
+      "command": "C:\\Python314\\python.exe scripts/sync_adapters.py --check",
+      "exit_code": 0,
+      "output": "adapters.txt",
+      "limitations": [
+        "Tooling/static evidence only; no live model or application acceptance."
+      ]
+    },
+    {
+      "id": "regression",
+      "claim": "Local regression check",
+      "status": "verified",
+      "revision": "a1feac48cd54454b958e292013118c887593037d",
+      "timestamp": "2026-10-19T06:51:27.417561+00:00",
+      "environment": "Windows-11-10.0.26200-SP0; Python 3.14.3",
+      "scope": "Dirty framework tree; source-files.json SHA256 6ddf72010894fff91fa4d88d7097409bda09ad95fe3288b9292f5fa5b55dd79f; source-diff.patch; evidence/p7 excluded from source digest.",
+      "command": "C:\\Python314\\python.exe -m unittest discover -s tests -v",
+      "exit_code": 0,
+      "output": "regression.txt",
+      "limitations": [
+        "Tooling/static evidence only; no live model or application acceptance."
+      ]
+    },
+    {
+      "id": "case-inventory",
+      "claim": "Local case-inventory check",
+      "status": "verified",
+      "revision": "a1feac48cd54454b958e292013118c887593037d",
+      "timestamp": "2026-10-19T06:51:35.182826+00:00",
+      "environment": "Windows-11-10.0.26200-SP0; Python 3.14.3",
+      "scope": "Dirty framework tree; source-files.json SHA256 6ddf72010894fff91fa4d88d7097409bda09ad95fe3288b9292f5fa5b55dd79f; source-diff.patch; evidence/p7 excluded from source digest.",
+      "command": "C:\\Python314\\python.exe scripts/agent_eval.py list",
+      "exit_code": 0,
+      "output": "case-inventory.txt",
+      "limitations": [
+        "Tooling/static evidence only; no live model or application acceptance."
+      ]
+    },
+    {
+      "id": "diff",
+      "claim": "Local diff check",
+      "status": "verified",
+      "revision": "a1feac48cd54454b958e292013118c887593037d",
+      "timestamp": "2026-10-19T06:51:35.362219+00:00",
+      "environment": "Windows-11-10.0.26200-SP0; Python 3.14.3",
+      "scope": "Dirty framework tree; source-files.json SHA256 6ddf72010894fff91fa4d88d7097409bda09ad95fe3288b9292f5fa5b55dd79f; source-diff.patch; evidence/p7 excluded from source digest.",
+      "command": "git diff HEAD --check",
+      "exit_code": 0,
+      "output": "diff.txt",
+      "limitations": [
+        "Tooling/static evidence only; no live model or application acceptance."
+      ]
+    },
+    {
+      "id": "sdlc-orch",
+      "claim": "Local sdlc-orch check",
+      "status": "verified",
+      "revision": "a1feac48cd54454b958e292013118c887593037d",
+      "timestamp": "2026-10-19T06:51:35.451861+00:00",
+      "environment": "Windows-11-10.0.26200-SP0; Python 3.14.3",
+      "scope": "Dirty framework tree; source-files.json SHA256 6ddf72010894fff91fa4d88d7097409bda09ad95fe3288b9292f5fa5b55dd79f; source-diff.patch; evidence/p7 excluded from source digest.",
+      "command": "C:\\Python314\\python.exe C:\\Users\\f_ald\\.codex\\skills\\.system\\skill-creator\\scripts\\quick_validate.py C:\\Users\\f_ald\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an\\work\\agentic-sdlc-framework\\skills\\sdlc-orch",
+      "exit_code": 0,
+      "output": "sdlc-orch.txt",
+      "limitations": [
+        "Tooling/static evidence only; no live model or application acceptance."
+      ]
+    },
+    {
+      "id": "sdlc-orchestrator",
+      "claim": "Local sdlc-orchestrator check",
+      "status": "verified",
+      "revision": "a1feac48cd54454b958e292013118c887593037d",
+      "timestamp": "2026-10-19T06:51:35.584373+00:00",
+      "environment": "Windows-11-10.0.26200-SP0; Python 3.14.3",
+      "scope": "Dirty framework tree; source-files.json SHA256 6ddf72010894fff91fa4d88d7097409bda09ad95fe3288b9292f5fa5b55dd79f; source-diff.patch; evidence/p7 excluded from source digest.",
+      "command": "C:\\Python314\\python.exe C:\\Users\\f_ald\\.codex\\skills\\.system\\skill-creator\\scripts\\quick_validate.py C:\\Users\\f_ald\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an\\work\\agentic-sdlc-framework\\skills\\sdlc-orchestrator",
+      "exit_code": 0,
+      "output": "sdlc-orchestrator.txt",
+      "limitations": [
+        "Tooling/static evidence only; no live model or application acceptance."
+      ]
+    },
+    {
+      "id": "sdlc-specification",
+      "claim": "Local sdlc-specification check",
+      "status": "verified",
+      "revision": "a1feac48cd54454b958e292013118c887593037d",
+      "timestamp": "2026-10-19T06:51:35.717370+00:00",
+      "environment": "Windows-11-10.0.26200-SP0; Python 3.14.3",
+      "scope": "Dirty framework tree; source-files.json SHA256 6ddf72010894fff91fa4d88d7097409bda09ad95fe3288b9292f5fa5b55dd79f; source-diff.patch; evidence/p7 excluded from source digest.",
+      "command": "C:\\Python314\\python.exe C:\\Users\\f_ald\\.codex\\skills\\.system\\skill-creator\\scripts\\quick_validate.py C:\\Users\\f_ald\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an\\work\\agentic-sdlc-framework\\skills\\sdlc-specification",
+      "exit_code": 0,
+      "output": "sdlc-specification.txt",
+      "limitations": [
+        "Tooling/static evidence only; no live model or application acceptance."
+      ]
+    },
+    {
+      "id": "sdlc-architecture",
+      "claim": "Local sdlc-architecture check",
+      "status": "verified",
+      "revision": "a1feac48cd54454b958e292013118c887593037d",
+      "timestamp": "2026-10-19T06:51:35.847594+00:00",
+      "environment": "Windows-11-10.0.26200-SP0; Python 3.14.3",
+      "scope": "Dirty framework tree; source-files.json SHA256 6ddf72010894fff91fa4d88d7097409bda09ad95fe3288b9292f5fa5b55dd79f; source-diff.patch; evidence/p7 excluded from source digest.",
+      "command": "C:\\Python314\\python.exe C:\\Users\\f_ald\\.codex\\skills\\.system\\skill-creator\\scripts\\quick_validate.py C:\\Users\\f_ald\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an\\work\\agentic-sdlc-framework\\skills\\sdlc-architecture",
+      "exit_code": 0,
+      "output": "sdlc-architecture.txt",
+      "limitations": [
+        "Tooling/static evidence only; no live model or application acceptance."
+      ]
+    },
+    {
+      "id": "sdlc-planning",
+      "claim": "Local sdlc-planning check",
+      "status": "verified",
+      "revision": "a1feac48cd54454b958e292013118c887593037d",
+      "timestamp": "2026-10-19T06:51:35.978113+00:00",
+      "environment": "Windows-11-10.0.26200-SP0; Python 3.14.3",
+      "scope": "Dirty framework tree; source-files.json SHA256 6ddf72010894fff91fa4d88d7097409bda09ad95fe3288b9292f5fa5b55dd79f; source-diff.patch; evidence/p7 excluded from source digest.",
+      "command": "C:\\Python314\\python.exe C:\\Users\\f_ald\\.codex\\skills\\.system\\skill-creator\\scripts\\quick_validate.py C:\\Users\\f_ald\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an\\work\\agentic-sdlc-framework\\skills\\sdlc-planning",
+      "exit_code": 0,
+      "output": "sdlc-planning.txt",
+      "limitations": [
+        "Tooling/static evidence only; no live model or application acceptance."
+      ]
+    },
+    {
+      "id": "sdlc-implementation",
+      "claim": "Local sdlc-implementation check",
+      "status": "verified",
+      "revision": "a1feac48cd54454b958e292013118c887593037d",
+      "timestamp": "2026-10-19T06:51:36.113128+00:00",
+      "environment": "Windows-11-10.0.26200-SP0; Python 3.14.3",
+      "scope": "Dirty framework tree; source-files.json SHA256 6ddf72010894fff91fa4d88d7097409bda09ad95fe3288b9292f5fa5b55dd79f; source-diff.patch; evidence/p7 excluded from source digest.",
+      "command": "C:\\Python314\\python.exe C:\\Users\\f_ald\\.codex\\skills\\.system\\skill-creator\\scripts\\quick_validate.py C:\\Users\\f_ald\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an\\work\\agentic-sdlc-framework\\skills\\sdlc-implementation",
+      "exit_code": 0,
+      "output": "sdlc-implementation.txt",
+      "limitations": [
+        "Tooling/static evidence only; no live model or application acceptance."
+      ]
+    },
+    {
+      "id": "sdlc-verification",
+      "claim": "Local sdlc-verification check",
+      "status": "verified",
+      "revision": "a1feac48cd54454b958e292013118c887593037d",
+      "timestamp": "2026-10-19T06:51:36.241452+00:00",
+      "environment": "Windows-11-10.0.26200-SP0; Python 3.14.3",
+      "scope": "Dirty framework tree; source-files.json SHA256 6ddf72010894fff91fa4d88d7097409bda09ad95fe3288b9292f5fa5b55dd79f; source-diff.patch; evidence/p7 excluded from source digest.",
+      "command": "C:\\Python314\\python.exe C:\\Users\\f_ald\\.codex\\skills\\.system\\skill-creator\\scripts\\quick_validate.py C:\\Users\\f_ald\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an\\work\\agentic-sdlc-framework\\skills\\sdlc-verification",
+      "exit_code": 0,
+      "output": "sdlc-verification.txt",
+      "limitations": [
+        "Tooling/static evidence only; no live model or application acceptance."
+      ]
+    },
+    {
+      "id": "sdlc-handoff",
+      "claim": "Local sdlc-handoff check",
+      "status": "verified",
+      "revision": "a1feac48cd54454b958e292013118c887593037d",
+      "timestamp": "2026-10-19T06:51:36.371737+00:00",
+      "environment": "Windows-11-10.0.26200-SP0; Python 3.14.3",
+      "scope": "Dirty framework tree; source-files.json SHA256 6ddf72010894fff91fa4d88d7097409bda09ad95fe3288b9292f5fa5b55dd79f; source-diff.patch; evidence/p7 excluded from source digest.",
+      "command": "C:\\Python314\\python.exe C:\\Users\\f_ald\\.codex\\skills\\.system\\skill-creator\\scripts\\quick_validate.py C:\\Users\\f_ald\\Documents\\Codex\\2026-10-19\\referenced-chatgpt-conversation-this-is-an\\work\\agentic-sdlc-framework\\skills\\sdlc-handoff",
+      "exit_code": 0,
+      "output": "sdlc-handoff.txt",
+      "limitations": [
+        "Tooling/static evidence only; no live model or application acceptance."
+      ]
+    }
+  ]
+}

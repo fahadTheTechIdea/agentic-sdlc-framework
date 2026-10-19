@@ -25,6 +25,11 @@ artifacts in the project's existing locations.
    capabilities, plan missing foundations, and check affected event/error paths.
    Never swallow exceptions or substitute silent success. Record out-of-scope
    application gaps without turning a limited fix into an unrequested rewrite.
+   For substantive software changes or reviews, read the relevant sections of
+   `core/QUALITY_SECURITY_RELIABILITY.md`. Select affected assurance checks using
+   `templates/ASSURANCE.md` or existing project records. For changes to skills,
+   prompts, models or tools, select behavioral cases from `evals/README.md`;
+   distinguish actual host runs from structural/grader tests.
 4. Read only the matching specialist procedures below. These are skill routing
    choices, not instructions to spawn agents or invoke every skill.
 5. Maintain one active tracker and requirement-to-evidence mapping. Implement

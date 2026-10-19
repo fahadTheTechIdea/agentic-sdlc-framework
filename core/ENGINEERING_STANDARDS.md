@@ -40,6 +40,13 @@ failure paths and regression cases for substantive fixes. Select accessibility,
 security, performance, recovery and observability checks based on actual risk.
 Use project-specific quality gates and disclose any gate that was unavailable.
 
+Apply [quality, security and reliability](QUALITY_SECURITY_RELIABILITY.md) to the
+affected boundary: test integrity and executable gates, agent evaluations when
+changing agent behavior, authorization/isolation, validated configuration, bounded
+retries and cancellation, proven recovery, runtime health, dependency checks and
+host-enforced tool permissions. Reuse [the assurance matrix](../templates/ASSURANCE.md)
+or existing project verification to record applicability and actual evidence.
+
 ## SDD terminology
 
 This framework uses **SDD** for *Software Design Description*, the durable design

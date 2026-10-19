@@ -33,6 +33,13 @@ durable storage/transaction guarantees; channel routing, redaction, failure and
 retry policy; UI user/tenant/session isolation. Reuse existing services and
 document any legacy gaps or headless UI N/A reason.>
 
+## Quality, security and reliability assurance
+<Complete or link ASSURANCE.md for applicable boundaries: authorization and tenant
+isolation, configuration validation/secrets, retry/idempotency/cancellation,
+restoration/migration evidence, runtime health/objectives, verified dependencies,
+test integrity and required CI/acceptance gates. For changed agent behavior include
+selected evaluation scenarios and host-enforced tool scopes. Record N/A reasons.>
+
 ## Alternatives and decisions
 <ADR links, SOLID tradeoffs, assumptions, costs and unresolved consequential choices.>
 

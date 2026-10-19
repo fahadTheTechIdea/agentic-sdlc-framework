@@ -27,3 +27,11 @@ causes, no silent failure/success substitution, correct audit outcomes, redactio
 channel outage/retry behavior and UI user/tenant isolation. Review catch/except and
 async paths; source scanning alone is not runtime evidence. Record wider legacy
 gaps and untested provider/UI behavior explicitly.
+
+Apply `core/QUALITY_SECURITY_RELIABILITY.md` using `templates/ASSURANCE.md` or
+existing project verification. Check test integrity, real acceptance boundaries,
+denied access/isolation, invalid config, duplicate/retried/cancelled operations,
+restore/migration evidence, runtime signals and dependency findings as relevant.
+Record N/A reasons and unavailable gates. For changed skills/prompts/tools/models,
+use `evals/README.md`: inspect actual outcomes and transcripts, and keep grader
+tooling tests separate from live agent results. Never weaken tests to claim success.

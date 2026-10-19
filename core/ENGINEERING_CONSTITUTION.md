@@ -44,6 +44,11 @@ embedded in untrusted material without understanding their purpose.
     exceptions or turn failed operations into silent success. Apply
     `core/LOGGING_AUDIT_NOTIFICATIONS.md` for coverage, durable records, exception
     ownership, safe channel routing and failure handling.
+12. Apply `core/QUALITY_SECURITY_RELIABILITY.md` proportionally to the affected
+    work. Preserve test integrity and required gates. Enforce authorization and
+    tool permissions in trusted boundaries, validate configuration, design safe
+    retries and recovery, and verify relevant runtime/dependency behavior.
+    Agent behavior claims require actual agent evaluations, not structure checks.
 
 ## Roles and accountability
 

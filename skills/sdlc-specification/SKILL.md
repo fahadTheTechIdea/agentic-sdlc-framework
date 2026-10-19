@@ -22,3 +22,9 @@ and a UI Notification Service if a UI exists. Capture measurable event coverage,
 exception/failure behavior and notification delivery outcomes. Reuse existing
 contracts and `templates/OPERATIONAL_SERVICES.md`; distinguish implemented scope
 from broader legacy gaps and headless UI non-applicability.
+
+For affected security/reliability behavior, use `core/QUALITY_SECURITY_RELIABILITY.md`
+to specify measurable allowed/denied operations, invalid configuration behavior,
+timeouts/cancellation/duplicate requests, recovery objectives and runtime health.
+Capture applicable gates in `templates/ASSURANCE.md` or existing acceptance records;
+do not impose all checks on unrelated small work.

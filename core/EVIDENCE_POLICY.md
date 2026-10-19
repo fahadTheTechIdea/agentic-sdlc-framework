@@ -45,3 +45,11 @@ Handoffs must identify revision, working-tree changes, observed progress,
 decisions, pending questions, exact next action and remaining checks.
 Reinspect repository state on resume. A previous session's memory is context,
 not proof of current completion.
+
+For agent evaluations, record framework revision, host/model/version/settings,
+case and fixture revision, prompt, workspace baseline/diff, grader output, actual
+tool/transcript evidence when available, and human rubric findings. Record
+repetitions and individual failures; do not select only successful attempts.
+Grader unit tests and synthetic submissions validate tooling only. An unrun
+live scenario remains `not_run`; a checked result file does not authenticate
+the agent's actions outside the observed workspace or the truth of its narrative.

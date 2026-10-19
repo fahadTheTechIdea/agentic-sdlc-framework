@@ -1,0 +1,6 @@
+bugfix
+preservation
+plan-only
+failed-verification
+untrusted-content
+cancellation

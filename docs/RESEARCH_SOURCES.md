@@ -41,3 +41,25 @@ details; they do not mandate these service names or certify any application.
 The portable framework does not require Azure, a particular logging vendor or a
 separate service deployment. Channel policy, UI integration, durable audit storage
 and emergency diagnostic behavior must be designed and tested in each application.
+
+## Quality, security, reliability and agent evaluation
+
+Reviewed 2026-10-19. The owner accepted the nine recommendations researched from
+these primary sources. Their application in this framework is a design choice;
+no source mandates identical service names, every gate for every task, or automatic
+approval stops. Apply controls proportionally through existing project mechanisms.
+
+| Source | Supported guidance | Application here |
+| --- | --- | --- |
+| [OWASP secure coding with AI](https://cheatsheetseries.owasp.org/cheatsheets/Secure_Coding_with_AI_Cheat_Sheet.html) | Test integrity, verified dependencies, untrusted development content, scoped tools and review of unexpected changes | Test/lockfile review, dependency/secret checks, host-enforced access and adversarial fixtures |
+| [Anthropic agent evaluations](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) | Stable tasks, independent outcome tests, transcript review and regression evaluations | Six starter cases, outcome grader and separate human rubric; no live result implied |
+| [Anthropic long-running agent harnesses](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) | Incremental work, persistent progress and real end-to-end verification | Existing coherent slices/handoff plus actual acceptance-boundary checks |
+| [OWASP authorization](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html) | Least privilege, deny by default, permission checks on every request and authorization tests | Shared trusted-boundary policy and denied/resource/tenant checks |
+| [Microsoft options validation](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options) | Typed options and startup validation with ValidateOnStart | Platform-native config validation; .NET example rather than a portable dependency |
+| [Microsoft retry pattern](https://learn.microsoft.com/en-us/azure/architecture/patterns/retry) | Transient faults, bounded retries and duplicate effects for non-idempotent operations | Retry deadlines, cancellation and explicit replay/idempotency contracts |
+| [Microsoft continuity and recovery](https://learn.microsoft.com/en-us/azure/reliability/concept-business-continuity-high-availability-disaster-recovery) | Test backups/restoration, integrity and recovery duration; validate recovery plans | Isolated restoration evidence and risk-based migration recovery |
+| [Google SRE monitoring](https://sre.google/sre-book/monitoring-distributed-systems/) | Latency, traffic, errors and saturation; user-impacting actionable alerts | Runtime signals, meaningful thresholds and shared notification routing |
+
+Dependency and secret scanners, authorization/recovery tests and runtime health
+implementations belong to target projects. The portable framework does not silently
+add vendors, network scans, production drills or new application infrastructure.

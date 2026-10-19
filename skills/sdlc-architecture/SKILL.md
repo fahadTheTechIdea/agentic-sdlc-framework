@@ -23,3 +23,8 @@ define exception ownership, audit consistency, channel outage behavior, emergenc
 diagnostics and user/tenant isolation. Use `templates/OPERATIONAL_SERVICES.md`
 within the current SDD. Do not create parallel services or bind domain policy
 directly to email, file or UI providers.
+
+Use relevant sections of `core/QUALITY_SECURITY_RELIABILITY.md` for authorization
+and trust boundaries, config validation, retry/idempotency/concurrency contracts,
+recovery objectives, runtime signals and dependency provenance. Reuse existing
+native controls; record measurable checks in `templates/ASSURANCE.md` or the SDD.

@@ -1,0 +1,52 @@
+test_broken_candidate_fails_and_repaired_candidate_passes (test_agent_eval.AgentEvalTests.test_broken_candidate_fails_and_repaired_candidate_passes) ... ok
+test_cancellation_must_not_enumerate_work_or_report_success (test_agent_eval.AgentEvalTests.test_cancellation_must_not_enumerate_work_or_report_success) ... ok
+test_cli_failure_is_nonzero_without_traceback (test_agent_eval.AgentEvalTests.test_cli_failure_is_nonzero_without_traceback) ... ok
+test_existing_destination_is_preserved (test_agent_eval.AgentEvalTests.test_existing_destination_is_preserved) ... ok
+test_failed_gate_requires_honest_partial_status_and_limitation (test_agent_eval.AgentEvalTests.test_failed_gate_requires_honest_partial_status_and_limitation) ... ok
+test_invalid_case_inventory_rejected (test_agent_eval.AgentEvalTests.test_invalid_case_inventory_rejected) ... ok
+test_missing_test_fails (test_agent_eval.AgentEvalTests.test_missing_test_fails) ... ok
+test_plan_only_rejects_even_a_correct_implementation (test_agent_eval.AgentEvalTests.test_plan_only_rejects_even_a_correct_implementation) ... ok
+test_prepare_cannot_pollute_framework_source (test_agent_eval.AgentEvalTests.test_prepare_cannot_pollute_framework_source) ... ok
+test_preservation_and_multiply_contract (test_agent_eval.AgentEvalTests.test_preservation_and_multiply_contract) ... ok
+test_report_cannot_contaminate_workspace (test_agent_eval.AgentEvalTests.test_report_cannot_contaminate_workspace) ... ok
+test_stale_bytecode_cannot_hide_current_broken_source (test_agent_eval.AgentEvalTests.test_stale_bytecode_cannot_hide_current_broken_source) ... ok
+test_symlinked_fixture_is_rejected_before_execution (test_agent_eval.AgentEvalTests.test_symlinked_fixture_is_rejected_before_execution) ... ok
+test_untrusted_payload_artifact_is_rejected (test_agent_eval.AgentEvalTests.test_untrusted_payload_artifact_is_rejected) ... ok
+test_weakened_tests_cannot_pass_and_are_not_executed (test_agent_eval.AgentEvalTests.test_weakened_tests_cannot_pass_and_are_not_executed) ... ok
+test_all_adapters_install_and_validate (test_framework.AdoptionTests.test_all_adapters_install_and_validate) ... ok
+test_collision_refuses_before_any_write (test_framework.AdoptionTests.test_collision_refuses_before_any_write) ... ok
+test_existing_installation_refused (test_framework.AdoptionTests.test_existing_installation_refused) ... ok
+test_file_in_destination_parent_refused (test_framework.AdoptionTests.test_file_in_destination_parent_refused) ... ok
+test_preserves_existing_instructions_and_installs_valid_snapshot (test_framework.AdoptionTests.test_preserves_existing_instructions_and_installs_valid_snapshot) ... ok
+test_preview_has_no_writes (test_framework.AdoptionTests.test_preview_has_no_writes) ... ok
+test_source_or_descendant_target_refused (test_framework.AdoptionTests.test_source_or_descendant_target_refused) ... ok
+test_symlink_parent_refused (test_framework.AdoptionTests.test_symlink_parent_refused) ... ok
+test_adapter_drift_is_detected_and_check_does_not_write (test_framework.FrameworkTests.test_adapter_drift_is_detected_and_check_does_not_write) ... ok
+test_baseline_is_consistent (test_framework.FrameworkTests.test_baseline_is_consistent) ... ok
+test_broken_link_fails (test_framework.FrameworkTests.test_broken_link_fails) ... ok
+test_cli_missing_optional_record_exits_nonzero (test_framework.FrameworkTests.test_cli_missing_optional_record_exits_nonzero) ... ok
+test_encoded_link_and_code_example (test_framework.FrameworkTests.test_encoded_link_and_code_example) ... ok
+test_invalid_manifest_shape_has_readable_error (test_framework.FrameworkTests.test_invalid_manifest_shape_has_readable_error) ... ok
+test_link_escape_fails_even_when_file_exists (test_framework.FrameworkTests.test_link_escape_fails_even_when_file_exists) ... ok
+test_manifest_path_escape_fails (test_framework.FrameworkTests.test_manifest_path_escape_fails) ... ok
+test_missing_required_file_fails (test_framework.FrameworkTests.test_missing_required_file_fails) ... ok
+test_unregistered_skill_fails (test_framework.FrameworkTests.test_unregistered_skill_fails) ... ok
+test_version_drift_fails (test_framework.FrameworkTests.test_version_drift_fails) ... ok
+test_wrapper_symlink_parent_cannot_write_outside (test_framework.FrameworkTests.test_wrapper_symlink_parent_cannot_write_outside) ... ok
+test_boolean_exit_is_rejected (test_framework.RecordTests.test_boolean_exit_is_rejected) ... ok
+test_duplicate_check_ids_are_rejected (test_framework.RecordTests.test_duplicate_check_ids_are_rejected) ... ok
+test_evidence_commands_are_never_executed (test_framework.RecordTests.test_evidence_commands_are_never_executed) ... ok
+test_executed_record_accepts_structural_contract (test_framework.RecordTests.test_executed_record_accepts_structural_contract) ... ok
+test_failed_record_requires_nonzero_exit (test_framework.RecordTests.test_failed_record_requires_nonzero_exit) ... ok
+test_malformed_record_is_rejected (test_framework.RecordTests.test_malformed_record_is_rejected) ... ok
+test_missing_output_is_rejected (test_framework.RecordTests.test_missing_output_is_rejected) ... ok
+test_output_escape_is_rejected (test_framework.RecordTests.test_output_escape_is_rejected) ... ok
+test_pass_with_nonzero_exit_is_rejected (test_framework.RecordTests.test_pass_with_nonzero_exit_is_rejected) ... ok
+test_raci_requires_one_non_agent_accountable_and_responsible (test_framework.RecordTests.test_raci_requires_one_non_agent_accountable_and_responsible) ... ok
+test_unverified_needs_reason (test_framework.RecordTests.test_unverified_needs_reason) ... ok
+test_unzoned_timestamp_is_rejected (test_framework.RecordTests.test_unzoned_timestamp_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 47 tests in 7.534s
+
+OK

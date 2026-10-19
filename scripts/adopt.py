@@ -6,7 +6,7 @@ from sync_adapters import wrappers
 from validate_framework import validate
 
 
-BUNDLE_PATHS = ("core", "skills", "templates", "workflows", "adapters", "docs", "scripts", "evidence")
+BUNDLE_PATHS = ("core", "skills", "templates", "workflows", "adapters", "docs", "scripts", "evidence", "evals")
 BUNDLE_FILES = ("VERSION", "framework.json", "README.md", "LICENSE.txt")
 
 

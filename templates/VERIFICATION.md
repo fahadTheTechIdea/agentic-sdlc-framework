@@ -17,5 +17,11 @@ no swallowed exceptions or false success; correlated/preserved causes and audit
 outcomes; redaction, delivery failures/retries and UI isolation. Record actual
 evidence and every unverified provider/coverage gate; headless UI needs an N/A reason.>
 
+## Quality, security and reliability checks
+<Link the completed ASSURANCE.md matrix or existing equivalent. Record required
+gate commands/baselines, test modifications and reasons, applicable authorization,
+config, retry/cancellation, restore, health and dependency checks. For agent behavior
+record actual case runs separately from grader tests. Mark N/A and not_run honestly.>
+
 ## Completion assessment
 <Met criteria, failed/missing gates, local/CI/runtime distinction, next action.>

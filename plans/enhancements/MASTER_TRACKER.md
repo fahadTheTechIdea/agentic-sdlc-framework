@@ -17,6 +17,7 @@ Policy acceptance and release remain repository-owner decisions.
 | P4 | Master-only instructions and new/existing project usage guides | Updated; 32 local tests, structure, wrapper and skill checks passed | [P4 documentation plan and results](P4_MASTER_USAGE.md) |
 | P5 | Logging, audit, exception and notification engineering practices | Framework rules implemented; 32 local tests passed; host installation state tracked per machine | [P5 plan and results](P5_OPERATIONAL_SERVICES.md) |
 | P6 | Shared sdlc-orch entry name for Codex and Claude | Implemented; 32 local tests and eight entry/skill validations passed | [P6 alias update](P6_SHORT_ENTRY.md) |
+| P7 | Nine researched assurance recommendations, skill routing and behavioral evaluation tooling | Implemented; 47 local tests and eight canonical skill checks passed; live model cases remain not run | [P7 plan and results](P7_ASSURANCE.md) |
 | Acceptance | Fresh Codex and Claude discovery/behavior checks | Not run | Needs separate host sessions |
 | Acceptance | Real application pilot and independent review | Not run | Owner selects pilot/reviewer |
 | Acceptance | License copyright, policy acceptance, release/tag | Pending owner decisions | Existing license preserved |

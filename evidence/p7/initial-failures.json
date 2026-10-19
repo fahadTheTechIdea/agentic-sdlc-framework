@@ -1,0 +1,35 @@
+{
+  "framework_version": "1.2.0",
+  "checks": [
+    {
+      "id": "structure",
+      "claim": "Local structure check",
+      "status": "failed",
+      "revision": "a1feac48cd54454b958e292013118c887593037d",
+      "timestamp": "2026-10-19T06:49:52.832875+00:00",
+      "environment": "Windows-11-10.0.26200-SP0; Python 3.14.3",
+      "scope": "Dirty framework tree; source-files.json SHA256 6ddf72010894fff91fa4d88d7097409bda09ad95fe3288b9292f5fa5b55dd79f; source-diff.patch; evidence/p7 excluded from source digest.",
+      "command": "C:\\Python314\\python.exe scripts/validate_framework.py",
+      "exit_code": 1,
+      "output": "initial-structure.txt",
+      "limitations": [
+        "Tooling/static evidence only; no live model or application acceptance."
+      ]
+    },
+    {
+      "id": "regression",
+      "claim": "Local regression check",
+      "status": "failed",
+      "revision": "a1feac48cd54454b958e292013118c887593037d",
+      "timestamp": "2026-10-19T06:49:53.546509+00:00",
+      "environment": "Windows-11-10.0.26200-SP0; Python 3.14.3",
+      "scope": "Dirty framework tree; source-files.json SHA256 6ddf72010894fff91fa4d88d7097409bda09ad95fe3288b9292f5fa5b55dd79f; source-diff.patch; evidence/p7 excluded from source digest.",
+      "command": "C:\\Python314\\python.exe -m unittest discover -s tests -v",
+      "exit_code": 1,
+      "output": "initial-regression.txt",
+      "limitations": [
+        "Tooling/static evidence only; no live model or application acceptance."
+      ]
+    }
+  ]
+}

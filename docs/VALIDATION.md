@@ -39,3 +39,14 @@ The regression suite mutates disposable copies to exercise rejection behavior.
 It also checks installer preview, preservation, collision handling and generated
 adapter drift. Static and local checks do not prove live host discovery, model
 behavior, application quality, production safety or elimination of hallucinations.
+
+The validator also checks [the agent case inventory](../evals/cases.json): unique
+case IDs, safe relative fixture paths, protected tests, editable-file scope, expected
+outcomes and human rubric presence. [The evaluation guide](../evals/README.md)
+explains prepare/grade commands. The regression suite tests both accepted and
+rejected synthetic submissions, including deleted/weakened tests, changed user
+work, untrusted-payload artifacts, false completion and cancellation behavior.
+This validates evaluation tooling, not live agent compliance. No models are
+launched by the grader or CI. Application scans, access tests, recovery drills,
+browser/device/provider checks and operational objectives must be verified in
+their actual projects through [assurance records](../templates/ASSURANCE.md).

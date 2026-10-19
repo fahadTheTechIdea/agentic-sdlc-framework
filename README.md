@@ -15,7 +15,9 @@ Read [the constitution](core/ENGINEERING_CONSTITUTION.md), then use
 [the orchestrator](skills/sdlc-orch/SKILL.md). Describe the outcome once;
 the orchestrator selects relevant skills. You do not need to invoke every skill.
 
-Install once per application project, then describe each task to the orchestrator.
+With a user-level installation, use the orchestrator in new or existing project
+folders without copying the framework into each application. Use the optional
+project installer below when the team needs a committed, pinned snapshot.
 It selects a proportionate workflow: a small fix stays small; a substantial
 feature can use specification, design, planning, implementation and verification.
 Skills are reusable procedures; selecting several does not require multiple agents.
@@ -27,6 +29,15 @@ configured adapters) and failure behavior are part of design and verification.
 See [the operational standard](core/LOGGING_AUDIT_NOTIFICATIONS.md) and
 [service coverage template](templates/OPERATIONAL_SERVICES.md). Existing projects
 extend their active services; this framework update does not modify application code.
+
+The [quality, security and reliability standard](core/QUALITY_SECURITY_RELIABILITY.md)
+adds test integrity and executable gates, agent behavior evaluations, authorization
+and isolation, validated configuration/secrets, safe retries/cancellation, recovery
+drills, runtime health, dependency verification and host-enforced tool permissions.
+Use [the assurance matrix](templates/ASSURANCE.md) for applicable checks and evidence;
+reuse existing project controls and keep small changes small. The six-case
+[agent evaluation starter](evals/README.md) includes an executable outcome grader.
+Grader tests do not establish live Codex/Claude behavior or application compliance.
 
 - **Codex:** open this repository; `AGENTS.md` routes work. Invoke
   `$sdlc-orch` if you want an explicit entry point.
@@ -115,6 +126,8 @@ For both hosts in the same application, follow the second-host instructions in
 | Evidence and uncertainty | [Evidence policy](core/EVIDENCE_POLICY.md) |
 | SOLID and design tradeoffs | [Engineering standards](core/ENGINEERING_STANDARDS.md) |
 | Shared logging/audit, exception and notification requirements | [Operational service standard](core/LOGGING_AUDIT_NOTIFICATIONS.md) |
+| Quality gates, security, reliability and tool trust | [Assurance standard](core/QUALITY_SECURITY_RELIABILITY.md), [matrix](templates/ASSURANCE.md) |
+| Agent behavior regression tasks and outcome grading | [Evaluation guide](evals/README.md) |
 | Routing and lifecycle | [Orchestrator](skills/sdlc-orch/SKILL.md), [workflows](workflows/DELIVERY.md) |
 | SDD, RACI, ADR, handoff and verification | [Templates](templates/README.md) |
 | Focused reusable procedures | [Skill catalog](skills/CATALOG.md) |

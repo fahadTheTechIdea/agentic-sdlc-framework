@@ -13,6 +13,8 @@ fact. Remove unresolved placeholders from completed project artifacts.
 - [Operational services](OPERATIONAL_SERVICES.md): logging, audit, exception handling,
   notification pipeline and conditional UI notification coverage and checks.
 - [Handoff](HANDOFF.md): resume across sessions and tools.
+- [Assurance](ASSURANCE.md): applicable quality/security/reliability controls,
+  gate commands, agent evaluations and evidence without duplicating project records.
 
 The JSON starters validate structurally but contain no real approvals or executed
 checks. Assign real roles and capture actual evidence before using them to

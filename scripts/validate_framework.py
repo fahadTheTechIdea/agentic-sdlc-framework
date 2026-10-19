@@ -7,6 +7,7 @@ import re
 from urllib.parse import unquote, urlsplit
 
 from sync_adapters import metadata, sync
+from agent_eval import load_cases
 
 
 def inside_file(root, relative):
@@ -161,6 +162,7 @@ def validate(root):
                 errors.extend(validate_links(root, path))
         validate_evidence(root / "templates/EVIDENCE.json", version)
         validate_raci(root / "templates/RACI.json")
+        load_cases(root / "evals/cases.json")
     except (OSError, ValueError, KeyError, TypeError) as exc:
         errors.append(str(exc))
     return errors
