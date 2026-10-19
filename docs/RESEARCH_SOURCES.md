@@ -97,3 +97,26 @@ status or device/store acceptance were selected or qualified by this design upda
 | [MAUI overview](https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui?view=net-maui-10.0) | Native mobile/desktop development, shared/platform-specific code and Apple build prerequisites | Separate mobile/desktop branches, native UI choices and explicit toolchain/hardware gates |
 | [MAUI platforms](https://learn.microsoft.com/en-us/dotnet/maui/supported-platforms?view=net-maui-10.0) | Platform, release and Hybrid prerequisites differ; additional Tizen support is provider-supplied | Target/variant compatibility references and independent qualification |
 | [Blazor Hybrid](https://learn.microsoft.com/en-us/aspnet/core/blazor/hybrid/?view=aspnetcore-10.0) | Native execution of Razor components in an embedded WebView differs from browser WebAssembly | Dedicated Hybrid UI/service-lifetime/WebView branches, separate from website profiles |
+
+### Native iOS/Android and React Native mobile trees
+
+Reviewed 2026-10-19 for design vocabulary and platform-specific decision areas.
+The trees prescribe questions and evidence needs; exact SDK/runtime/library versions,
+device capabilities, signing and distribution requirements still need project-level
+verification. No app or simulator/device/store checks were executed.
+
+| Source | Supported concept | Design use |
+| --- | --- | --- |
+| [Apple SwiftUI](https://developer.apple.com/swiftui/) | SwiftUI and incremental interoperability with UIKit | Native iOS UI variants, state/navigation/interoperability questions |
+| [Apple iOS](https://developer.apple.com/ios/) | Native iOS development and platform resources | Separate native Apple mobile profile and reference boundary |
+| [Xcode requirements](https://developer.apple.com/xcode/system-requirements) | Xcode/SDK/host/deployment compatibility is version-dependent | Record actual native toolchain constraints rather than a guessed latest version |
+| [Android Compose](https://developer.android.com/develop/ui/compose/documentation) | Compose has its own UI/state/lifecycle/adaptive layout/test concepts | Dedicated Kotlin/Compose tree |
+| [Android Views](https://developer.android.com/develop/ui/views/layout/declaring-layout) | View/layout-based UI has separate framework concepts | Existing View-based and deliberate interoperability branches |
+| [Android architecture](https://developer.android.com/topic/architecture/recommendations) | Context-sensitive UI/data separation, lifecycle and testing recommendations | Native Android boundary/lifecycle/verification questions, preserving active contracts |
+| [React Native introduction](https://reactnative.dev/docs/getting-started) | React concepts applied to native application development | Separate shared-mobile tree, with explicit native platform gates |
+
+Apple's JavaScript-only tutorial/documentation endpoints did not provide substantive
+readable content during this check; the accessible SwiftUI overview, iOS overview
+and Xcode compatibility page were used instead. Kotlin Multiplatform and native
+web-container profiles remain inventory-only; no compatibility claim follows from
+listing them in the mobile selector.

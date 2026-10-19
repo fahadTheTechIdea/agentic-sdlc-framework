@@ -15,7 +15,10 @@ editing a giant host-specific questionnaire. No entry here is a support claim.
 | Websites/web apps | dotnet.blazor.web; python.django.web; typescript.react.web; typescript.vue.web; ruby.rails.web; php.laravel.web | Three illustrative website blueprints below; others inventory only |
 | APIs/backends | dotnet.aspnet.api; python.fastapi.api; python.django.api; java.spring.api; node.service.api; go.service.api; rust.service.api | One illustrative backend blueprint below; others inventory only |
 | Desktop | dotnet.maui.desktop; dotnet.wpf.desktop; dotnet.winforms.desktop; dotnet.avalonia.desktop; python.qt.desktop; typescript.electron.desktop; rust.tauri.desktop | MAUI mobile/desktop blueprint linked below; other desktop entries remain inventory only |
-| Mobile | dotnet.maui.mobile; dart.flutter.mobile; kotlin.android.mobile; swift.ios.mobile | MAUI mobile/desktop blueprint and Flutter blueprint; other mobile entries remain inventory only |
+| Native iOS/iPadOS | swift.ios.mobile | Dedicated SwiftUI/UIKit/mixed eight-layer blueprint |
+| Native Android | kotlin.android.mobile; java.android.mobile | Dedicated Kotlin/Java and Compose/Views/mixed eight-layer blueprint |
+| Shared mobile applications | dotnet.maui.mobile; dart.flutter.mobile; typescript.react-native.mobile | MAUI, Flutter and React Native eight-layer blueprints |
+| Other mobile sharing/hybrid approaches | kotlin.multiplatform.mobile; web.capacitor.mobile | Inventory only; detailed trees and compatibility verification pending |
 | Workers/jobs | dotnet.worker; python.worker; node.worker; java.worker; go.worker | One illustrative worker blueprint below; others inventory only |
 | CLI/tools | dotnet.cli; python.cli; go.cli; rust.cli; node.cli | One illustrative CLI blueprint below; others inventory only |
 | Libraries/SDKs | dotnet.library; python.package; typescript.package; java.library; go.module; rust.library | One illustrative library blueprint below; others inventory only |
@@ -27,6 +30,14 @@ A profile also needs framework variants and version constraints. React alone,
 for example, does not establish a complete application framework, rendering model,
 router, build system or backend. Exact products/versions require later evidence.
 Python worker/CLI and .NET library are deliberately not treated as Django/Blazor.
+
+## Mobile selection and coverage
+
+Start with [the mobile selection map](MOBILE.md): choose iOS/iPadOS, Android or both,
+then native or a specific shared implementation. Native platform choices are not
+hidden under MAUI. The map links detailed trees and explicitly identifies pending
+profiles, specialized form factors and browser/PWA gaps. These remain design
+blueprints, not runnable wizard or version/device-qualified support.
 
 ## Reading the starter blueprints
 
@@ -110,7 +121,25 @@ with separate native-controls and Blazor Hybrid UI branches. It includes target,
 SDK/workload, lifecycle, offline/sync, security, device integration, reporting/UI
 notification, packaging/signing and independent platform acceptance decisions.
 The two profile IDs share one blueprint; mobile/desktop composition does not
-duplicate the operational or security policies. This is the ninth starter blueprint.
+duplicate the operational or security policies.
+
+## Blueprint: swift.ios.mobile
+
+[Native iOS/iPadOS](IOS.md) has its own eight-layer tree, with SwiftUI, UIKit and
+mixed UI variants; native toolchain, local/API data, identity/permissions, lifecycle,
+reporting/UI notifications, signing/distribution and per-target acceptance decisions.
+
+## Blueprint: kotlin.android.mobile / java.android.mobile
+
+[Native Android](ANDROID.md) has its own eight-layer tree, with Kotlin/Java and
+Compose/Views/interoperability branches; SDK/build, adaptive UI/lifecycle, data,
+permissions, reporting, background work, signing and device/distribution decisions.
+
+## Blueprint: typescript.react-native.mobile
+
+[React Native](REACT_NATIVE.md) has its own eight-layer tree, with actual framework/
+workflow and native-module ownership, shared UI/data contracts and separate iOS
+and Android native build/permission/integration/distribution gates.
 
 ## Blueprint: dart.flutter.mobile
 
