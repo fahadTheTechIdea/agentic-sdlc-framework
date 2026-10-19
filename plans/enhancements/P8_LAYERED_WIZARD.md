@@ -40,8 +40,8 @@ for every project. Layer files define questions and decisions, not preset answer
 ## A separate technology tree inside each layer
 
 The [tree model](wizard/TREE_MODEL.md) defines framework/variant-specific roots for
-each L01-L08 layer. The [catalog and eight starter blueprints](wizard/TREE_CATALOG.md)
-cover multiple website stacks, an API, mobile, worker, CLI and library examples,
+each L01-L08 layer. The [catalog and nine starter blueprints](wizard/TREE_CATALOG.md)
+cover multiple website stacks, an API, mobile/desktop, worker, CLI and library examples,
 with a broader extensible inventory for additional technologies. These are design
 blueprints, not implemented or version-verified runtime support.
 
@@ -108,7 +108,7 @@ A user may express a preference before verification; preferences are not evidenc
 | WIZ-006 | User scope and authorized Git workflow control actions | L08 and shared contract | Not run |
 | WIZ-007 | Technology/standard evidence has a home in every applicable layer | Layer reference sections; no hard-coded latest claims | Verification mechanism deferred |
 | WIZ-008 | Design status cannot imply runnable wizard/model behavior | Explicit status and README wording | Not run |
-| WIZ-009 | Each selected framework/variant supplies distinct roots for every applicable layer | Tree model and eight multi-family blueprints | Resolver/coverage validation not implemented |
+| WIZ-009 | Each selected framework/variant supplies distinct roots for every applicable layer | Tree model and nine multi-family blueprints, including detailed MAUI branches | Resolver/coverage validation not implemented |
 | WIZ-010 | Many technologies and mixed deliverables are supported by the design contract | Extensible catalog, unknown-profile behavior and composition rules | Runtime support not implemented |
 
 ## Design walkthroughs (not executed wizard tests)
@@ -123,6 +123,7 @@ A user may express a preference before verification; preferences are not evidenc
 | User changes delivery to plan only | Preserve choices; L08 outputs documents and unresolved checks; no scaffold, dependency installation, Git initialization or deployment |
 | User changes a website framework | Replace only affected technology-specific subtrees, preserve history and common intent; no previous framework's rendering/auth/ORM/deployment choices leak into the new tree |
 | User selects an uncataloged framework | Capture intent and explicit profile gaps; do not claim support or silently use a familiar website profile |
+| User selects MAUI for mobile and desktop | Use the dedicated MAUI tree; choose native-controls/Hybrid UI and individual targets; preserve independent SDK, device, signing and distribution gates |
 
 ## Development sequence
 
@@ -151,7 +152,7 @@ The existing structure/link, adapter parity and regression commands must run for
 this repository change. They verify documentation integration and existing tooling,
 not conversational behavior. Actual command outcomes are recorded in the delivery
 report; hosted CI is checked on the published revision. Official documentation
-was checked for the named Blazor/Django example branch concepts. No supported-stack
+was checked for the named Blazor/Django and MAUI native/Hybrid branch concepts. No supported-stack
 recommendation, release/version qualification, application scaffolding, model
 evaluation or personal installation change is part of this layer-definition phase.
 

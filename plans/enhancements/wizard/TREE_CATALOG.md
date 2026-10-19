@@ -14,8 +14,8 @@ editing a giant host-specific questionnaire. No entry here is a support claim.
 | --- | --- | --- |
 | Websites/web apps | dotnet.blazor.web; python.django.web; typescript.react.web; typescript.vue.web; ruby.rails.web; php.laravel.web | Three illustrative website blueprints below; others inventory only |
 | APIs/backends | dotnet.aspnet.api; python.fastapi.api; python.django.api; java.spring.api; node.service.api; go.service.api; rust.service.api | One illustrative backend blueprint below; others inventory only |
-| Desktop | dotnet.wpf.desktop; dotnet.winforms.desktop; dotnet.avalonia.desktop; python.qt.desktop; typescript.electron.desktop; rust.tauri.desktop | Inventory; each needs its own view, data, packaging and lifetime trees |
-| Mobile | dotnet.maui.mobile; dart.flutter.mobile; kotlin.android.mobile; swift.ios.mobile | One illustrative mobile blueprint below; others inventory only |
+| Desktop | dotnet.maui.desktop; dotnet.wpf.desktop; dotnet.winforms.desktop; dotnet.avalonia.desktop; python.qt.desktop; typescript.electron.desktop; rust.tauri.desktop | MAUI mobile/desktop blueprint linked below; other desktop entries remain inventory only |
+| Mobile | dotnet.maui.mobile; dart.flutter.mobile; kotlin.android.mobile; swift.ios.mobile | MAUI mobile/desktop blueprint and Flutter blueprint; other mobile entries remain inventory only |
 | Workers/jobs | dotnet.worker; python.worker; node.worker; java.worker; go.worker | One illustrative worker blueprint below; others inventory only |
 | CLI/tools | dotnet.cli; python.cli; go.cli; rust.cli; node.cli | One illustrative CLI blueprint below; others inventory only |
 | Libraries/SDKs | dotnet.library; python.package; typescript.package; java.library; go.module; rust.library | One illustrative library blueprint below; others inventory only |
@@ -102,6 +102,15 @@ A browser UI tree must not pretend it supplies a backend data/audit service.
 
 This blueprint asks about the project's actual framework/build choices. It does
 not prescribe a current JDK, security library, API style or cloud provider.
+
+## Blueprint: dotnet.maui.mobile / dotnet.maui.desktop
+
+The [dedicated MAUI tree](MAUI.md) develops all eight layers for mobile and desktop,
+with separate native-controls and Blazor Hybrid UI branches. It includes target,
+SDK/workload, lifecycle, offline/sync, security, device integration, reporting/UI
+notification, packaging/signing and independent platform acceptance decisions.
+The two profile IDs share one blueprint; mobile/desktop composition does not
+duplicate the operational or security policies. This is the ninth starter blueprint.
 
 ## Blueprint: dart.flutter.mobile
 

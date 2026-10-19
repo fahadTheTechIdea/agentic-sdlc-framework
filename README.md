@@ -140,8 +140,9 @@ For both hosts in the same application, follow the second-host instructions in
 The [wizard design](plans/enhancements/P8_LAYERED_WIZARD.md) develops the eight
 project setup steps as layers, each with nested questions and technology-specific
 decision trees. An extensible catalog covers multiple project families; Blazor
-and Django are examples, not the scope boundary. Eight starter blueprints show
-different website, API, mobile, worker, CLI and library paths. This is design
+and Django are examples, not the scope boundary. Nine starter blueprints show
+different website, API, mobile/desktop, worker, CLI and library paths, including
+[.NET MAUI native-controls and Blazor Hybrid branches](plans/enhancements/wizard/MAUI.md). This is design
 documentation; a runnable wizard, tree resolver and version-verified technology
 catalog have not been implemented.
 

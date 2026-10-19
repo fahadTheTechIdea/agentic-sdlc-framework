@@ -70,8 +70,8 @@ Reviewed 2026-10-19 for P8 design vocabulary only. Blazor and Django are example
 within a broader technology-tree architecture. These sources support distinct
 framework concepts; they do not establish a version recommendation or verify all
 cataloged profiles. Selected versions/compatibility and a refresh policy remain
-separate work. Other starter blueprints are proposed question structures and
-require their own official, version-specific references before runtime promotion.
+separate work. Starter blueprints not covered in this register are proposed question
+structures and require official, version-specific references before runtime promotion.
 
 | Source | Supported branch concepts | Design use |
 | --- | --- | --- |
@@ -84,3 +84,16 @@ require their own official, version-specific references before runtime promotion
 
 The Django stable documentation URLs resolved to 6.1 during this inspection; this
 is source provenance only. No Django or .NET version was selected for a project.
+
+### MAUI mobile/desktop expansion
+
+Reviewed 2026-10-19 for the dedicated MAUI design tree. MAUI now has a detailed
+blueprint, rather than only an inventory entry. These references establish platform
+and UI-variant concepts; no SDK/workload versions, minimum OS values, release-support
+status or device/store acceptance were selected or qualified by this design update.
+
+| Source | Supported concept | Design use |
+| --- | --- | --- |
+| [MAUI overview](https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui?view=net-maui-10.0) | Native mobile/desktop development, shared/platform-specific code and Apple build prerequisites | Separate mobile/desktop branches, native UI choices and explicit toolchain/hardware gates |
+| [MAUI platforms](https://learn.microsoft.com/en-us/dotnet/maui/supported-platforms?view=net-maui-10.0) | Platform, release and Hybrid prerequisites differ; additional Tizen support is provider-supplied | Target/variant compatibility references and independent qualification |
+| [Blazor Hybrid](https://learn.microsoft.com/en-us/aspnet/core/blazor/hybrid/?view=aspnetcore-10.0) | Native execution of Razor components in an embedded WebView differs from browser WebAssembly | Dedicated Hybrid UI/service-lifetime/WebView branches, separate from website profiles |
