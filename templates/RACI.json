@@ -1,0 +1,26 @@
+{
+  "roles": {
+    "owner": {
+      "kind": "human",
+      "name": "Project owner role (assign before use)"
+    },
+    "builder": {
+      "kind": "agent",
+      "name": "Implementation assistant"
+    }
+  },
+  "assignments": [
+    {
+      "id": "SCOPE",
+      "deliverable": "Requirements and scope",
+      "R": [
+        "builder"
+      ],
+      "A": [
+        "owner"
+      ],
+      "C": [],
+      "I": []
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Framework structure, templates and adapters validated.
