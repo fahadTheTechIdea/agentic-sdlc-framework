@@ -9,6 +9,14 @@ Preferred user entry: `$sdlc-orch` in Codex or `/sdlc-orch` in Claude Code.
 This file remains the single orchestrator procedure; the longer
 `sdlc-orchestrator` entry also continues to work.
 
+Short wizard request: `$sdlc-orch w` in Codex or `/sdlc-orch w` in Claude.
+When the invocation request is `w` or `wizard` (case-insensitive), route directly
+to the interactive/persisted setup procedure in `docs/WIZARD.md` for the active
+project. Resume its existing wizard state when present; otherwise begin project/
+profile selection. No full sentence is required. These are request shortcuts
+inside the existing skill, not separately registered host commands. Preserve the
+same scope, state guards and project pins as the normal wizard request.
+
 Use paths relative to the framework root (the directory containing `framework.json`).
 When adopted in another project this root is `.agentic-framework/`; keep project
 artifacts in the project's existing locations.

@@ -37,8 +37,10 @@ in the remaining questions and verify them separately. Never enter secrets.
 
 ## Codex and Claude
 
-Invoke only `$sdlc-orch` or `/sdlc-orch` and request “Start the interactive project
-wizard for this project.” The host should inspect project instructions/pins first.
+Use `$sdlc-orch w` in Codex or `/sdlc-orch w` in Claude. The longer `wizard`
+request also works; no exact sentence is required. The shortcut starts selection
+or resumes the active project's existing state through the same procedure.
+The host should inspect project instructions/pins first.
 Use the chosen framework root to locate this script. If the host cannot expose
 terminal input, it can ask the same relevant questions conversationally and save
 answers through the commands below; do not claim a terminal ran when it did not.

@@ -155,7 +155,7 @@ python scripts/project_wizard.py run "C:\Projects\MyApp\.sdlc\wizard.json"
 
 The application folder must exist. Without `--write`, `start --profile PROFILE`
 previews without writing. Add `--mode existing` for path-only project inventory.
-In either host, ask `sdlc-orch` to start the interactive project wizard; it can use
+Use **`$sdlc-orch w`** in Codex or **`/sdlc-orch w`** in Claude; it can use
 the same engine conversationally if terminal input is unavailable. No extra skill
 or dependency installation is required. See [the runtime plan](plans/enhancements/P12_WIZARD_RUNTIME.md).
 

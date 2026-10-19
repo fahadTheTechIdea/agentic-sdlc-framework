@@ -6,6 +6,9 @@ conversation using the existing layer and technology blueprints. The
 saved decisions and resume. Use it when interactive/persisted setup is requested;
 there is no separate host wizard slash command or browser UI.
 
+Quick entry: `$sdlc-orch w` in Codex or `/sdlc-orch w` in Claude. The short request
+selects the same wizard workflow and resumes existing project state when present.
+
 ## Start a new project
 
 Invoke `$sdlc-orch` in Codex or `/sdlc-orch` in Claude Code, then describe:
