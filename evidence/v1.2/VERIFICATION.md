@@ -1,6 +1,6 @@
 # v1.2 local verification
 
-Tested implementation revision: `a597bc94849326b43c6c81c28699926c16b10d88`.
+Tested implementation revision: `131c41e879c2cd40691675e50a86f07929658bb6`.
 Environment: Windows, Python 3.14.3; 2026-10-19 (Kuwait time).
 Review: author self-review; no independent reviewer or live host pilot claimed.
 

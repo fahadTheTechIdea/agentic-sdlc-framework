@@ -32,6 +32,6 @@ test_unverified_needs_reason (test_framework.RecordTests.test_unverified_needs_r
 test_unzoned_timestamp_is_rejected (test_framework.RecordTests.test_unzoned_timestamp_is_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 32 tests in 3.255s
+Ran 32 tests in 4.601s
 
 OK
