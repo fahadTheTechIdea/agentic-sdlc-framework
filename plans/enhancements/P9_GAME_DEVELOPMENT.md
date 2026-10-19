@@ -5,6 +5,8 @@ Scope: develop game-domain layers and engine tree designs for the existing wizar
 Status: proposed design; no game, engine plugin, wizard runtime or adapter implemented.
 Authorization: extend layer design for games, prioritizing the owner's Godot/C#/.NET
 workflow while allowing Unity, Unreal and additional engines. Work directly on master.
+Follow-up authorization adds a separate Godot GDScript profile; no automatic rewrite
+of an existing C# project or choice of a game/runtime is implied.
 
 ## Outcome and scope
 
@@ -17,6 +19,8 @@ Engine profiles implement different decision branches:
 [Godot/C#](wizard/games/GODOT.md), [Unity/C#](wizard/games/UNITY.md),
 [Unreal C++/Blueprints](wizard/games/UNREAL.md) and
 [custom .NET game/simulation hosts](wizard/games/CUSTOM_DOTNET.md).
+The follow-up [Godot GDScript tree](wizard/games/GODOT_GDSCRIPT.md) separately
+captures script conventions, addons, language interoperability and web/native exports.
 Other engines are explicit inventory entries until their trees and evidence exist.
 
 The owner's preferred starting choice is Godot/C#; preference is a suggested answer,
@@ -47,7 +51,7 @@ conflicting copies or another governance workflow.
 | ID | Criterion | Design evidence | Runtime acceptance |
 | --- | --- | --- | --- |
 | GAME-001 | Explicit game-domain questions beyond ordinary app setup | G01-G09 with branches, outputs and checks | Not run |
-| GAME-002 | Different engines receive their own trees | Godot, Unity, Unreal and custom .NET blueprints | No resolver implemented |
+| GAME-002 | Different engines/languages receive their own trees | Godot C#/GDScript, Unity, Unreal and custom .NET blueprints | No resolver implemented |
 | GAME-003 | Godot/C# preference is supported without forcing every game into C# | Suggested profile and engine/language choices | No host behavior tested |
 | GAME-004 | Reuse/portability preserves active contracts and engine boundaries | Optional shared-core/adapter design and interoperability limits | No cross-engine compatibility proven |
 | GAME-005 | Export/platform restrictions affect selection rather than being hidden | Godot target conflict rule; all profiles retain version/target checks | No engine builds/exports |

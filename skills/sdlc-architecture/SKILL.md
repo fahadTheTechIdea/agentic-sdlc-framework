@@ -28,3 +28,9 @@ Use relevant sections of `core/QUALITY_SECURITY_RELIABILITY.md` for authorizatio
 and trust boundaries, config validation, retry/idempotency/concurrency contracts,
 recovery objectives, runtime signals and dependency provenance. Reuse existing
 native controls; record measurable checks in `templates/ASSURANCE.md` or the SDD.
+
+If distribution includes a store, use `core/PUBLISHING_REQUIREMENTS.md` to check
+engine/runtime/export/native dependencies against current submission constraints.
+Keep SDK, deployment target and store eligibility separate; privacy/deletion,
+content/payment and signing requirements can affect the design. Preserve source
+conflicts and actual account exceptions instead of inventing compatible defaults.

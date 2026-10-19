@@ -50,3 +50,11 @@ This validates evaluation tooling, not live agent compliance. No models are
 launched by the grader or CI. Application scans, access tests, recovery drills,
 browser/device/provider checks and operational objectives must be verified in
 their actual projects through [assurance records](../templates/ASSURANCE.md).
+
+Publishing profiles are dated research documents, not executable compliance tests.
+The framework validates their presence/links and skill/template integration only;
+it does not query live store policy, accounts, signing, testers, native-library
+compatibility, review approvals or release state. Apply
+[publishing policy](../core/PUBLISHING_REQUIREMENTS.md) and record actual evidence
+in [publishing readiness](../templates/PUBLISHING_READINESS.md). Static checks or
+author wording scenarios cannot establish live agent/store behavior.

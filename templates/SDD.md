@@ -40,6 +40,11 @@ restoration/migration evidence, runtime health/objectives, verified dependencies
 test integrity and required CI/acceptance gates. For changed agent behavior include
 selected evaluation scenarios and host-enforced tool scopes. Record N/A reasons.>
 
+## Publishing and distribution constraints
+<For selected stores, link PUBLISHING_READINESS.md or existing equivalent: actual
+distribution scope, refreshed official policy/effective dates, SDK/native-library
+compatibility, privacy/content obligations and external account/review gates.>
+
 ## Alternatives and decisions
 <ADR links, SOLID tradeoffs, assumptions, costs and unresolved consequential choices.>
 

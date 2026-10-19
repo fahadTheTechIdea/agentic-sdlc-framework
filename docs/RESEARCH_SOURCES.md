@@ -147,3 +147,23 @@ must be refreshed against the selected release/target before real project setup.
 Unity/Epic documentation version labels observed during research are not project
 pins or recommendations. Plugin, asset, SDK, vendor license/distribution and actual
 build/playtest/device/online-service evidence remain separate acceptance work.
+
+## GDScript and store publishing update
+
+Reviewed 2026-10-19. [GDScript reference](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html)
+and [Godot web export](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html)
+support a distinct GDScript script/export tree, including actual renderer/browser
+constraints. They do not prove an exported game's compatibility or store approval.
+
+Current store research and its direct primary citations are maintained in the
+[Apple](publishing/APPLE_APP_STORE.md), [Google Play](publishing/GOOGLE_PLAY.md) and
+[Steam](publishing/STEAM.md) profiles. These cite official submission/update policies,
+privacy/SDK/account rules, Google form-factor/native-library/testing requirements,
+Steam onboarding/review/content/asset rules and actual observed source conflicts.
+Do not copy date-sensitive thresholds into each engine/mobile blueprint.
+
+The snapshot distinguishes checked date from effective/enforcement dates. Google's
+existing-app introductory wording and detailed form-factor availability guidance
+need scope-specific verification. Steam's onboarding and Direct pages give different
+waiting periods; neither was silently treated as universally authoritative.
+Fresh official-source and actual account checks remain necessary at submission.

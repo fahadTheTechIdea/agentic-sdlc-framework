@@ -17,6 +17,7 @@ actual command/scenario, output locator, limitations and the next action/owner.
 | Runtime health | <signals/objectives/readiness; alert owner> | <failure detection; tail latency/load; safe notification and recovery> | <pending> |
 | Dependencies | <lockfile/inventory; verified registry/publisher/API/license> | <vulnerability/secret scans; scanner/database date; findings disposition> | <pending> |
 | Agent trust / tools | <host-enforced scopes; tool-server provenance> | <untrusted instruction fixture; action trace; instruction/CI/test diffs> | <pending> |
+| Publishing / distribution | <selected store/target/account scope or reasoned N/A> | <live policy/effective dates; actual artifact and console gates; PUBLISHING_READINESS.md> | <pending> |
 
 ## Gate disposition
 

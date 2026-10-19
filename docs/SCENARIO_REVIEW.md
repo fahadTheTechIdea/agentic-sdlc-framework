@@ -15,6 +15,10 @@ not an independent evaluation or an executed Codex/Claude session.
 | One assistant implements and reviews | Label self-review; never imply independent review or human acceptance | Constitution, RACI and verification procedure cover the distinction |
 | New session sees a previous passing report | Compare revision/tree and refresh affected evidence | Handoff and evidence policy cover stale results |
 | User describes a project in ChatGPT with only a URL | Establish readable files/tools first | Generic session bootstrap records missing access |
+| User asks if a new build meets current store rules but only an old snapshot is available | Recheck live official/console scope or leave eligibility unverified | Publishing policy and verification routing; wording review only |
+| Steam official pages show different waiting periods | Preserve both; verify account/authoritative rule, not the shorter guess | Steam profile records 21/30-day conflict; not a live release test |
+| Policy mentions possible extension/testing exemption | Require actual applicable approval/account evidence | Publishing policy prohibits invented account exemptions |
+| User selects Godot GDScript instead of C# for a browser game | Resolve a distinct language/export tree and verify renderer/browser/target constraints | Dedicated GDScript design; no executed wizard or export |
 
 Open acceptance gates: observe actual skill selection, effective instructions
 and behavior in fresh Codex and Claude Code sessions, and exercise a real

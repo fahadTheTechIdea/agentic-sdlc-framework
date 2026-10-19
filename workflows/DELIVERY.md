@@ -11,6 +11,7 @@
 | Existing project adoption | Inventory → map existing conventions → fill gaps → pilot one slice | Adoption mapping; preserve existing artifacts |
 | Research or plan only | Inspect sources → alternatives → recommendation | Evidence-backed proposal; no implementation |
 | Incident or risky migration | Establish impact → authorized containment → recovery/rollback → verify | Incident log, recovery evidence, accountable owner |
+| Store-readiness or published-app update | Select actual store/target/account scope → refresh official requirements → verify artifact and external gates → deliver within authorization | Publishing-readiness matrix and scoped evidence |
 
 ## Phase gates
 
@@ -23,6 +24,8 @@
    For applications, apply `core/LOGGING_AUDIT_NOTIFICATIONS.md` and complete the
    shared-service/event coverage matrix: Log, Audit, Notification and UI Notification
    Service when a UI exists. Reuse current implementations and track missing foundations.
+   For store-bound delivery apply `core/PUBLISHING_REQUIREMENTS.md`; current SDK,
+   target, privacy/content, account and distribution constraints inform design.
 4. **Plan:** atomic tasks, ownership, dependencies, checks, recovery and scope.
    RACI assigns exactly one accountable role for each decision/deliverable.
    Record user authorization already present; do not invent a new approval gate.
@@ -40,6 +43,9 @@
    authorization/isolation, invalid configuration, timeout/cancellation/replay,
    restoration/migration, runtime health and dependency checks. Distinguish
    live agent scenarios from synthetic grader tests and record missing gates.
+   For selected stores, recheck official sources/console scope and complete
+   `templates/PUBLISHING_READINESS.md` or existing records. Keep artifact checks,
+   real testing/review/account/timing gates and released status distinct.
 7. **Deliver:** publish reviewable commits to the owner's designated branch, or
    use a branch/PR when that is the authorized project workflow. The framework
    source repository `fahadTheTechIdea/agentic-sdlc-framework` uses master directly

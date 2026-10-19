@@ -126,6 +126,7 @@ For both hosts in the same application, follow the second-host instructions in
 | Evidence and uncertainty | [Evidence policy](core/EVIDENCE_POLICY.md) |
 | SOLID and design tradeoffs | [Engineering standards](core/ENGINEERING_STANDARDS.md) |
 | Shared logging/audit, exception and notification requirements | [Operational service standard](core/LOGGING_AUDIT_NOTIFICATIONS.md) |
+| Current store publishing and release evidence | [Publishing policy](core/PUBLISHING_REQUIREMENTS.md), [readiness template](templates/PUBLISHING_READINESS.md) |
 | Quality gates, security, reliability and tool trust | [Assurance standard](core/QUALITY_SECURITY_RELIABILITY.md), [matrix](templates/ASSURANCE.md) |
 | Agent behavior regression tasks and outcome grading | [Evaluation guide](evals/README.md) |
 | Routing and lifecycle | [Orchestrator](skills/sdlc-orch/SKILL.md), [workflows](workflows/DELIVERY.md) |
@@ -150,10 +151,25 @@ catalog have not been implemented.
 
 The [game development extension](plans/enhancements/wizard/GAMES.md) adds game-specific
 concept, simulation, world, input, gameplay/AI, asset, save/replay, multiplayer and
-performance/playtest trees. Engine blueprints distinguish Godot C#/.NET, Unity C#,
+performance/playtest trees. Engine blueprints distinguish Godot C#/.NET and
+[Godot GDScript](plans/enhancements/wizard/games/GODOT_GDSCRIPT.md), Unity C#,
 Unreal C++/Blueprints and custom .NET game/simulation hosts. Godot/C# is the owner's
 preferred starting profile, with target/export compatibility checked independently.
 See [the game development plan](plans/enhancements/P9_GAME_DEVELOPMENT.md).
+
+## Store publishing requirements
+
+[Publishing policy](core/PUBLISHING_REQUIREMENTS.md) routes store-readiness work to
+dated official-source profiles for [Apple App Store](docs/publishing/APPLE_APP_STORE.md),
+[Google Play](docs/publishing/GOOGLE_PLAY.md) and [Steam](docs/publishing/STEAM.md),
+checked 2026-10-19. They cover applicable SDK/target, privacy/content, native-library,
+account/testing/review, signing and release timing gates. Record actual evidence
+with [publishing readiness](templates/PUBLISHING_READINESS.md).
+
+Recheck official pages and actual console scope before submission/release; this
+snapshot cannot guarantee future policy or account eligibility. Source conflicts
+are explicit, including Steam's differing waiting-period pages. Framework updates
+do not submit an app, pay fees or publish to a store.
 
 ## Validate locally
 

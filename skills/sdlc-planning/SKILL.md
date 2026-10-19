@@ -22,3 +22,9 @@ from `core/LOGGING_AUDIT_NOTIFICATIONS.md`. Put missing Log, Audit and Notificat
 foundations, plus UI Notification Service for UI applications, in the first
 appropriate runnable slice. Existing-project tasks extend the active services
 within authorized scope and track wider gaps explicitly.
+
+For selected store distribution, apply `core/PUBLISHING_REQUIREMENTS.md` and
+`templates/PUBLISHING_READINESS.md`. Include applicable test-track duration,
+account/signing, review, source-conflict and release-timing gates with real owners.
+Finish independent work when accounts/hardware are deferred; do not imply a store
+approval or public release from local implementation progress.

@@ -47,6 +47,16 @@ retries and cancellation, proven recovery, runtime health, dependency checks and
 host-enforced tool permissions. Reuse [the assurance matrix](../templates/ASSURANCE.md)
 or existing project verification to record applicability and actual evidence.
 
+## Publishing and distribution
+
+For store-bound design, packaging, release-readiness or published-app updates,
+apply [publishing requirements](PUBLISHING_REQUIREMENTS.md). Select actual store,
+platform/form factor, account/product scope and release date; recheck primary
+policy and console requirements. Use [publishing readiness](../templates/PUBLISHING_READINESS.md)
+or existing project records for artifact, privacy/content, account/testing/review,
+timing and authorization evidence. A dated framework snapshot is not proof of
+current policy, accepted SDKs or store eligibility.
+
 ## SDD terminology
 
 This framework uses **SDD** for *Software Design Description*, the durable design

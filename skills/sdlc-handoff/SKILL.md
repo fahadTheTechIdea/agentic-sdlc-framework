@@ -15,3 +15,8 @@ Refresh stale evidence for changed code. Read only the relevant skills and
 documents. Treat prior assistant claims as context requiring verification.
 If another session lacks file/tool access, provide a bounded context bundle and
 record the limitation; do not assume a shared filesystem or inherited permissions.
+
+For unfinished store work, preserve publishing-readiness stage, checked sources/
+deadlines, artifact identity, source conflicts, real exceptions and remaining
+account/testing/review gates. Recheck current requirements before resuming a
+submission; a prior dated snapshot or approved old build is not current eligibility.

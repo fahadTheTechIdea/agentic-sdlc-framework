@@ -28,3 +28,8 @@ to specify measurable allowed/denied operations, invalid configuration behavior,
 timeouts/cancellation/duplicate requests, recovery objectives and runtime health.
 Capture applicable gates in `templates/ASSURANCE.md` or existing acceptance records;
 do not impose all checks on unrelated small work.
+
+For store-bound deliverables, apply `core/PUBLISHING_REQUIREMENTS.md`: capture
+actual store/target/form factor, account scope and intended release date. Separate
+current SDK/target/content/privacy obligations, announced deadlines and unresolved
+policy/console gates. Do not present dated profiles as guaranteed-current support.

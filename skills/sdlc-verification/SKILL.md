@@ -35,3 +35,10 @@ restore/migration evidence, runtime signals and dependency findings as relevant.
 Record N/A reasons and unavailable gates. For changed skills/prompts/tools/models,
 use `evals/README.md`: inspect actual outcomes and transcripts, and keep grader
 tooling tests separate from live agent results. Never weaken tests to claim success.
+
+For store readiness, use `core/PUBLISHING_REQUIREMENTS.md` and
+`templates/PUBLISHING_READINESS.md`: reopen current official sources/console scope,
+capture effective/deadline dates, verify the actual artifact and preserve conflicting
+source or exception evidence. Separate local/artifact checks, account/testing,
+submitted, approved and released states. Missing external gates stay not_run;
+structural checks and old policy snapshots cannot certify store eligibility.

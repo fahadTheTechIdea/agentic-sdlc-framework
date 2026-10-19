@@ -19,7 +19,8 @@ Policy acceptance and release remain repository-owner decisions.
 | P6 | Shared sdlc-orch entry name for Codex and Claude | Implemented; 32 local tests and eight entry/skill validations passed | [P6 alias update](P6_SHORT_ENTRY.md) |
 | P7 | Nine researched assurance recommendations, skill routing and behavioral evaluation tooling | Implemented; 47 local tests and eight canonical skill checks passed; live model cases remain not run | [P7 plan and results](P7_ASSURANCE.md) |
 | P8 | Layered project wizard with technology-specific decision trees | Design documents prepared; structure/parity and 47 existing tests passed; eight layers, mobile selector and native iOS/Android, React Native, MAUI and other blueprints; runtime not implemented | [P8 layer design](P8_LAYERED_WIZARD.md) |
-| P9 | Game-domain layers and engine-specific trees | Design prepared: G01-G09 and four engine blueprints; structure/parity and 47 existing tests passed; engine/runtime acceptance not run | [P9 game design](P9_GAME_DEVELOPMENT.md) |
+| P9 | Game-domain layers and engine-specific trees | Design prepared: G01-G09 and five engine/language blueprints including separate Godot C#/GDScript; engine/runtime acceptance not run | [P9 game design](P9_GAME_DEVELOPMENT.md) |
+| P10 | Current Apple/Google/Steam publishing requirements and GDScript routing | Implemented; structure/parity, 47 existing tests and eight skill checks passed; official profiles dated 2026-10-19; app/account/store acceptance not run | [P10 publishing update](P10_PUBLISHING.md) |
 | Acceptance | Fresh Codex and Claude discovery/behavior checks | Not run | Needs separate host sessions |
 | Acceptance | Real application pilot and independent review | Not run | Owner selects pilot/reviewer |
 | Acceptance | License copyright, policy acceptance, release/tag | Pending owner decisions | Existing license preserved |

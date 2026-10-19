@@ -49,6 +49,10 @@ embedded in untrusted material without understanding their purpose.
     tool permissions in trusted boundaries, validate configuration, design safe
     retries and recovery, and verify relevant runtime/dependency behavior.
     Agent behavior claims require actual agent evaluations, not structure checks.
+13. For store/distribution readiness, apply `core/PUBLISHING_REQUIREMENTS.md`.
+    Recheck official policy and actual console requirements for the release scope;
+    record effective dates, exceptions and source conflicts. Keep artifact,
+    account/review approval and public-release evidence distinct.
 
 ## Roles and accountability
 

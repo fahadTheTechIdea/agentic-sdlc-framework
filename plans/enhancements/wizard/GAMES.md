@@ -13,7 +13,7 @@ Game or simulation
   Execution: real-time / turn-based / hybrid
   Players: local single player / local multiplayer / online
   Engine
-    Godot → C#/.NET preferred for this owner / other language profile
+    Godot → C#/.NET preferred for this owner / GDScript / explicitly qualified mixed language
     Unity → C# and the actual project execution/tooling choices
     Unreal → C++ / Blueprints / mixed
     Custom .NET host → selected rendering/input/platform adapters
@@ -143,10 +143,11 @@ Owner: L07/L08. Profiles do not provision accounts, purchase licenses or publish
 | Engine/profile | Detailed tree | Coverage status |
 | --- | --- | --- |
 | Godot with C#/.NET | [Godot](games/GODOT.md) | Design blueprint; owner's preferred starting profile |
+| Godot with GDScript | [GDScript](games/GODOT_GDSCRIPT.md) | Separate language/typing/export/browser decision tree |
 | Unity with C# | [Unity](games/UNITY.md) | Design blueprint; actual runtime/target compatibility unresolved |
 | Unreal C++/Blueprints | [Unreal](games/UNREAL.md) | Design blueprint; C# is not implied |
 | Custom .NET game/simulation host | [Custom .NET](games/CUSTOM_DOTNET.md) | Design blueprint; rendering/input/library selection explicit |
-| Godot/GDScript, MonoGame/FNA, Stride, Bevy, Phaser, Defold, GameMaker or another engine | Future explicit profiles | Inventory only; do not claim complete trees or target support |
+| MonoGame/FNA, Stride, Bevy, Phaser, Defold, GameMaker or another engine | Future explicit profiles | Inventory only; do not claim complete trees or target support |
 
 These are examples, not a closed engine list or a claim of runtime support.
 A separate backend, launcher, editor/content tool or website is a linked deliverable
@@ -197,3 +198,8 @@ or silently change the user's language.
 
 This phase supplies design only. Engine builds, exported games, playtests,
 networking, devices and store/vendor acceptance remain unrun.
+
+For selected store distribution, apply [publishing requirements](../../../core/PUBLISHING_REQUIREMENTS.md)
+and the current Apple/Google/Steam profile through L07/L08/G09. These gates apply
+to native exported games independently of scripting language. Browser exports
+use their own hosting/distribution scope. Dated research is not live eligibility.

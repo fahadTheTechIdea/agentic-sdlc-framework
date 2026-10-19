@@ -43,6 +43,11 @@ to create resources, spend money or deploy.
 
 ## Reference and standards needs
 
+For selected Apple/Google/Steam distribution, apply
+[publishing policy](../../../core/PUBLISHING_REQUIREMENTS.md) and the store-specific
+dated source profile. Record actual platform/form factor, account/new-update scope,
+current SDK/target/native-library gates, deadlines and unresolved console evidence.
+
 Record vendor runtime/support/distribution guidance and operational requirements
 for selected versions/targets. Exact current hosting support, pricing and signing/
 store rules require separate current verification; none is asserted by this design.

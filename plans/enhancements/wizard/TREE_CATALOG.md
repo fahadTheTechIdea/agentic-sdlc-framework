@@ -23,8 +23,8 @@ editing a giant host-specific questionnaire. No entry here is a support claim.
 | CLI/tools | dotnet.cli; python.cli; go.cli; rust.cli; node.cli | One illustrative CLI blueprint below; others inventory only |
 | Libraries/SDKs | dotnet.library; python.package; typescript.package; java.library; go.module; rust.library | One illustrative library blueprint below; others inventory only |
 | Data/AI | python.data-pipeline; python.model-service; dotnet.data-pipeline; custom.data-system | Inventory; data/AI-specific privacy, evaluation and operation trees required |
-| Games/simulation | godot.csharp.game; unity.csharp.game; unreal.cpp-blueprint.game; custom.dotnet.game | Game-domain layers and four engine blueprints; actual compatibility and runtime checks pending |
-| Other game engines/plugins | godot.gdscript.game; MonoGame/FNA; Stride; Bevy; Phaser; Defold; GameMaker; dotnet.game-simulation; native.game-simulation; custom.engine-plugin | Inventory only; choose/define an explicit engine tree rather than claim support from a generic label |
+| Games/simulation | godot.csharp.game; godot.gdscript.game; unity.csharp.game; unreal.cpp-blueprint.game; custom.dotnet.game | Game-domain layers and five engine/language blueprints; actual compatibility and runtime checks pending |
+| Other game engines/plugins | MonoGame/FNA; Stride; Bevy; Phaser; Defold; GameMaker; dotnet.game-simulation; native.game-simulation; custom.engine-plugin | Inventory only; choose/define an explicit engine tree rather than claim support from a generic label |
 | Mixed/custom | Explicit combination of named deliverables or custom profile | Compose existing contracts; unknown profiles stay unverified |
 
 A profile also needs framework variants and version constraints. React alone,
@@ -50,6 +50,8 @@ The game concept, engine/language and target are separate selections.
 
 Detailed engine trees: [Godot C#/.NET](games/GODOT.md), [Unity C#](games/UNITY.md),
 [Unreal C++/Blueprints](games/UNREAL.md), and [custom .NET hosts](games/CUSTOM_DOTNET.md).
+Godot also has a distinct [GDScript tree](games/GODOT_GDSCRIPT.md) for its language,
+typing/addon and actual target/export branches, including browser constraints.
 Godot/C# is the owner's preferred starting suggestion; it does not constrain every
 game or imply identical .NET/runtime/export support across engines.
 

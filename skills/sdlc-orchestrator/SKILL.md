@@ -30,6 +30,10 @@ artifacts in the project's existing locations.
    `templates/ASSURANCE.md` or existing project records. For changes to skills,
    prompts, models or tools, select behavioral cases from `evals/README.md`;
    distinguish actual host runs from structural/grader tests.
+   For distribution design, packaging, store readiness or published-app updates,
+   read `core/PUBLISHING_REQUIREMENTS.md` and the selected Apple/Google/Steam
+   profile. Recheck official sources and console scope before eligibility claims;
+   record deadlines, granted exceptions, conflicts and unverified external gates.
 4. Read only the matching specialist procedures below. These are skill routing
    choices, not instructions to spawn agents or invoke every skill.
 5. Maintain one active tracker and requirement-to-evidence mapping. Implement

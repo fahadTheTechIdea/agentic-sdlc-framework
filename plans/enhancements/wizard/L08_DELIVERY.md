@@ -46,6 +46,12 @@ configuration file, wizard runtime, dependency installation or scaffold is creat
 
 ## Reference and standards needs
 
+For store-bound outputs, use [publishing readiness](../../../templates/PUBLISHING_READINESS.md)
+under [publishing policy](../../../core/PUBLISHING_REQUIREMENTS.md). Recheck live
+official requirements and distinguish artifact/local tests, account/test-track,
+review approval and actual publication. Preserve source conflicts and granted
+exceptions without fabricating current eligibility.
+
 Record actual toolchain/CI/test/security guidance for the selected profile and
 project governance obligations. Preserve test integrity, inspect dependency/test
 changes and use the framework's existing assurance/evidence rules.

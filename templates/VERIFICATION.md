@@ -23,5 +23,10 @@ gate commands/baselines, test modifications and reasons, applicable authorizatio
 config, retry/cancellation, restore, health and dependency checks. For agent behavior
 record actual case runs separately from grader tests. Mark N/A and not_run honestly.>
 
+## Publishing readiness checks
+<For selected stores, link PUBLISHING_READINESS.md or equivalent. Record live
+official policy checks, effective dates/conflicts/exceptions, actual artifact
+verification and separate account/testing/review/public-release evidence.>
+
 ## Completion assessment
 <Met criteria, failed/missing gates, local/CI/runtime distinction, next action.>
