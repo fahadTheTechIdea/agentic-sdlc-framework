@@ -9,7 +9,9 @@ Inspected 2026-10-19: all four tracked files and branch history. The repository
 contained a one-line `README.md`, `LICENSE.txt`, `.gitignore`, `.gitattributes`.
 There were no existing framework policies, skills, adapters, workflows, validation
 scripts or open PRs at inspection. The Git configuration and license are preserved;
-the README is expanded. No default-branch edit or merge is part of this work.
+the README is expanded. Initial preparation used a feature branch and draft PR.
+On 2026-10-19, the owner explicitly requested master; PR #1 was then merged
+into master after confirming successful checks on the PR head.
 
 ## Conversation provenance
 

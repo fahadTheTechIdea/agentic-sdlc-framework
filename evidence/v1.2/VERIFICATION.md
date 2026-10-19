@@ -21,5 +21,6 @@ REQ-001 through REQ-006 have local structural/tooling evidence. REQ-002 routing
 also has [instruction self-review](../../docs/SCENARIO_REVIEW.md), not executed
 model evaluation. REQ-003 live Codex/Claude discovery and behavior, a real
 application pilot, independent review and policy/release acceptance remain open.
-REQ-007 is delivered via the feature branch/PR, with no default-branch merge.
+REQ-007 was delivered via the feature branch/PR. The owner subsequently
+authorized merging PR #1 into master on 2026-10-19; see the project tracker.
 Hosted CI status is recorded in the PR and must not be inferred from this report.
