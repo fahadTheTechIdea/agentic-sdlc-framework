@@ -1,0 +1,5 @@
+Actual installer CLI in disposable project:
+Preview exited 0 and created no files.
+Install exited 0. Existing AGENTS.md preserved byte-for-byte.
+Vendored validator exited 0.
+Framework structure, templates and adapters validated.
