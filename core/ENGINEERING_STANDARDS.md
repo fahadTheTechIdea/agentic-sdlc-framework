@@ -1,5 +1,9 @@
 # Engineering standards
 
+For stack selection, version-sensitive changes and standards research, use
+[technology verification](TECHNOLOGY_FRESHNESS.md). Preserve approved pins;
+documented support and actual runtime compatibility require separate evidence.
+
 ## SOLID in review
 
 | Principle | Apply it by | Evidence to look for | Avoid |

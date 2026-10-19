@@ -58,3 +58,11 @@ compatibility, review approvals or release state. Apply
 [publishing policy](../core/PUBLISHING_REQUIREMENTS.md) and record actual evidence
 in [publishing readiness](../templates/PUBLISHING_READINESS.md). Static checks or
 author wording scenarios cannot establish live agent/store behavior.
+
+The [setup conversation](PROJECT_SETUP.md) and
+[technology verification policy](../core/TECHNOLOGY_FRESHNESS.md) are maintained
+procedures. Presence and link checks do not execute a setup conversation, resolve
+technology trees, inspect live version support, or invalidate/persist answers.
+The technology review template records scoped evidence; it is not an automated
+all-stack compatibility check. Per-machine host discovery must be recorded
+separately from actual agent behavior and project acceptance.

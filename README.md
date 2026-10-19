@@ -52,6 +52,11 @@ Grader tests do not establish live Codex/Claude behavior or application complian
 The longer `sdlc-orchestrator` name remains supported. Both names use the same
 orchestrator procedure; `sdlc-orch` is the preferred name for everyday use.
 
+For guided project choices, ask the orchestrator to use
+[the setup conversation](docs/PROJECT_SETUP.md). It selects relevant technology
+and layer blueprints, records decisions in your existing project documents, and
+continues within your requested plan or implementation scope.
+
 ## Install in a new or existing application
 
 Clone the framework source from `master` into its own folder. These commands
@@ -124,6 +129,7 @@ For both hosts in the same application, follow the second-host instructions in
 | --- | --- |
 | Authority, scope, safety and engineering rules | [Constitution](core/ENGINEERING_CONSTITUTION.md) |
 | Evidence and uncertainty | [Evidence policy](core/EVIDENCE_POLICY.md) |
+| Layer-specific technology and standards checks | [Technology verification](core/TECHNOLOGY_FRESHNESS.md), [review template](templates/TECHNOLOGY_REVIEW.md) |
 | SOLID and design tradeoffs | [Engineering standards](core/ENGINEERING_STANDARDS.md) |
 | Shared logging/audit, exception and notification requirements | [Operational service standard](core/LOGGING_AUDIT_NOTIFICATIONS.md) |
 | Current store publishing and release evidence | [Publishing policy](core/PUBLISHING_REQUIREMENTS.md), [readiness template](templates/PUBLISHING_READINESS.md) |
@@ -148,6 +154,12 @@ different website, API, mobile/desktop, worker, CLI and library paths. The
 and [.NET MAUI native-controls/Blazor Hybrid](plans/enhancements/wizard/MAUI.md). This is design
 documentation; a runnable wizard, tree resolver and version-verified technology
 catalog have not been implemented.
+
+The [guided setup procedure](docs/PROJECT_SETUP.md) makes these documents usable
+in a conversation today. [Technology verification](core/TECHNOLOGY_FRESHNESS.md)
+defines official-source checks, compatibility evidence and refresh triggers across
+affected layers. It preserves project pins and makes missing evidence explicit;
+it does not automatically update dependencies or certify every catalog entry.
 
 The [game development extension](plans/enhancements/wizard/GAMES.md) adds game-specific
 concept, simulation, world, input, gameplay/AI, asset, save/replay, multiplayer and

@@ -127,8 +127,10 @@ machine-readable validation is implemented by these design documents.
 ## Technology and standards freshness boundary
 
 The tree design reserves versioned references and applicability conditions now.
-A later verification mechanism must check actual supported versions and relevant
-standards before marking choices verified-current. Official documentation inspected
+Use the on-demand [technology verification policy](../../../core/TECHNOLOGY_FRESHNESS.md)
+to check actual supported versions and relevant standards before making current
+claims. An automated version/compatibility resolver remains unimplemented.
+Official documentation inspected
 for examples is listed in [the source register](../../../docs/RESEARCH_SOURCES.md).
 It does not establish that every catalog entry is current, supported or tested.
 

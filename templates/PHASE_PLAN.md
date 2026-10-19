@@ -22,3 +22,9 @@ and channel outage checks from OPERATIONAL_SERVICES.md.>
 
 ## Verification and delivery
 <Focused checks, required regression gate, review, smoke checks, evidence and gaps.>
+
+<For version-sensitive work, link TECHNOLOGY_REVIEW.md or existing records and
+sequence affected compatibility checks. For selected stores, link
+PUBLISHING_READINESS.md: policy refresh, actual artifact, signing, account/testing,
+review and release gates with owners; preserve source conflicts and unknowns.
+Complete independent local work when external gates are deferred.>

@@ -20,6 +20,12 @@ a UI exists. See [the operational service matrix](OPERATIONAL_SERVICES.md).
 
 ## Assumptions and open decisions
 
+For layered setup, capture deliverables, selected profile/variant, targets and
+answer origins in existing project records; link the relevant layer decisions.
+Record version-sensitive assumptions through [technology review](TECHNOLOGY_REVIEW.md).
+For store-bound outcomes include scope and measurable artifact/external gates
+from [publishing readiness](PUBLISHING_READINESS.md), with actual missing evidence.
+
 <Separate observed facts, inferences and proposals; owner and resolving action.>
 
 ## Approval and change history

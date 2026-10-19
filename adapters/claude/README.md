@@ -17,3 +17,8 @@ authorized Git workflow.
 
 For detailed setup see `docs/ADOPTION.md`. Official sources and review date
 are in `docs/RESEARCH_SOURCES.md`.
+
+With a personal installation, the same entry works in new/existing application
+folders without a project copy. Explicit local pins take precedence. For guided
+choices follow [project setup](../../docs/PROJECT_SETUP.md); technology/source
+checks and store-readiness records use the shared canonical procedures.

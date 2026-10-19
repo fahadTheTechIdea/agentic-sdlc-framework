@@ -13,6 +13,8 @@ fact. Remove unresolved placeholders from completed project artifacts.
 - [Operational services](OPERATIONAL_SERVICES.md): logging, audit, exception handling,
   notification pipeline and conditional UI notification coverage and checks.
 - [Handoff](HANDOFF.md): resume across sessions and tools.
+- [Technology review](TECHNOLOGY_REVIEW.md): pins, source dates, support and
+  compatibility evidence across affected layers without an automatic upgrade.
 - [Publishing readiness](PUBLISHING_READINESS.md): current store policy, artifact,
   account/testing/review evidence and scoped release authorization.
 - [Assurance](ASSURANCE.md): applicable quality/security/reliability controls,

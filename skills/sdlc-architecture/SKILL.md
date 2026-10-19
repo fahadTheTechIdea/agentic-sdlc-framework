@@ -16,6 +16,11 @@ until an authorized decision-maker accepts it. Check substitutability with
 behavioral contracts where implementations are interchangeable. Do not add
 interfaces, services or patterns solely to tick a SOLID checkbox.
 
+For technology choices apply `core/TECHNOLOGY_FRESHNESS.md`. Verify the selected
+runtime/framework/provider/target combination, preserve project pins and record
+documented support separately from executed compatibility checks. Reuse the SDD/ADR
+or `templates/TECHNOLOGY_REVIEW.md`; do not create a competing version inventory.
+
 Apply `core/LOGGING_AUDIT_NOTIFICATIONS.md` and identify the existing shared Log,
 Audit and Notification Service contracts. Include UI Notification Service design
 when a UI exists. Separate durable records from notification channel delivery;

@@ -49,6 +49,7 @@ not proof that its version/provider combination works.
 
 ## Reference and standards needs
 
-Reserve official lifecycle, release/support, framework, package and compatibility
-references. Version-specific tree resolution and freshness policy remain a later
-design slice; no option is labeled latest/supported/verified without evidence.
+Record official lifecycle, release/support, framework, package and compatibility
+references using [technology verification](../../../core/TECHNOLOGY_FRESHNESS.md).
+Version-specific automated tree resolution remains a later implementation slice;
+no option is labeled latest/supported/verified without scoped evidence.

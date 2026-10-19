@@ -21,7 +21,9 @@ Policy acceptance and release remain repository-owner decisions.
 | P8 | Layered project wizard with technology-specific decision trees | Design documents prepared; structure/parity and 47 existing tests passed; eight layers, mobile selector and native iOS/Android, React Native, MAUI and other blueprints; runtime not implemented | [P8 layer design](P8_LAYERED_WIZARD.md) |
 | P9 | Game-domain layers and engine-specific trees | Design prepared: G01-G09 and five engine/language blueprints including separate Godot C#/GDScript; engine/runtime acceptance not run | [P9 game design](P9_GAME_DEVELOPMENT.md) |
 | P10 | Current Apple/Google/Steam publishing requirements and GDScript routing | Implemented; structure/parity, 47 existing tests and eight skill checks passed; official profiles dated 2026-10-19; app/account/store acceptance not run | [P10 publishing update](P10_PUBLISHING.md) |
-| Acceptance | Fresh Codex and Claude discovery/behavior checks | Not run | Needs separate host sessions |
+| P11 | Guided setup, per-layer technology freshness and remaining publishing integration | Procedures/templates integrated; structure/parity, 47 regression tests and eight canonical skill validations passed; live task/runtime acceptance not run | [P11 integration](P11_INTEGRATION.md) |
+| Acceptance | Personal Codex and Claude skill discovery | Inventory verified for the owner's local installation on 2026-10-19; refresh checked per revision | Per-machine installation receipt/report; not a claim about all hosts |
+| Acceptance | Actual Codex and Claude task behavior | Not run | Needs recorded live scenario runs, separate from host inventories |
 | Acceptance | Real application pilot and independent review | Not run | Owner selects pilot/reviewer |
 | Acceptance | License copyright, policy acceptance, release/tag | Pending owner decisions | Existing license preserved |
 

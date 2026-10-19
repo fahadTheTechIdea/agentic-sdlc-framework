@@ -61,6 +61,12 @@ wrapper directory, existing instruction integration and relevant host settings.
 For another task in the same project, use the installed snapshot and current
 tracker/handoff. Reinstallation is unnecessary.
 
+For guided new/existing project setup use [the conversation guide](PROJECT_SETUP.md).
+Only invoke `sdlc-orch`; it selects the relevant layers and specialist procedures.
+Capture stack/standard evidence with [technology review](../templates/TECHNOLOGY_REVIEW.md)
+and store-bound gates with [publishing readiness](../templates/PUBLISHING_READINESS.md).
+These procedures do not install a wizard runtime or silently change project pins.
+
 Commit and publish the reviewed adoption using the application's own authorized
 Git workflow. The framework repository's master-only maintenance rule is not
 automatically imposed on adopted applications.

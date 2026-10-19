@@ -16,6 +16,11 @@ documents. Treat prior assistant claims as context requiring verification.
 If another session lacks file/tool access, provide a bounded context bundle and
 record the limitation; do not assume a shared filesystem or inherited permissions.
 
+For layered setup preserve deliverable/profile/variant selections, answer origins,
+unresolved decisions and dependent choices needing review in existing artifacts.
+Link technology source checks and their dates under `core/TECHNOLOGY_FRESHNESS.md`.
+Resume from inspected documents; there is no automatic wizard state/resume engine.
+
 For unfinished store work, preserve publishing-readiness stage, checked sources/
 deadlines, artifact identity, source conflicts, real exceptions and remaining
 account/testing/review gates. Recheck current requirements before resuming a

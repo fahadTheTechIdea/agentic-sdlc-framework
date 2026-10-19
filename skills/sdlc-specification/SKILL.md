@@ -16,6 +16,11 @@ contracts, failure modes, security, migration, operations and verification links
 Use `core/ENGINEERING_STANDARDS.md` for SDD terminology. Reuse an equivalent
 existing document instead of creating a parallel specification system.
 
+For layered setup use `docs/PROJECT_SETUP.md` and only selected profile/layer
+blueprints. Record decision origin, uncertainty and dependencies in the existing
+specification/SDD. Apply `core/TECHNOLOGY_FRESHNESS.md` to version-sensitive claims;
+inventory entries are not verified support and observed pins are not upgrade consent.
+
 Include the mandatory application foundations in
 `core/LOGGING_AUDIT_NOTIFICATIONS.md`: shared Log, Audit and Notification Services,
 and a UI Notification Service if a UI exists. Capture measurable event coverage,

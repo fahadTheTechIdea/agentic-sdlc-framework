@@ -24,3 +24,10 @@ Repository instructions are not automatically imported into every chat. Do not
 assume cross-session memory, local filesystem access, installed skills, tool
 connections, user approvals or agent delegation carry over. Use
 `templates/HANDOFF.md` to transfer current state and pending decisions.
+
+For guided setup also provide `docs/PROJECT_SETUP.md`, the shared layer contract
+and only the selected technology/profile blueprints. Version/standards decisions
+need `core/TECHNOLOGY_FRESHNESS.md` and actual source/check evidence. Store-bound
+work additionally needs `core/PUBLISHING_REQUIREMENTS.md` and selected store
+profiles. If browsing, account or runtime access is missing, record those gates
+as unverified; attachments alone do not establish current compatibility/eligibility.

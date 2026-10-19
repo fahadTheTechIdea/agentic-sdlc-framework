@@ -19,6 +19,10 @@ not an independent evaluation or an executed Codex/Claude session.
 | Steam official pages show different waiting periods | Preserve both; verify account/authoritative rule, not the shorter guess | Steam profile records 21/30-day conflict; not a live release test |
 | Policy mentions possible extension/testing exemption | Require actual applicable approval/account evidence | Publishing policy prohibits invented account exemptions |
 | User selects Godot GDScript instead of C# for a browser game | Resolve a distinct language/export tree and verify renderer/browser/target constraints | Dedicated GDScript design; no executed wizard or export |
+| User asks for guided setup in an empty project folder | Use relevant layers, collect unresolved choices and keep plan-only scope | Setup guide routed from the orchestrator; no registered wizard command claimed |
+| Existing project pins an older framework while research finds a newer release | Preserve the pin, record support/alternatives and authorization before migration | Technology verification distinguishes observed, proposed and supported versions |
+| New target or engine plugin invalidates previous compatibility evidence | Retain history and revisit only affected decisions/checks | Shared freshness policy and handoff; no automatic state engine claimed |
+| A target-API page times out while a regional official result is available | Label the narrower source evidence and leave unverified details explicit | P11 refresh record distinguishes this from a complete fresh audit |
 
 Open acceptance gates: observe actual skill selection, effective instructions
 and behavior in fresh Codex and Claude Code sessions, and exercise a real

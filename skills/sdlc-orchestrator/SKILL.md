@@ -19,6 +19,13 @@ artifacts in the project's existing locations.
 3. Classify the request using `workflows/DELIVERY.md`: research/plan only, small
    edit, feature, bug, adoption, new project, or incident. Capture acceptance
    criteria, constraints, authorization and unknowns. Scale documentation to risk.
+   For guided new-project setup or an existing-project setup assessment, read
+   `docs/PROJECT_SETUP.md`. Use only relevant layer/profile blueprints; record
+   decisions in existing project artifacts. This is conversational guidance,
+   not an implemented wizard runtime or a command that scaffolds applications.
+   When choosing/changing technology or checking current standards, apply
+   `core/TECHNOLOGY_FRESHNESS.md`; preserve pins and separate documented support
+   from actual compatibility checks. Do not load the entire catalog for a small fix.
    For application design, implementation or review, read
    `core/LOGGING_AUDIT_NOTIFICATIONS.md`. Inventory shared Log, Audit and Notification
    Services plus a UI Notification Service when a UI exists. Reuse existing

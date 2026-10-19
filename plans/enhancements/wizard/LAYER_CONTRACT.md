@@ -41,7 +41,11 @@ choices. An explicitly pinned project stack is a constraint, not an upgrade requ
 An applicable technology/standard reference reserves: subject, selected or observed
 version, official source URL/locator, verified-at timestamp, support status,
 compatibility result, evidence locator and remaining unknowns. Unknown references
-stay unverified. The later freshness design owns how these are researched/refreshed.
+stay unverified. The on-demand
+[technology verification policy](../../../core/TECHNOLOGY_FRESHNESS.md) now defines
+source checks, compatibility evidence and refresh/invalidation rules. Its
+[review template](../../../templates/TECHNOLOGY_REVIEW.md) can be used in existing
+project documents; automated reference resolution remains future work.
 
 ## Layer state and completion
 

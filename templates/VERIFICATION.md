@@ -23,7 +23,13 @@ gate commands/baselines, test modifications and reasons, applicable authorizatio
 config, retry/cancellation, restore, health and dependency checks. For agent behavior
 record actual case runs separately from grader tests. Mark N/A and not_run honestly.>
 
+## Technology and standards checks
+
+For changed technology/standard claims, link [technology review](TECHNOLOGY_REVIEW.md)
+or equivalent and distinguish inspected-source evidence from executed compatibility.
+
 ## Publishing readiness checks
+
 <For selected stores, link PUBLISHING_READINESS.md or equivalent. Record live
 official policy checks, effective dates/conflicts/exceptions, actual artifact
 verification and separate account/testing/review/public-release evidence.>

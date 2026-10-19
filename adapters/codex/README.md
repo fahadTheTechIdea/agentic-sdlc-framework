@@ -16,3 +16,8 @@ for every task. Follow the target project's authorized Git workflow.
 For detailed setup see `docs/ADOPTION.md`; do not copy this repository's
 maintenance-specific `AGENTS.md` over that project's instructions.
 Official sources and review date are in `docs/RESEARCH_SOURCES.md`.
+
+With a user-level installation, the same entry works in new/existing application
+folders without a project copy. Explicit local pins take precedence. For guided
+choices follow [project setup](../../docs/PROJECT_SETUP.md); technology/source
+checks and store-readiness records use the shared canonical procedures.

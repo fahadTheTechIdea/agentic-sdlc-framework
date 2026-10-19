@@ -17,10 +17,14 @@
 
 1. **Discover:** read applicable instructions, current state, source, tests and
    active trackers. Record proven facts separately from assumptions.
+   For guided setup use `docs/PROJECT_SETUP.md` and selected layer/profile
+   blueprints. Reuse known answers; distinguish observations from recommendations.
 2. **Specify:** problem, non-goals, requirement IDs, measurable criteria, constraints
    and owner. Resolve only decisions that block safe progress.
 3. **Design:** boundaries, contracts, dependencies, failure modes, data/security
    considerations and alternatives. Use SDD and ADR proportional to impact.
+   For stack/standard decisions apply `core/TECHNOLOGY_FRESHNESS.md`; preserve pins,
+   inspect official lifecycle/compatibility sources and record affected layer checks.
    For applications, apply `core/LOGGING_AUDIT_NOTIFICATIONS.md` and complete the
    shared-service/event coverage matrix: Log, Audit, Notification and UI Notification
    Service when a UI exists. Reuse current implementations and track missing foundations.

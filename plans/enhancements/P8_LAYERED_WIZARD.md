@@ -96,8 +96,10 @@ A hosting runtime incompatibility returns to L02 rather than guessing a version.
 | Quality/security/reliability standard | Each applicable layer names its assurance checks |
 | Host adapters | Present the same decisions in Codex and Claude; no copied host-specific policy |
 
-The future invocation `sdlc-orch new project wizard` remains a proposal.
-This documentation does not add a registered command or make the wizard runnable.
+The phrase `sdlc-orch new project wizard` is not a registered command.
+[P11 integration](P11_INTEGRATION.md) adds a [guided conversation](../../docs/PROJECT_SETUP.md)
+through the existing orchestrator and these blueprints. It does not make the
+proposed wizard runtime, state persistence or tree resolver executable.
 Existing-project entry must inventory and prefill verified observations while
 preserving active contracts, plans and project pins. It cannot authorize migration.
 
@@ -106,9 +108,12 @@ preserving active contracts, plans and project pins. It cannot authorize migrati
 Each detailed layer identifies where a technology or standard affects its choices.
 The shared contract reserves reference/version, official source, verification date,
 support/compatibility result and unknown status. No current version, compliance or
-freshness claim is supplied in this phase. A later technology/standards verification
-design must populate those fields before presenting an option as verified-current.
+freshness claim is supplied by the layer design alone. Actual source/compatibility
+evidence must populate those fields before presenting an option as verified-current.
 A user may express a preference before verification; preferences are not evidence.
+The on-demand [technology verification policy](../../core/TECHNOLOGY_FRESHNESS.md)
+now supplies source/evidence and refresh rules. Automated versioned profile
+resolution and freshness tooling remain future work.
 
 ## Requirements and acceptance criteria
 
@@ -120,7 +125,7 @@ A user may express a preference before verification; preferences are not evidenc
 | WIZ-004 | New/existing projects, mixed targets and N/A paths are defined | Walkthroughs below | Not run |
 | WIZ-005 | Reuse existing skills, rules, services, plans and templates | Integration mapping and local links | Not run |
 | WIZ-006 | User scope and authorized Git workflow control actions | L08 and shared contract | Not run |
-| WIZ-007 | Technology/standard evidence has a home in every applicable layer | Layer reference sections; no hard-coded latest claims | Verification mechanism deferred |
+| WIZ-007 | Technology/standard evidence has a home in every applicable layer | Layer reference sections and P11 manual procedure; no hard-coded latest claims | Automated verification deferred |
 | WIZ-008 | Design status cannot imply runnable wizard/model behavior | Explicit status and README wording | Not run |
 | WIZ-009 | Each selected framework/variant supplies distinct roots for every applicable layer | Tree model and multi-family blueprints, including native iOS/Android, React Native and MAUI branches | Resolver/coverage validation not implemented |
 | WIZ-010 | Many technologies and mixed deliverables are supported by the design contract | Extensible catalog, unknown-profile behavior and composition rules | Runtime support not implemented |
@@ -153,7 +158,7 @@ design-only phase. Each slice needs its own runnable acceptance evidence.
 | P8.2 | Add L01/L02 tree selection, conversational flow, provenance, save/resume and no-write preview | Not implemented |
 | P8.3 | Add technology-specific L03-L07 branches and invalidation/conflict handling | Not implemented |
 | P8.4 | Map L08 decisions to existing artifacts and authorized delivery actions | Not implemented |
-| P8.5 | Design verified technology/standards profiles and refresh rules | Deferred until layer design is settled |
+| P8.5 | Design verified technology/standards profiles and refresh rules | Manual source/evidence/refresh procedure integrated in P11; automated profiles/resolver not implemented |
 | P8.6 | Add behavioral cases, independent outcome checks and actual Codex/Claude runs | Not run |
 | P8.7 | Consider terminal/browser presentation over the same contracts | Deferred; no UI technology selected |
 

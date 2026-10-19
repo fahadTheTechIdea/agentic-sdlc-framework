@@ -40,7 +40,14 @@ restoration/migration evidence, runtime health/objectives, verified dependencies
 test integrity and required CI/acceptance gates. For changed agent behavior include
 selected evaluation scenarios and host-enforced tool scopes. Record N/A reasons.>
 
+## Technology and standards evidence
+
+For technology/standard choices, link [technology review](TECHNOLOGY_REVIEW.md) or
+existing equivalent. Record actual pins, selected combinations, official source
+dates, documented support, executed checks, unknowns and affected dependencies.
+
 ## Publishing and distribution constraints
+
 <For selected stores, link PUBLISHING_READINESS.md or existing equivalent: actual
 distribution scope, refreshed official policy/effective dates, SDK/native-library
 compatibility, privacy/content obligations and external account/review gates.>
