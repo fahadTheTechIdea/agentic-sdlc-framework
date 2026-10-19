@@ -7,6 +7,12 @@ The wrapper tells the assistant to read the canonical file; it does not copy
 policy or alter sandbox/approval settings. Check loaded instructions and skill
 availability in a fresh session after adoption.
 
-For another project see `docs/ADOPTION.md`; do not copy this repository's
+Use this framework repository on `master`. For another project, install once
+with `--adapter codex`, integrate any existing `AGENTS.md`, then open a fresh
+session in the application folder. Start each task with `$sdlc-orchestrator` and
+your outcome; it selects the relevant procedures. Installation is not needed
+for every task. Follow the target project's authorized Git workflow.
+
+For detailed setup see `docs/ADOPTION.md`; do not copy this repository's
 maintenance-specific `AGENTS.md` over that project's instructions.
 Official sources and review date are in `docs/RESEARCH_SOURCES.md`.

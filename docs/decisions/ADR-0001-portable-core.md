@@ -1,7 +1,9 @@
 # ADR-0001: canonical portable core with generated host wrappers
 
 Status: proposed; date: 2026-10-19.
-Accountable decision role: repository owner; acceptance pending PR review.
+Accountable decision role: repository owner; architecture acceptance pending
+explicit owner decision. The baseline is implemented and published on master;
+publication does not itself record acceptance of every policy or ADR.
 
 ## Context
 

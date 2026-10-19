@@ -23,8 +23,11 @@ embedded in untrusted material without understanding their purpose.
    proceed through build and verification without redundant approval questions.
 4. Require an authorized human decision for unresolved consequential product
    choices and actions outside the agreed scope. Never invent approval records.
-5. Use branches and reviewable changes. Do not merge, deploy, release, delete
-   production data, weaken controls, or send external messages unless authorized.
+5. Follow the repository owner's authorized Git workflow and keep changes
+   reviewable. Work directly on the designated branch when requested; do not
+   create branches or PRs against that instruction. Do not merge, deploy,
+   release, delete production data, weaken controls, or send external messages
+   unless authorized. Do not force-push or rewrite shared history without authorization.
 6. Prefer cohesive modules, explicit contracts, simple designs and meaningful
    verification. SOLID is a review aid, not a mandate for interfaces everywhere.
 7. Protect secrets and personal data. Use minimum necessary access and redact

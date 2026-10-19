@@ -15,5 +15,7 @@ checks at the boundary affected. Follow `core/ENGINEERING_STANDARDS.md`.
 Run focused checks, then the project's required regression gate at the appropriate
 phase. Update the tracker and `templates/VERIFICATION.md` from actual output.
 If a gate fails, fix within scope or record the failure and missing decision.
-Use a feature branch/PR when repository access permits. Do not merge or release
+Use the owner's authorized Git workflow: direct commits on the designated branch
+when requested, or a feature branch/PR when appropriate and authorized. Do not
+create branches or PRs contrary to project instructions. Do not merge or release
 merely because implementation checks pass.

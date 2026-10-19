@@ -28,8 +28,12 @@
 6. **Verify/review:** run affected checks and the project's required regression
    gates. Check failure paths, SOLID tradeoffs, security and operational risks.
    Record self-review versus independent review accurately.
-7. **Deliver:** branch/PR with outcomes, evidence and gaps. Release/deployment is
-   a separate authorized action. Preserve a useful handoff for unfinished work.
+7. **Deliver:** publish reviewable commits to the owner's designated branch, or
+   use a branch/PR when that is the authorized project workflow. The framework
+   source repository `fahadTheTechIdea/agentic-sdlc-framework` uses master directly
+   unless its owner explicitly requests otherwise.
+   Include outcomes, evidence and gaps. Release/deployment is a separate authorized
+   action. Preserve a useful handoff for unfinished work.
 
 ## Working limits
 

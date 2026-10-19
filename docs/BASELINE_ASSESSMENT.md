@@ -12,6 +12,9 @@ scripts or open PRs at inspection. The Git configuration and license are preserv
 the README is expanded. Initial preparation used a feature branch and draft PR.
 On 2026-10-19, the owner explicitly requested master; PR #1 was then merged
 into master after confirming successful checks on the PR head.
+The owner then specified master-only maintenance. Current repository instructions,
+setup guides and delivery procedures reflect that instruction; the old branch
+name is historical and is not needed to install or use the framework.
 
 ## Conversation provenance
 

@@ -18,8 +18,10 @@ artifacts in the project's existing locations.
 4. Read only the matching specialist procedures below. These are skill routing
    choices, not instructions to spawn agents or invoke every skill.
 5. Maintain one active tracker and requirement-to-evidence mapping. Implement
-   authorized slices, run the relevant checks, review, and deliver a branch/PR
-   or a precise handoff. Ask only for decisions that materially block progress.
+   authorized slices, run the relevant checks, review, and deliver through the
+   project's authorized Git workflow or a precise handoff. Respect instructions
+   to work directly on a designated branch; do not create an additional branch
+   or PR unless authorized. Ask only for decisions that materially block progress.
 
 | Need | Read |
 | --- | --- |

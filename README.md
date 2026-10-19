@@ -5,11 +5,20 @@ with Codex, Claude Code, and other assistants. This repository is the intended
 home of the framework. It contains instructions, templates, and local tooling;
 it is not an autonomous agent runtime or a guarantee against hallucinations.
 
+The framework is available on **`master`**. The original baseline branch has
+been merged. Maintenance in this repository uses `master` directly, as requested
+by the owner; additional branches and PRs require an explicit owner request.
+
 ## Start here
 
 Read [the constitution](core/ENGINEERING_CONSTITUTION.md), then use
 [the orchestrator](skills/sdlc-orchestrator/SKILL.md). Describe the outcome once;
 the orchestrator selects relevant skills. You do not need to invoke every skill.
+
+Install once per application project, then describe each task to the orchestrator.
+It selects a proportionate workflow: a small fix stays small; a substantial
+feature can use specification, design, planning, implementation and verification.
+Skills are reusable procedures; selecting several does not require multiple agents.
 
 - **Codex:** open this repository; `AGENTS.md` routes work. Invoke
   `$sdlc-orchestrator` if you want an explicit entry point.
@@ -18,15 +27,74 @@ the orchestrator selects relevant skills. You do not need to invoke every skill.
 - **ChatGPT or another assistant:** provide the files in
   [the session guide](adapters/generic/SESSION_BOOTSTRAP.md). A repository URL
   alone does not prove the assistant can read its contents.
-- **Another project:** follow [adoption instructions](docs/ADOPTION.md), including
+- **A new or existing application:** follow [adoption instructions](docs/ADOPTION.md), including
   the preview-first installer. Existing project instructions are preserved.
 
-Example request:
+## Install in a new or existing application
 
-> Use the Agentic Software Development Framework v1.2. Inspect this project,
-> build a customer import feature with measurable acceptance criteria, and
-> carry the authorized work through implementation and verification. Reuse
-> existing components. Record decisions, evidence, and remaining gaps.
+Clone the framework source from `master` into its own folder. These commands
+run in a terminal; Git and Python 3.11+ must be available:
+
+```text
+git clone --branch master https://github.com/fahadTheTechIdea/agentic-sdlc-framework.git
+cd agentic-sdlc-framework
+```
+
+Choose the application folder separately. For a **new project**, create an empty
+application folder first. For an **existing project**, use its current repository
+root. Run these commands from the framework source folder, replacing the example
+Windows path with the actual application path:
+
+```text
+python scripts/adopt.py "C:\Projects\MyApp" --adapter codex
+python scripts/adopt.py "C:\Projects\MyApp" --adapter codex --write
+```
+
+The first command previews the files; the second installs them. For Claude Code,
+replace `codex` with `claude` in both commands. The installer copies the framework
+into the application's `.agentic-framework/` folder and adds the selected host's
+skill wrappers. It does not create application code or initialize Git.
+
+If the application already has `AGENTS.md` or `CLAUDE.md`, the installer preserves
+it. Integrate the snippet from `.agentic-framework/INTEGRATE.md` into that existing
+file, preserving the project's current rules. Then open a fresh Codex or Claude
+Code session **in the application folder** and check that its instructions and
+`sdlc-orchestrator` skill are available. Commit the reviewed integration using
+that application's authorized Git workflow. This repository's master-only rule
+applies to framework maintenance; it does not change another project's rules.
+
+## Use it for each task
+
+| Host | Explicit entry point |
+| --- | --- |
+| Codex | `$sdlc-orchestrator` followed by your request |
+| Claude Code | `/sdlc-orchestrator` followed by your request |
+
+New project example — put your outcome, technology and constraints after the
+host's entry point:
+
+```text
+Create an application for [purpose and users] using [technology]. My constraints
+are [constraints]. Define measurable requirements, a proportionate architecture,
+and a phased plan with a master tracker. Implement the first runnable slice and
+verify it. Record assumptions, significant decisions, evidence and remaining gaps.
+```
+
+Existing project example:
+
+```text
+Implement [feature or fix]. First inspect the existing code, instructions, tests
+and active tracker. Reuse existing components and contracts. Extend the current
+plans without creating duplicate systems. Implement the change using this
+project's authorized Git workflow, run relevant checks, and report evidence and gaps.
+```
+
+Add **"plan only"** when you want a proposal before implementation. In later
+sessions, use the project's current tracker and [handoff](templates/HANDOFF.md)
+to resume; you do not need to reinstall for each task. Installation into another
+project creates a snapshot, so future framework updates need a reviewed update.
+For both hosts in the same application, follow the second-host instructions in
+[the adoption guide](docs/ADOPTION.md) instead of running the installer twice.
 
 ## What is included
 

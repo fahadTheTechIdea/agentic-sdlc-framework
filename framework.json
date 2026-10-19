@@ -49,6 +49,7 @@
     "plans/enhancements/P1_BASELINE_DESIGN.md",
     "plans/enhancements/P2_VALIDATION_DESIGN.md",
     "plans/enhancements/P3_REVIEW_DESIGN.md",
+    "plans/enhancements/P4_MASTER_USAGE.md",
     "plans/enhancements/specs/V1_2.md",
     "scripts/adopt.py",
     "scripts/sync_adapters.py",
