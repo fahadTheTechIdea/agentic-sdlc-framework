@@ -34,7 +34,7 @@ in the current authorized request; it does not claim verbatim recovery.
 | Codex/Claude | Root instructions plus generated discoverable wrappers | Fresh sessions in both hosts |
 | Constitution/evidence | Authority, scope, uncertainty, provenance and completion rules | Human policy review |
 | SOLID/SDD/RACI/ADR | Concrete review guidance and reusable templates | Project-specific application |
-| Skills | Seven focused canonical procedures | Behavioral scenario review |
+| Skills | Seven focused procedures plus the sdlc-orch short entry alias | Behavioral scenario review |
 | Workflows | New/existing project, feature, bug, small edit, incident and handoff | Pilot outcomes |
 | Validation | Dependency-free validator, installer, generation checks, regression tests and CI | Hosted CI result and platform adoption |
 

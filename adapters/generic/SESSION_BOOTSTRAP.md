@@ -7,6 +7,10 @@ available repository files: `core/ENGINEERING_CONSTITUTION.md`,
 relevant specification and the handoff if one exists. Supply specialist skills
 only when the orchestrator selects them. Include the target revision and changes.
 
+The preferred user entry name is `sdlc-orch`. Its optional routing file is
+`skills/sdlc-orch/SKILL.md`; include the canonical orchestrator procedure named
+above as well when providing attachments to a session without repository access.
+
 Suggested prompt:
 
 > Use these Agentic SDLC Framework v1.2 files as project guidance within your

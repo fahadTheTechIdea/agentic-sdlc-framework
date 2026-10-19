@@ -15,7 +15,7 @@ def integration_text():
         "## Agentic SDLC framework v1.2\n\n"
         "Read `.agentic-framework/core/ENGINEERING_CONSTITUTION.md` and "
         "`.agentic-framework/core/EVIDENCE_POLICY.md`, then "
-        "`.agentic-framework/skills/sdlc-orchestrator/SKILL.md`. "
+        "`.agentic-framework/skills/sdlc-orch/SKILL.md`. "
         "Use the framework within the host's instructions and existing project "
         "conventions. Keep project plans in their current locations. "
         "Do not replace project test commands with framework structural checks.\n"

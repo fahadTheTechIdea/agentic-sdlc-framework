@@ -197,6 +197,7 @@ class AdoptionTests(unittest.TestCase):
     def test_preview_has_no_writes(self):
         planned = plan(ROOT, self.target, "codex")
         self.assertIn("AGENTS.md", planned)
+        self.assertIn(".agents/skills/sdlc-orch/SKILL.md", planned)
         self.assertIn(".agents/skills/sdlc-orchestrator/SKILL.md", planned)
         self.assertEqual(list(self.target.iterdir()), [])
 
@@ -207,7 +208,9 @@ class AdoptionTests(unittest.TestCase):
         self.assertNotIn("AGENTS.md", planned)
         install(self.target, planned)
         self.assertEqual(existing.read_text(), "Project rules\n")
-        self.assertIn("sdlc-orchestrator", (self.target / ".agentic-framework/INTEGRATE.md").read_text())
+        self.assertIn("skills/sdlc-orch/SKILL.md", (self.target / ".agentic-framework/INTEGRATE.md").read_text())
+        short_wrapper = (self.target / ".agents/skills/sdlc-orch/SKILL.md").read_text()
+        self.assertIn(".agentic-framework/skills/sdlc-orch/SKILL.md", short_wrapper)
         wrapper = (self.target / ".agents/skills/sdlc-orchestrator/SKILL.md").read_text()
         self.assertIn(".agentic-framework/skills/sdlc-orchestrator/SKILL.md", wrapper)
         self.assertEqual(validate(self.target / ".agentic-framework"), [])
@@ -220,6 +223,9 @@ class AdoptionTests(unittest.TestCase):
                 install(target, plan(ROOT, target, adapter))
                 if instruction:
                     self.assertTrue((target / instruction).is_file())
+                    host = ".agents" if adapter == "codex" else ".claude"
+                    for entry in ("sdlc-orch", "sdlc-orchestrator"):
+                        self.assertTrue((target / host / "skills" / entry / "SKILL.md").is_file())
                 else:
                     self.assertFalse((target / "AGENTS.md").exists())
                 self.assertEqual(validate(target / ".agentic-framework"), [])

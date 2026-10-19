@@ -1,7 +1,7 @@
 # Claude Code adapter
 
 Read `AGENTS.md` for shared repository instructions, then
-`skills/sdlc-orchestrator/SKILL.md` for workflow routing. Read these files
+`skills/sdlc-orch/SKILL.md` for workflow routing. Read these files
 explicitly; this adapter does not depend on Codex instruction discovery.
 Paths are relative to the repository root. Claude skill wrappers under
 `.claude/skills/` route to the same canonical skills used by Codex.

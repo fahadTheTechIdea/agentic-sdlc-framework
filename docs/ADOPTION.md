@@ -48,8 +48,8 @@ framework installation or colliding skill path. Review before committing.
 ## Start the application session
 
 Open a fresh Codex or Claude Code session in the application folder. Confirm
-which project instructions were loaded and that `sdlc-orchestrator` is available.
-Use `$sdlc-orchestrator` in Codex or `/sdlc-orchestrator` in Claude Code, followed
+which project instructions were loaded and that `sdlc-orch` is available.
+Use `$sdlc-orch` in Codex or `/sdlc-orch` in Claude Code, followed
 by the outcome you want. You do not need to call every specialist skill. For
 new applications, describe users, outcomes, technology and constraints. For
 existing applications, name the feature/fix and ask the orchestrator to extend

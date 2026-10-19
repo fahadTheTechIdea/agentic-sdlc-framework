@@ -1,7 +1,7 @@
 # Repository instructions
 
 Read `core/ENGINEERING_CONSTITUTION.md` and `core/EVIDENCE_POLICY.md` before
-substantive work. Use `skills/sdlc-orchestrator/SKILL.md` to select the workflow
+substantive work. Use `skills/sdlc-orch/SKILL.md` to select the workflow
 and only the specialist skills needed for the request. Paths in these
 instructions are relative to the repository root.
 

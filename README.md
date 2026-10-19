@@ -12,7 +12,7 @@ by the owner; additional branches and PRs require an explicit owner request.
 ## Start here
 
 Read [the constitution](core/ENGINEERING_CONSTITUTION.md), then use
-[the orchestrator](skills/sdlc-orchestrator/SKILL.md). Describe the outcome once;
+[the orchestrator](skills/sdlc-orch/SKILL.md). Describe the outcome once;
 the orchestrator selects relevant skills. You do not need to invoke every skill.
 
 Install once per application project, then describe each task to the orchestrator.
@@ -29,14 +29,17 @@ See [the operational standard](core/LOGGING_AUDIT_NOTIFICATIONS.md) and
 extend their active services; this framework update does not modify application code.
 
 - **Codex:** open this repository; `AGENTS.md` routes work. Invoke
-  `$sdlc-orchestrator` if you want an explicit entry point.
+  `$sdlc-orch` if you want an explicit entry point.
 - **Claude Code:** open this repository; `CLAUDE.md` routes work. Invoke
-  `/sdlc-orchestrator` if you want an explicit entry point.
+  `/sdlc-orch` if you want an explicit entry point.
 - **ChatGPT or another assistant:** provide the files in
   [the session guide](adapters/generic/SESSION_BOOTSTRAP.md). A repository URL
   alone does not prove the assistant can read its contents.
 - **A new or existing application:** follow [adoption instructions](docs/ADOPTION.md), including
   the preview-first installer. Existing project instructions are preserved.
+
+The longer `sdlc-orchestrator` name remains supported. Both names use the same
+orchestrator procedure; `sdlc-orch` is the preferred name for everyday use.
 
 ## Install in a new or existing application
 
@@ -67,7 +70,7 @@ If the application already has `AGENTS.md` or `CLAUDE.md`, the installer preserv
 it. Integrate the snippet from `.agentic-framework/INTEGRATE.md` into that existing
 file, preserving the project's current rules. Then open a fresh Codex or Claude
 Code session **in the application folder** and check that its instructions and
-`sdlc-orchestrator` skill are available. Commit the reviewed integration using
+`sdlc-orch` skill are available. Commit the reviewed integration using
 that application's authorized Git workflow. This repository's master-only rule
 applies to framework maintenance; it does not change another project's rules.
 
@@ -75,8 +78,8 @@ applies to framework maintenance; it does not change another project's rules.
 
 | Host | Explicit entry point |
 | --- | --- |
-| Codex | `$sdlc-orchestrator` followed by your request |
-| Claude Code | `/sdlc-orchestrator` followed by your request |
+| Codex | `$sdlc-orch` followed by your request |
+| Claude Code | `/sdlc-orch` followed by your request |
 
 New project example — put your outcome, technology and constraints after the
 host's entry point:
@@ -112,7 +115,7 @@ For both hosts in the same application, follow the second-host instructions in
 | Evidence and uncertainty | [Evidence policy](core/EVIDENCE_POLICY.md) |
 | SOLID and design tradeoffs | [Engineering standards](core/ENGINEERING_STANDARDS.md) |
 | Shared logging/audit, exception and notification requirements | [Operational service standard](core/LOGGING_AUDIT_NOTIFICATIONS.md) |
-| Routing and lifecycle | [Orchestrator](skills/sdlc-orchestrator/SKILL.md), [workflows](workflows/DELIVERY.md) |
+| Routing and lifecycle | [Orchestrator](skills/sdlc-orch/SKILL.md), [workflows](workflows/DELIVERY.md) |
 | SDD, RACI, ADR, handoff and verification | [Templates](templates/README.md) |
 | Focused reusable procedures | [Skill catalog](skills/CATALOG.md) |
 | Validation contract and limits | [Validation guide](docs/VALIDATION.md) |

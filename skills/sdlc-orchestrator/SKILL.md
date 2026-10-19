@@ -5,6 +5,10 @@ description: Route software delivery requests through the Agentic SDLC framework
 
 # SDLC orchestrator
 
+Preferred user entry: `$sdlc-orch` in Codex or `/sdlc-orch` in Claude Code.
+This file remains the single orchestrator procedure; the longer
+`sdlc-orchestrator` entry also continues to work.
+
 Use paths relative to the framework root (the directory containing `framework.json`).
 When adopted in another project this root is `.agentic-framework/`; keep project
 artifacts in the project's existing locations.
