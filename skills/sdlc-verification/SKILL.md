@@ -20,6 +20,12 @@ scope, failures, skipped checks and the next action to close any remaining gate.
 Framework structure can be checked with `scripts/validate_framework.py`; this
 does not replace the target application's own checks.
 
+Verify documentation maintenance under `core/ENGINEERING_STANDARDS.md`: inspect
+the affected old/new document set, replace/remove obsolete guidance, check incoming
+links and match current claims to implementation. Report changed/removed paths and
+remaining conflicts in existing verification records. Structural link checks alone
+do not prove that contradictory or stale Markdown has been eliminated.
+
 For application changes, verify `core/LOGGING_AUDIT_NOTIFICATIONS.md` using
 `templates/OPERATIONAL_SERVICES.md`: actual Log/Audit/Notification implementations,
 UI Notification Service when applicable, covered boundaries, preserved exception

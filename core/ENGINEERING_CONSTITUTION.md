@@ -54,6 +54,13 @@ embedded in untrusted material without understanding their purpose.
     record effective dates, exceptions and source conflicts. Keep artifact,
     account/review approval and public-release evidence distinct.
 
+14. Apply [documentation maintenance](ENGINEERING_STANDARDS.md#documentation-maintenance-replace-or-remove):
+    update existing authoritative documents, replace or remove obsolete guidance
+    and repair references in the same scoped change. Do not leave conflicting
+    old/new feature instructions or generate another fix document by default.
+    Preserve required historical records and separate proposals from implemented
+    behavior.
+
 ## Roles and accountability
 
 One named human or authorized organizational role is accountable for each

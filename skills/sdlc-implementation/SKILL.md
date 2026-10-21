@@ -10,6 +10,11 @@ Inspect the branch and working tree; preserve unrelated user work. Extend the
 existing implementation and public contracts unless an accepted decision changes
 them. Verify unfamiliar APIs from installed source or authoritative versioned docs.
 
+Apply documentation maintenance in `core/ENGINEERING_STANDARDS.md` to this slice.
+Update existing feature/fix/usage documents and replace/remove obsolete guidance
+with repaired references. A new implementation note alone does not reconcile the
+old documents; retain unique required history and still-supported behavior.
+
 Implement the smallest coherent slice, including failure behavior and meaningful
 checks at the boundary affected. Follow `core/ENGINEERING_STANDARDS.md`.
 Run focused checks, then the project's required regression gate at the appropriate

@@ -16,6 +16,11 @@ contracts, failure modes, security, migration, operations and verification links
 Use `core/ENGINEERING_STANDARDS.md` for SDD terminology. Reuse an equivalent
 existing document instead of creating a parallel specification system.
 
+Apply documentation maintenance in `core/ENGINEERING_STANDARDS.md`: update the
+authoritative feature specification/design, preserve valid requirements and
+replace/remove obsolete alternatives with repaired links. Label proposals so
+they do not masquerade as the current implemented feature.
+
 For layered setup use `docs/PROJECT_SETUP.md` and only selected profile/layer
 blueprints. Record decision origin, uncertainty and dependencies in the existing
 specification/SDD. Apply `core/TECHNOLOGY_FRESHNESS.md` to version-sensitive claims;

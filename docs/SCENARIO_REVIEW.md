@@ -23,6 +23,10 @@ not an independent evaluation or an executed Codex/Claude session.
 | Existing project pins an older framework while research finds a newer release | Preserve the pin, record support/alternatives and authorization before migration | Technology verification distinguishes observed, proposed and supported versions |
 | New target or engine plugin invalidates previous compatibility evidence | Retain history and revisit only affected decisions/checks | Shared freshness policy and handoff; no automatic state engine claimed |
 | A target-API page times out while a regional official result is available | Label the narrower source evidence and leave unverified details explicit | P11 refresh record distinguishes this from a complete fresh audit |
+| A bug fix tempts the agent to create FIX_v2.md alongside the active feature plan (2026-10-21) | Update the existing document; replace/remove obsolete guidance and repair references | Documentation maintenance and planning/implementation procedures; author wording review |
+| A replacement feature still needs part of an old design (2026-10-21) | Preserve valid requirements/tasks in the current owner before removing obsolete content; no archive duplicate by default | Canonical replacement/removal rule; no real project cleanup performed |
+| A plan-only proposal replaces a planned approach while the old behavior is still deployed (2026-10-21) | Update the proposal; keep operational instructions truthful until implementation ships | Planning/implementation distinction; not a live model evaluation |
+| An accepted ADR or immutable test log records an old implementation (2026-10-21) | Preserve required historical evidence with clear scope; current navigation identifies current behavior | Required-record exception does not preserve ordinary obsolete fix notes |
 
 Open acceptance gates: observe actual skill selection, effective instructions
 and behavior in fresh Codex and Claude Code sessions, and exercise a real

@@ -7,6 +7,9 @@ Request and authorization: <direct request or decision locator>
 ## Active sources
 <Applicable instructions, tracker, specification, SDD and ADR paths.>
 
+<Link current canonical documents after any replacements/removals. Distinguish
+retained historical evidence; do not resume from an obsolete fix/feature note.>
+
 ## Observed progress and evidence
 <Completed behavior, exact checks/output locators, environment and limitations.>
 

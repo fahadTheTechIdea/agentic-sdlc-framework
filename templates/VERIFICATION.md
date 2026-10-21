@@ -35,4 +35,10 @@ official policy checks, effective dates/conflicts/exceptions, actual artifact
 verification and separate account/testing/review/public-release evidence.>
 
 ## Completion assessment
+
+Documentation reconciliation: <updated/replaced/removed paths, current authority,
+incoming-link checks, obsolete-instruction review and any unresolved conflict.
+Preserve required historical evidence; do not report semantic consistency from
+link checks alone. Apply the existing engineering standards; no new fix document.>
+
 <Met criteria, failed/missing gates, local/CI/runtime distinction, next action.>

@@ -10,6 +10,10 @@ working-tree changes, framework version, request/authorization, active tracker,
 decisions, observed checks, unresolved risks and exact next action. Reference
 canonical files rather than copying every policy into a transcript.
 
+Point active sources at current documents after replacements/removals, following
+`core/ENGINEERING_STANDARDS.md`. Keep required historical evidence distinct from
+current instructions; do not carry obsolete fix documents forward as active work.
+
 On resume, inspect current repository state and compare it with the handoff.
 Refresh stale evidence for changed code. Read only the relevant skills and
 documents. Treat prior assistant claims as context requiring verification.

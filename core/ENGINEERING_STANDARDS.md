@@ -61,6 +61,50 @@ or existing project records for artifact, privacy/content, account/testing/revie
 timing and authorization evidence. A dated framework snapshot is not proof of
 current policy, accepted SDKs or store eligibility.
 
+## Documentation maintenance: replace or remove
+
+Planning, feature changes, replacements and debugging include maintaining the
+affected documentation. Prefer updating the existing authoritative document in
+place. Do not create a new fix/update/feature Markdown file merely to repeat or
+contradict an existing specification, design, plan or usage guide.
+
+1. Before writing, search for the affected feature, old/new names and relevant
+   paths across specifications, plans, README files, usage guides, decisions,
+   indexes and handoffs. Identify which document owns the current concern.
+2. Update that document in place when the concern is unchanged. Create a separate
+   document only for a distinct scope or required record, and explain its purpose
+   in the existing tracker rather than creating another tracking system.
+3. When documentation is obsolete, **replace or remove it**. Merge still-valid
+   unique requirements, decisions and unresolved tasks into the current owner
+   before removing a redundant file. For partial feature replacements, update
+   only affected sections and preserve still-supported behavior.
+4. Do not keep an obsolete active guide by adding an archive copy, a dated
+   duplicate, a superseded banner or a redirect stub as the default solution.
+   Update incoming links, indexes, tracker references, examples and handoffs to
+   the replacement, and remove obsolete instructions in the same scoped change.
+   Normal Git history preserves earlier content; never rewrite that history.
+5. Preserve records with a real retention purpose: accepted ADRs, immutable test/
+   release evidence, required incident/compliance history and explicitly retained
+   project records. These document past decisions/results, not current usage.
+   Keep their historical scope clear and point current navigation to the active
+   design. This exception is not a reason to retain ordinary stale fix/plan files.
+6. Keep planned and implemented behavior distinct. A new proposal can replace an
+   old proposal; it must not overwrite operational instructions for functionality
+   that remains live until the authorized replacement actually ships. Intentionally
+   supported versions may have distinct, clearly scoped current documentation.
+7. Verify the affected document set before reporting completion: search again for
+   obsolete feature names/paths/instructions, check incoming links after removals,
+   reconcile statuses with actual code/evidence, and confirm no competing document
+   is presented as the current authority. Text matches may be valid history; inspect
+   their context rather than claiming a search proves semantic consistency.
+
+Record updated/replaced/removed paths and any unresolved conflict in the existing
+tracker or verification report. Scope cleanup to the task, preserve unrelated user
+work, and do not delete unique or required records based only on filename or age.
+If a retention/ownership conflict cannot be resolved from project instructions,
+record the specific gap without inventing a cleanup approval. This procedure
+requires review; the structural validator cannot detect contradictory prose.
+
 ## SDD terminology
 
 This framework uses **SDD** for *Software Design Description*, the durable design

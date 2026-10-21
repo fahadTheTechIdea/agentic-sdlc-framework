@@ -131,6 +131,7 @@ For both hosts in the same application, follow the second-host instructions in
 | Evidence and uncertainty | [Evidence policy](core/EVIDENCE_POLICY.md) |
 | Layer-specific technology and standards checks | [Technology verification](core/TECHNOLOGY_FRESHNESS.md), [review template](templates/TECHNOLOGY_REVIEW.md) |
 | SOLID and design tradeoffs | [Engineering standards](core/ENGINEERING_STANDARDS.md) |
+| Keep feature/fix documentation current; replace or remove obsolete files | [Documentation maintenance](core/ENGINEERING_STANDARDS.md#documentation-maintenance-replace-or-remove) |
 | Shared logging/audit, exception and notification requirements | [Operational service standard](core/LOGGING_AUDIT_NOTIFICATIONS.md) |
 | Current store publishing and release evidence | [Publishing policy](core/PUBLISHING_REQUIREMENTS.md), [readiness template](templates/PUBLISHING_READINESS.md) |
 | Quality gates, security, reliability and tool trust | [Assurance standard](core/QUALITY_SECURITY_RELIABILITY.md), [matrix](templates/ASSURANCE.md) |

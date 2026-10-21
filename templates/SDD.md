@@ -9,6 +9,10 @@ Specification: <path>; owner: <person/role>; version/date: <value>
 ## Existing implementation and reuse
 <Verified paths, active contracts and extension points; no invented components.>
 
+<Existing documentation owner and affected sections. Update this design in place
+for changes within its scope; replace/remove obsolete duplicate guidance, preserve
+unique valid decisions and repair references under the engineering standards.>
+
 ## Architecture and boundaries
 <Components, responsibilities, dependency direction, deployment and diagrams if useful.>
 

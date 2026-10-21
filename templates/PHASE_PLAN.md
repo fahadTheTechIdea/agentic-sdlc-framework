@@ -6,6 +6,10 @@
 ## Design and files
 <SDD/ADR links; actual paths, boundaries/contracts and intended changes.>
 
+<Affected documentation: existing authoritative paths to update; obsolete paths
+to replace/remove and their replacements; unique content/tasks to preserve and
+incoming links/indexes to repair. Reuse this plan for later fixes to its feature.>
+
 ## Tasks and execution order
 | ID | Task | Owner | Dependencies | Check | Status/evidence |
 | --- | --- | --- | --- | --- | --- |

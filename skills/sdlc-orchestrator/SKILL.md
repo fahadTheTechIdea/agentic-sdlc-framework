@@ -24,6 +24,9 @@ artifacts in the project's existing locations.
 1. Read `core/ENGINEERING_CONSTITUTION.md` and `core/EVIDENCE_POLICY.md`.
 2. Inspect the target repository, applicable instructions, existing plans,
    contracts, tests, branch and uncommitted work. Do not assume a new project.
+   Before creating feature/fix/plan documents, apply the documentation maintenance
+   section of `core/ENGINEERING_STANDARDS.md`: find the active owner, update it,
+   replace/remove obsolete guidance and reconcile references within scope.
 3. Classify the request using `workflows/DELIVERY.md`: research/plan only, small
    edit, feature, bug, adoption, new project, or incident. Capture acceptance
    criteria, constraints, authorization and unknowns. Scale documentation to risk.

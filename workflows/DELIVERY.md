@@ -17,6 +17,8 @@
 
 1. **Discover:** read applicable instructions, current state, source, tests and
    active trackers. Record proven facts separately from assumptions.
+   Search for existing affected feature/fix documentation before creating files;
+   apply documentation maintenance in `core/ENGINEERING_STANDARDS.md`.
    For guided setup use `docs/PROJECT_SETUP.md` and selected layer/profile
    blueprints. Reuse known answers; distinguish observations from recommendations.
 2. **Specify:** problem, non-goals, requirement IDs, measurable criteria, constraints
@@ -38,11 +40,16 @@
    existing records. For changed agent behavior select cases from `evals/README.md`.
 5. **Implement:** one coherent slice at a time; reuse active code and contracts.
    Verify each slice. Keep trackers and decisions consistent with actual changes.
+   Update the current documents in place and replace/remove obsolete guidance;
+   preserve unique valid content and repair references in the same change.
 6. **Verify/review:** run affected checks and the project's required regression
    gates. Check failure paths, SOLID tradeoffs, security and operational risks.
    Verify exception reporting, truthful audit outcomes, channel failure handling,
    redaction and UI notification isolation against the operational service matrix.
    Record self-review versus independent review accurately.
+   Review affected documentation for contradictory current claims, stale links and
+   obsolete instructions. Report its disposition in the existing verification
+   record; do not create a replacement fix note while leaving old guidance active.
    Preserve test integrity and review test/lockfile changes. Verify applicable
    authorization/isolation, invalid configuration, timeout/cancellation/replay,
    restoration/migration, runtime health and dependency checks. Distinguish

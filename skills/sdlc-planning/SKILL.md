@@ -12,6 +12,11 @@ Each RACI decision/deliverable has exactly one accountable named human/role
 and at least one responsible executor. Identify which approvals are actually
 required and which authorization already exists.
 
+Apply documentation maintenance in `core/ENGINEERING_STANDARDS.md`. Reuse the
+existing feature/phase document; include replacing/removing obsolete documents and
+repairing references in the same plan. Keep unresolved tasks when consolidating;
+do not create a new fix-plan file or keep stale copies as the default.
+
 Record risk and open decisions. Keep implementation, local validation,
 independent review, CI and release status separate. Do not mark documentation
 as implementation progress. Use `templates/RACI.json` if machine validation
