@@ -12,6 +12,7 @@
 | Research or plan only | Inspect sources → alternatives → recommendation | Evidence-backed proposal; no implementation |
 | Incident or risky migration | Establish impact → authorized containment → recovery/rollback → verify | Incident log, recovery evidence, accountable owner |
 | Store-readiness or published-app update | Select actual store/target/account scope → refresh official requirements → verify artifact and external gates → deliver within authorization | Publishing-readiness matrix and scoped evidence |
+| Significant or high-risk change needing independent review | Specify → build → review lanes in parallel on one revision → capped fix rounds → approver → accountable human for escalations → deliver within authorization | Review-cycle record under `.sdlc/review/` |
 
 ## Phase gates
 
@@ -46,7 +47,9 @@
    gates. Check failure paths, SOLID tradeoffs, security and operational risks.
    Verify exception reporting, truthful audit outcomes, channel failure handling,
    redaction and UI notification isolation against the operational service matrix.
-   Record self-review versus independent review accurately.
+   Record self-review versus independent review accurately. When risk or governance
+   calls for independent review of a significant change, run the bounded cycle in
+   `core/REVIEW_CYCLE.md`; its gate result is review evidence, not delivery approval.
    Review affected documentation for contradictory current claims, stale links and
    obsolete instructions. Report its disposition in the existing verification
    record; do not create a replacement fix note while leaving old guidance active.

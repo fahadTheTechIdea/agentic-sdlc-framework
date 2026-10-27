@@ -31,3 +31,9 @@ need `core/TECHNOLOGY_FRESHNESS.md` and actual source/check evidence. Store-boun
 work additionally needs `core/PUBLISHING_REQUIREMENTS.md` and selected store
 profiles. If browsing, account or runtime access is missing, record those gates
 as unverified; attachments alone do not establish current compatibility/eligibility.
+
+For an independent multi-lane review also provide `core/REVIEW_CYCLE.md`,
+`skills/sdlc-review-cycle/SKILL.md` and the `templates/review-cycle/` records. An
+assistant that cannot run `scripts/review_cycle.py` or start separate reviewers
+must say so, label its lane reviews as self-review and leave the gate states and
+any human decision to the person who can run or make them.

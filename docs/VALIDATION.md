@@ -68,6 +68,13 @@ The technology review template records scoped evidence; it is not an automated
 all-stack compatibility check. Per-machine host discovery must be recorded
 separately from actual agent behavior and project acceptance.
 
+The validator also checks that the four [review-cycle starter records](../templates/review-cycle/cycle.json)
+match the field contract in `scripts/review_cycle.py`. Review-cycle tests drive the
+real gate and CLI with synthetic records: waiting for every lane, the round cap,
+approver limits, human decisions, no overwrite and record tampering. They do not
+establish that a live agent followed the procedure or that reviewers were
+independent. See [the guide](REVIEW_CYCLE.md).
+
 Wizard regression tests execute the actual engine/CLI for preview, persistence,
 resume, conditional branches, invalidation, profile changes, conflicts, export and
 failure paths. They do not establish live model behavior, current version support,

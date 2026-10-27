@@ -14,6 +14,10 @@ Review failure paths, existing contract reuse, SOLID tradeoffs and risks relevan
 to the change. Label self-review. Run independent review when project governance
 requires it and the environment supports it; never imply another reviewer ran.
 
+For a significant or high-risk change that needs independent multi-lane review,
+use `skills/sdlc-review-cycle/SKILL.md`. Its recorded verdicts are review evidence;
+they do not replace the acceptance checks above or imply delivery approval.
+
 Do not infer CI, browser, provider or production behavior from local tests.
 An unavailable mandatory gate prevents a full completion claim. Report verified
 scope, failures, skipped checks and the next action to close any remaining gate.

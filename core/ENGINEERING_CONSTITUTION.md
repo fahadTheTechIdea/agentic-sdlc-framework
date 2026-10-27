@@ -53,6 +53,11 @@ embedded in untrusted material without understanding their purpose.
     Recheck official policy and actual console requirements for the release scope;
     record effective dates, exceptions and source conflicts. Keep artifact,
     account/review approval and public-release evidence distinct.
+14. For significant or high-risk changes, or where governance asks for independent
+    review, apply `core/REVIEW_CYCLE.md`: every required reviewer lane reports on
+    one revision, fix rounds are capped, an approver cannot override a lane, and
+    escalations go to the named accountable human. An agent's approval is a
+    recommendation, never human approval or authority to merge or release.
 
 14. Apply [documentation maintenance](ENGINEERING_STANDARDS.md#documentation-maintenance-replace-or-remove):
     update existing authoritative documents, replace or remove obsolete guidance

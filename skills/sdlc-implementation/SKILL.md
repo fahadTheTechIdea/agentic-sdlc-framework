@@ -25,6 +25,11 @@ when requested, or a feature branch/PR when appropriate and authorized. Do not
 create branches or PRs contrary to project instructions. Do not merge or release
 merely because implementation checks pass.
 
+When resumed by a review cycle, address each listed finding by id, make a real
+change that produces a new revision, and answer every finding with the change or
+a reasoned disagreement. Never weaken a test, remove a gate or edit the review
+record to clear a finding; a disputed finding goes back through the lanes.
+
 Apply `core/LOGGING_AUDIT_NOTIFICATIONS.md` to affected application paths. Create
 or reuse shared Log, Audit and Notification Services; use a UI Notification Service
 for UI applications. Never silently swallow exceptions: report at the owning

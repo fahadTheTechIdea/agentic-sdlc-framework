@@ -17,6 +17,13 @@ profile selection. No full sentence is required. These are request shortcuts
 inside the existing skill, not separately registered host commands. Preserve the
 same scope, state guards and project pins as the normal wizard request.
 
+Short review request: `$sdlc-orch review` or `rc` in Codex, `/sdlc-orch review` or
+`rc` in Claude. When the invocation request is exactly `review` or `rc`
+(case-insensitive), route to `skills/sdlc-review-cycle/SKILL.md` for the active
+change: resume its record under `.sdlc/review/` when one exists, otherwise open a
+cycle only if the change meets the use conditions in `core/REVIEW_CYCLE.md`. It is
+a request shortcut like `w`; it authorizes no agents, merge or release.
+
 Use paths relative to the framework root (the directory containing `framework.json`).
 When adopted in another project this root is `.agentic-framework/`; keep project
 artifacts in the project's existing locations.
@@ -72,6 +79,7 @@ artifacts in the project's existing locations.
 | Ownership, phase sequencing and risk | `skills/sdlc-planning/SKILL.md` |
 | Implementation or regression fix | `skills/sdlc-implementation/SKILL.md` |
 | Claims, tests, review and completion gates | `skills/sdlc-verification/SKILL.md` |
+| Independent multi-lane review of a significant or high-risk change, with capped fix rounds and an approver | `skills/sdlc-review-cycle/SKILL.md` |
 | Session resume or transfer | `skills/sdlc-handoff/SKILL.md` |
 
 For a typo: inspect, make the edit, check it and report. For a major feature:

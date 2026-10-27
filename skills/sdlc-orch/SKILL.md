@@ -8,6 +8,8 @@ description: Start Agentic SDLC software delivery with the preferred short entry
 Use `sdlc-orch` as the preferred entry name in Codex and Claude Code.
 For the project wizard, use `$sdlc-orch w` or `/sdlc-orch w`; the canonical
 procedure defines the short request and its normal resume/scope rules.
+For an independent multi-lane review of a significant change, use `$sdlc-orch review`
+or `/sdlc-orch review` (`rc` also works); the canonical procedure routes it.
 Read and follow the [canonical orchestrator procedure](../sdlc-orchestrator/SKILL.md).
 Its paths are relative to the framework root containing `framework.json`.
 Apply the active project's instructions and the user's current authorized scope.

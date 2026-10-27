@@ -22,6 +22,11 @@ folders without a project copy. Explicit local pins take precedence. For guided
 choices follow [project setup](../../docs/PROJECT_SETUP.md); technology/source
 checks and store-readiness records use the shared canonical procedures.
 
+For an independent multi-lane review, use `$sdlc-orch review`. Optional custom-agent
+templates are in `adapters/codex/review-cycle/`; they are not installed. Copy the
+ones you want into `.codex/agents/` after reading them. Codex subagents inherit the
+session's sandbox and approvals, so see [the review cycle guide](../../docs/REVIEW_CYCLE.md).
+
 For persisted interactive setup, ask `$sdlc-orch` to start the project wizard.
 Use [the runtime guide](../../docs/WIZARD.md) and the selected framework root's
 `scripts/project_wizard.py`; the same state works in Claude. No new skill required.

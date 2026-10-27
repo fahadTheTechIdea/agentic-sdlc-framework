@@ -167,3 +167,23 @@ existing-app introductory wording and detailed form-factor availability guidance
 need scope-specific verification. Steam's onboarding and Direct pages give different
 waiting periods; neither was silently treated as universally authoritative.
 Fresh official-source and actual account checks remain necessary at submission.
+
+## Review cycle
+
+Reviewed 2026-10-26 for P13. The pipeline shape (spec-writer, builder, parallel
+reviewers, wait-for-all, capped builder rounds, approver, human escalation) comes from
+a screenshot the owner supplied; it informs structure only and no performance claim is
+taken from it. The sources document host features and known failure modes. How the
+gate uses them is a framework design choice, and none of them shows this gate
+prevents the failures it addresses.
+
+| Source | Documented fact | Use here |
+| --- | --- | --- |
+| [Claude Code subagents](https://code.claude.com/docs/en/sub-agents) | Project subagents are Markdown files with YAML frontmatter in `.claude/agents/`; `name` and `description` are required; the `tools` allowlist is enforced by the harness; `model` is optional and falls back to the main conversation's model; subagents inherit the parent's permission rules and run concurrently up to a default limit | Claude lane templates with read-only tool lists, and the advice to deny writes in `permissions.deny` |
+| [Codex subagents](https://learn.chatgpt.com/docs/agent-configuration/subagents) | Custom agents are TOML files in `.codex/agents/` with `name`, `description` and `developer_instructions`; Codex spawns subagents when asked or when project or skill instructions request it; subagents inherit the session's sandbox and approvals and an agent file cannot override them; Codex waits for all requested results before consolidating | Codex lane templates and the read-only-session note |
+| [Anthropic, Building effective agents](https://www.anthropic.com/engineering/building-effective-agents) | Describes evaluator-optimizer loops, parallelization by sectioning, maximum-iteration stopping conditions and human checkpoints at blockers; the page notes its tooling guidance has changed since December 2024 | Parallel lanes, the round cap and escalation to a human |
+| [LLM Evaluators Recognize and Favor Their Own Generations](https://arxiv.org/pdf/2404.13076) | In summarization experiments, evaluators that better recognize their own output prefer it more | Independence rule. Inference: the effect was measured on summarization, so its size for code review is unknown |
+| [Why Do Multi-Agent LLM Systems Fail?](https://arxiv.org/html/2503.13657v3) | A taxonomy built from execution traces includes unawareness of termination conditions, step repetition, premature termination, and no, incomplete or incorrect verification | Explicit states, a round cap, a wait-for-all gate and a required `checked` list. Inference: these target the named modes; no measurement that they prevent them |
+
+Host agent features change quickly. Recheck the vendor pages before editing the
+templates, and verify behavior in a live session rather than from documentation.

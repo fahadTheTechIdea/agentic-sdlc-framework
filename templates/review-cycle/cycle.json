@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "change": "<change identifier and short title>",
+  "criteria": "<path or tracker locator of the acceptance criteria reviewers check against>",
+  "created_at": "<ISO 8601 timestamp with time zone>",
+  "lanes": ["code", "security"],
+  "builder": {"id": "<builder id>"},
+  "accountable": {"id": "<accountable human or role id>", "name": "<accountable human or role name>"},
+  "max_fix_rounds": 2,
+  "approver_required": true,
+  "independent_review_required": false,
+  "human_approval_required": false
+}

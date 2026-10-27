@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "round": 1,
+  "revision": "<same revision the lanes reviewed>",
+  "decision": "<APPROVE | ESCALATE>",
+  "approver": {"kind": "<agent | human>", "id": "<approver id>", "model": "<host-reported model id; omit if unknown>"},
+  "decided_at": "<ISO 8601 timestamp with time zone>",
+  "rationale": "<why>",
+  "checked": ["<what was inspected beyond the lane reports>"],
+  "concerns": []
+}

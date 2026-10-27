@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "seq": 1,
+  "round": 1,
+  "decision": "<approve | reject | request_changes>",
+  "by": "<accountable id from cycle.json>",
+  "decided_at": "<ISO 8601 timestamp with time zone>",
+  "origin": "<terminal | conversation>",
+  "statement": "<the human's own words; required when origin is conversation>",
+  "rationale": "<why>",
+  "grant_rounds": 0
+}

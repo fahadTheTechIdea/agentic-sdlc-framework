@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "lane": "<lane id from cycle.json>",
+  "round": 1,
+  "revision": "<40-hex commit, or sha256:<64-hex> digest of the reviewed patch/tree>",
+  "verdict": "<PASS | CHANGES | BLOCKED>",
+  "reviewer": {"kind": "<agent | human | self>", "id": "<reviewer id>", "model": "<host-reported model id; omit if unknown>"},
+  "reviewed_at": "<ISO 8601 timestamp with time zone>",
+  "checked": ["<what was actually inspected or run: files, commands, criteria ids>"],
+  "findings": [
+    {"id": "<LANE-1>", "severity": "<blocker | major | minor>", "summary": "<one sentence>", "location": "<path:line, optional>", "evidence": "<observed fact or command output locator, optional>"}
+  ],
+  "limitations": []
+}

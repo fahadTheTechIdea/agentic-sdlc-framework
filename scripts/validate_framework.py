@@ -8,6 +8,7 @@ from urllib.parse import unquote, urlsplit
 
 from sync_adapters import metadata, sync
 from agent_eval import load_cases
+from review_cycle import starter_files
 from wizard_core import load_catalog
 
 
@@ -165,6 +166,7 @@ def validate(root):
         validate_raci(root / "templates/RACI.json")
         load_cases(root / "evals/cases.json")
         load_catalog(root / "wizard/catalog.json")
+        starter_files(root)
     except (OSError, ValueError, KeyError, TypeError) as exc:
         errors.append(str(exc))
     return errors

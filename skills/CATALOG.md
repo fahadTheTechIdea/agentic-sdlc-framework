@@ -13,4 +13,5 @@ existing orchestrator procedure; the longer name remains supported.
 - [sdlc-planning](sdlc-planning/SKILL.md): Build phased software delivery plans, RACI ownership and traceability for multi-step implementation work.
 - [sdlc-implementation](sdlc-implementation/SKILL.md): Implement authorized software changes in coherent slices, preserving active contracts and adding relevant regression checks.
 - [sdlc-verification](sdlc-verification/SKILL.md): Verify software acceptance criteria and evidence, review changes, and report scoped completion with remaining gates.
+- [sdlc-review-cycle](sdlc-review-cycle/SKILL.md): Run a bounded multi-lane review cycle with parallel reviewers, capped builder fix rounds, an approver and a recorded human decision.
 - [sdlc-handoff](sdlc-handoff/SKILL.md): Prepare or consume an evidence-backed software delivery handoff when resuming work or moving between assistant sessions.

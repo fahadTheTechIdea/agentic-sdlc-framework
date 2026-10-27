@@ -27,6 +27,11 @@ sources/checks on resume. For wizard sessions link the actual state path and
 schema/profile revisions, then use the runtime resume command. Automatic catalog
 migration and synchronization with manually maintained documents are not implied.
 
+## Review cycle, when one is open
+
+<Record folder, round, state from `review_cycle.py status`, unresolved findings and
+any pending human decision. Re-run `status` on resume; do not trust this summary.>
+
 ## Next action
 
 <One concrete action, dependencies, relevant command and expected observable outcome.>

@@ -12,6 +12,8 @@ fact. Remove unresolved placeholders from completed project artifacts.
 - [Verification](VERIFICATION.md), [evidence record](EVIDENCE.json): claims and results.
 - [Operational services](OPERATIONAL_SERVICES.md): logging, audit, exception handling,
   notification pipeline and conditional UI notification coverage and checks.
+- [Review cycle records](review-cycle/cycle.json): cycle, lane report, approval and
+  human decision contracts for the [review cycle](../core/REVIEW_CYCLE.md).
 - [Handoff](HANDOFF.md): resume across sessions and tools.
 - [Technology review](TECHNOLOGY_REVIEW.md): pins, source dates, support and
   compatibility evidence across affected layers without an automatic upgrade.

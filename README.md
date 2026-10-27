@@ -137,11 +137,27 @@ For both hosts in the same application, follow the second-host instructions in
 | Quality gates, security, reliability and tool trust | [Assurance standard](core/QUALITY_SECURITY_RELIABILITY.md), [matrix](templates/ASSURANCE.md) |
 | Agent behavior regression tasks and outcome grading | [Evaluation guide](evals/README.md) |
 | Routing and lifecycle | [Orchestrator](skills/sdlc-orch/SKILL.md), [workflows](workflows/DELIVERY.md) |
+| Independent multi-lane review with capped fix rounds, approver and human escalation | [Review cycle policy](core/REVIEW_CYCLE.md), [guide](docs/REVIEW_CYCLE.md), [skill](skills/sdlc-review-cycle/SKILL.md) |
 | SDD, RACI, ADR, handoff and verification | [Templates](templates/README.md) |
 | Focused reusable procedures | [Skill catalog](skills/CATALOG.md) |
 | Validation contract and limits | [Validation guide](docs/VALIDATION.md) |
 | Initial assessment, provenance and outstanding decisions | [Assessment](docs/BASELINE_ASSESSMENT.md) |
 | Implementation and acceptance status | [Master tracker](plans/enhancements/MASTER_TRACKER.md) |
+
+## Review cycle
+
+For a significant or high-risk change, `$sdlc-orch review` (Codex) or
+`/sdlc-orch review` (Claude) runs the [review cycle](docs/REVIEW_CYCLE.md): specialist
+reviewer lanes (code, security, UX, UI design and others) each review the same
+revision, every lane must report, requested changes return to the builder for a
+capped number of rounds, a fully passing round reaches an approver, and anything
+unresolved goes to the named accountable human. `scripts/review_cycle.py` is the
+deterministic gate that enforces the sequence over a record in the project. An agent
+approver gives a recommendation, never human approval or authority to merge; delivery
+stays under the project's authorized Git workflow. Optional Claude Code subagent and
+Codex custom-agent templates are in `adapters/`. Unit tests exercise the gate with
+synthetic records; no live Codex or Claude review run has been evaluated.
+See [the plan and results](plans/enhancements/P13_REVIEW_CYCLE.md).
 
 ## Interactive project wizard and layer designs
 
