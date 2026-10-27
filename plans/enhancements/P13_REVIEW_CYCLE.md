@@ -57,7 +57,7 @@ the sorted `sha256  path` lines from `git status --porcelain -uall`.
 | --- | --- | --- |
 | `python scripts/validate_framework.py` | exit 0 | REV-009: manifest, links, wrappers, starter records |
 | `python scripts/sync_adapters.py --check` | exit 0 | REV-009: generated wrapper parity for nine skills |
-| `python -m unittest discover -s tests -p "test_review_cycle.py"` | 56 tests, OK | REV-002 to REV-008, REV-010, REV-011 |
+| `python -m unittest discover -s tests -p "test_review_cycle.py"` | 58 tests, OK | REV-002 to REV-008, REV-010, REV-011 |
 | `python -m unittest discover -s tests -p "test_framework.py"` | 32 tests, OK | REV-009: installer, validator and adapter behavior with the new files |
 | `python scripts/adopt.py <scratch> --adapter claude` (preview only) | new files listed in the bundle | REV-009: adoption snapshot |
 

@@ -276,6 +276,9 @@ def evaluate(cycle, rounds, decisions):
         if rd["approval"] is not None:
             require(cycle["approver_required"], f"round {number}: an approval exists but the cycle has no approver")
             require(lanes_clear(cycle, rd), f"round {number}: approval recorded before every lane passed independently")
+            reviewers = {d["reviewer"]["id"] for d in rd["reports"].values()}
+            require(not cycle["independent_review_required"] or rd["approval"]["approver"]["id"] not in reviewers,
+                    f"round {number}: independent review is required, so the approver cannot also be a lane reviewer")
         outcome = pre_human_state(cycle, rd, used, cycle["max_fix_rounds"] + grants)
         answers = [d for d in decisions if d["round"] == number]
         require(len(answers) <= 1, f"round {number}: more than one human decision")

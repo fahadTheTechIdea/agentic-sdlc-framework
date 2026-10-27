@@ -88,7 +88,7 @@ Gate states, computed by `scripts/review_cycle.py` from the record:
    adds automatic rounds.
 4. **Independence.** The builder's id cannot appear as a reviewer or approver.
    With `independent_review_required`, a `self` lane does not count and the round
-   escalates. Reviewers never edit the work under review.
+   escalates, and the approver cannot be any lane's reviewer. Reviewers never edit the work under review.
 5. **The approver cannot override a lane.** It acts only on a round in which every
    lane passed independently, on the same revision, and cannot be the builder.
    Its `APPROVE` is an agent recommendation, never human approval. `ESCALATE`

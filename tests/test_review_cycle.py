@@ -180,6 +180,19 @@ class RequiredIndependenceTests(CycleCase):
         self.assertIn("lane code is a self-review", status["reasons"][0])
 
 
+class ApproverIndependenceTests(CycleCase):
+    options = {"independent": True}
+
+    def test_approver_who_reviewed_a_lane_is_refused(self):
+        self.post(*self.passing_round())
+        with self.assertRaisesRegex(ValueError, "approver cannot also be a lane reviewer"):
+            rc.add_approval(self.dir, approval(approver={"kind": "agent", "id": "code-reviewer"}))
+
+    def test_separate_approver_is_accepted(self):
+        self.post(*self.passing_round())
+        self.assertEqual(rc.add_approval(self.dir, approval())["state"], "ready_to_deliver")
+
+
 class HumanApprovalRequiredTests(CycleCase):
     options = {"human_approval": True}
 
